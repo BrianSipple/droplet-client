@@ -11,7 +11,7 @@ module.exports = function(environment) {
   const ENV = {
     modulePrefix: 'droplet',
     environment: environment,
-    baseURL: '/droplet/',
+    baseURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
