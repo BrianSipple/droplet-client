@@ -1,0 +1,6 @@
+:root {
+
+  /* QUESTION: Make these more general than "form" (i.e.: just "warning" or "invalid")? */
+  --alert-color--form-invalid: hsla(356, 63%, 64%, 1);
+  --alert-color--form-warning: hsla(39, 100%, 50%, 1);
+}

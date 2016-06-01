@@ -1,0 +1,32 @@
+/**
+ * GRAYSCALE
+ *
+ * Color variables for various shades of white and black that allow for
+ * greyscale coloring in varying stages of opacity.
+ *
+ *
+ * Major credit: Google Material Design's "Material Opacity": https://www.google.com/design/spec/style/color.html#color-ui-color-application
+ */
+
+ :root {
+
+   /* White-ish text on dark backgrounds */
+   --grayscale__white-on-dark--primary-text: hsla(0, 100%, 100%, 1);
+   --grayscale__white-on-dark--icon: hsla(0, 100%, 100%, 1);
+   --grayscale__white-on-dark--button: hsla(0, 100%, 100%, 0.7);
+   --grayscale__white-on-dark--secondary-text: hsla(0, 100%, 100%, .70);
+   --grayscale__white-on-dark--disabled: hsla(0, 100%, 100%, .30);
+   --grayscale__white-on-dark--hint-text: hsla(0, 100%, 100%, .30);
+   --grayscale__white-on-dark--divider: hsla(0, 100%, 100%, .12);
+   --grayscale__white-on-dark--input-field: hsla(0, 100%, 100%, 0.6);
+
+   /* Black-ish text on light backgrounds */
+   --grayscale__black-on-light--primary-text: hsla(0, 0%, 0%, 0.87);
+   --grayscale__black-on-light--icon: hsla(276, 3%, 30%, 1);
+   --grayscale__black-on-light--button: hsla(0, 0%, 0%, 0.54);
+   --grayscale__black-on-light--secondary-text: hsla(0, 0%, 0%, 0.54);
+   --grayscale__black-on-light--disabled: hsla(0, 0%, 0%, 0.38);
+   --grayscale__black-on-light--hint-text: hsla(0, 0%, 0%, 0.38);
+   --grayscale__black-on-light--divider: hsla(0, 0%, 0%, 0.12);
+   --grayscale__black-on-light--input-field: hsla(0, 0%, 52%, 1);
+ }

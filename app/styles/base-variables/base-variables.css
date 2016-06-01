@@ -1,0 +1,37 @@
+@import './animation/animation.css';
+@import './application/application.css';
+@import './color/color.css';
+@import './objects/objects.css';
+@import './_spacing.css';
+@import './typography/typography.css';
+
+/*
+ * Base component variables should be able to use some
+ * of the above, so we'll import them last
+ */
+@import './ui-components/ui-components.css';
+
+
+/* Compose any additional variables from here */
+:root {
+
+  --left-position__sidenav-flyout--initial: calc(
+    -1 *
+    (
+      var(--width__sidenav-flyout-panel) -
+      var(--width__sidenav-handle)
+    )
+  );
+
+  --left-position__sidenav-flyout--sidenav-flyout-expanded: var(--width__sidenav-handle);
+
+
+  --left-position__main-app-content-area--initial: var(--width__sidenav-handle);
+  --left-position__main-app-content-area--sidenav-flyout-expanded: calc(
+    var(--width__sidenav-handle) +
+    var(--width__sidenav-flyout-panel)
+  );
+
+  --width__main-app-content-area--initial: calc(100% - var(--width__sidenav-handle));
+  --width__main-app-content-area--sidenav-flyout-expanded: calc(100% - var(--width__sidenav-menu-area));
+}

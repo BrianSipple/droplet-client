@@ -1,0 +1,27 @@
+{{#if hasBlock}}
+  {{yield}}
+
+{{else}}
+
+  <h4 class="g-theme-primary-2--300 u-align-center">{{notebook.title}}</h4>
+
+  <p class="u-absolute
+            u-edge-bottom
+            u-mb2
+            o-flex-grid
+            o-flex-grid--auto
+            o-flex-grid--spaceAround">
+
+    <span class="o-grid-cell u-width-60 g-truncate">
+      Updated:
+      <time datetime={{html-datetime notebook.lastUpdatedAt}} class="g-theme-primary-2--300">
+        {{notebook.lastUpdatedAt}}
+      </time>
+    </span>
+
+    <span class="o-grid-cell">
+      Notes: {{notebook.noteCount}}
+    </span>
+  </p>
+
+{{/if}}

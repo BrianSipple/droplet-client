@@ -1,0 +1,15 @@
+{
+  "name": "Droplet",
+  "description": "An Ember application for note-taking",
+  "keywords": [
+    "productivity",
+    "notes",
+    "ember"
+  ],
+  "repository": "https://github.com/BrianSipple/droplet/client",
+  "buildpacks": [
+    {
+      "url": "https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/emberjs.tgz"
+    }
+  ]
+}

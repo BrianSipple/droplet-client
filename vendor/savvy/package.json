@@ -1,0 +1,126 @@
+{
+  "_args": [
+    [
+      "savvy-css@0.11.0",
+      "/Users/bsipple/Web_Applications/droplet/client"
+    ]
+  ],
+  "_from": "savvy-css@0.11.0",
+  "_id": "savvy-css@0.11.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/savvy-css",
+  "_nodeVersion": "4.4.0",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/savvy-css-0.11.0.tgz_1461795907014_0.9420725973322988"
+  },
+  "_npmUser": {
+    "email": "bsipple57@gmail.com",
+    "name": "bsipple"
+  },
+  "_npmVersion": "3.8.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "savvy-css",
+    "raw": "savvy-css@0.11.0",
+    "rawSpec": "0.11.0",
+    "scope": null,
+    "spec": "0.11.0",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "http://registry.npmjs.org/savvy-css/-/savvy-css-0.11.0.tgz",
+  "_shasum": "b60cf438c8e9a2a9629fadec93d97f3dbe916b18",
+  "_shrinkwrap": null,
+  "_spec": "savvy-css@0.11.0",
+  "_where": "/Users/bsipple/Web_Applications/droplet/client",
+  "author": {
+    "email": "@Brian_Sipple",
+    "name": "Brian Sipple"
+  },
+  "bugs": {
+    "url": "https://github.com/BrianSipple/savvy"
+  },
+  "dependencies": {},
+  "description": "Savvy, Focused, Modular, Functional CSS Framework",
+  "devDependencies": {
+    "autoprefixer": "6.1.2",
+    "browser-sync": "2.10.0",
+    "css-mqpacker": "4.0.0",
+    "cssnano": "3.4.0",
+    "csswring": "4.1.1",
+    "del": "2.2.0",
+    "gulp": "3.9.0",
+    "gulp-bump": "1.0.0",
+    "gulp-filter": "3.0.1",
+    "gulp-git": "1.6.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-notify": "2.2.0",
+    "gulp-plumber": "1.0.1",
+    "gulp-postcss": "6.0.1",
+    "gulp-rename": "1.2.2",
+    "gulp-size": "2.0.0",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-tag-version": "1.3.0",
+    "gulp-util": "3.0.7",
+    "imagemin-pngquant": "^4.2.0",
+    "jspm-server": "1.0.1",
+    "postcss-calc": "5.0.0",
+    "postcss-css-variables": "0.5.1",
+    "postcss-cssnext": "2.2.0",
+    "postcss-custom-media": "5.0.0",
+    "postcss-custom-properties": "5.0.0",
+    "postcss-focus": "1.0.0",
+    "postcss-import": "7.1.3",
+    "postcss-media-variables": "2.0.0",
+    "postcss-nested": "^1.0.0",
+    "postcss-quantity-queries": "0.4.0",
+    "postcss-reporter": "1.3.0",
+    "postcss-scss": "0.1.3",
+    "precss": "1.3.0",
+    "require-dir": "0.3.0",
+    "stylelint": "2.3.6",
+    "yargs": "3.31.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "b60cf438c8e9a2a9629fadec93d97f3dbe916b18",
+    "tarball": "https://registry.npmjs.org/savvy-css/-/savvy-css-0.11.0.tgz"
+  },
+  "gitHead": "086184e5d6c9f5b17b4182b5e0917d3cfd3b6fb8",
+  "homepage": "https://github.com/BrianSipple/savvy#readme",
+  "keywords": [
+    "css",
+    "css framework",
+    "modular css",
+    "functional css",
+    "responsive css",
+    "lightweight css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "bsipple57@gmail.com",
+      "name": "bsipple"
+    }
+  ],
+  "name": "savvy-css",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianSipple/savvy.git"
+  },
+  "scripts": {
+    "bump-major": "git changelog && gulp bump-version --type=major",
+    "bump-minor": "git changelog && gulp bump-version --type=minor",
+    "bump-patch": "git changelog && gulp bump-version --type=patch",
+    "debug": "jspm-server --port=1519 --open=debug/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.11.0"
+}

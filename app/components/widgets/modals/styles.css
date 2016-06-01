@@ -1,0 +1,12 @@
+.c-modal {
+  border-color: var(--grayscale__white-on-dark--button);
+  background-color: var(--theme-color__white);
+}
+
+
+.c-modal-overlay {
+
+  &.translucent {
+    background-color: rgba(40, 44, 52, 0.77);
+  }
+}

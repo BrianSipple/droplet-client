@@ -1,0 +1,72 @@
+{{switchblade-menu/flyout-panels/notebooks/header
+  tagName="header"
+  class="c-switchblade-menu-flyout-panel__header
+         u-fill-width
+         o-header-md
+         u-relative
+         g-bg-transparent"
+}}
+
+<section
+  class="c-switchblade-menu-flyout-panel__body-area
+         u-overflow-hide-x
+         u-overflow-scroll-y
+         u-relative
+         u-fill-height
+         u-fill-width
+         g-nearBlack
+         g-bg-transparent">
+
+  {{switchblade-menu/flyout-panels/notebooks/body
+      tagName="section"
+      class="c-switchblade-menu-flyout-panel__body
+           u-absolute
+           u-edge-top
+           u-edge-left
+           u-fill-width
+           u-fill-height"
+     notebooks=notebooks
+     isShowingNewNotebookItemForm=(mut isShowingNewNotebookItemForm)
+     postNewNotebook=(route-action 'postNewNotebook')
+     onNotebookItemSelected=(route-action 'closeSidenavFlyoutAndTransition' 'protected.notebooks.notebook')
+   }}
+
+</section>
+
+{{icon-button
+  class="o-tap-target-md
+         g-border-circle
+         g-border-none
+         g-bg-theme-primary-1--700
+         g-nearWhite
+         o-scale-up-on-hover
+         g-box-shadow-2
+         u-fixed
+         u-edge-right
+         u-edge-bottom
+         u-mr2
+         u-mb2"
+  stroke="currentColor"
+  iconURL="assets/icons.svg#icon_plus--stroke"
+  onPressed=(action (mut isShowingNewNotebookItemForm) true)
+  data-test-selector="sidenav__toggle-new-notebook-form"
+}}
+
+{{!-- TODO: Consider using this as a narrow-screen experience? --}}
+{{!-- <section class="c-switchblade-menu-flyout-panel__details-flyup-area
+                u-z1
+                u-absolute
+                u-fill-width
+                u-fill-height
+                u-edge-bottom">
+
+  {{switchblade-menu/flyout-panels/notebooks/details-flyup
+     class="c-switchblade-menu-flyout-panel__details-flyup
+            g-bg-theme-nearWhite
+            u-fill-width
+            u-fill-height"
+     isContentVisible=isDetailsFlyupContentReady
+     notebook=selectedNotebook
+  }}
+
+</section> --}}

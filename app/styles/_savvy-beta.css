@@ -1,0 +1,27 @@
+/**
+* Rules being considered for future versions of Savvy that
+* aren't yet available in DROPLET's current version.
+*
+* IMPORTANT: Delete all rules here as soon as the version heading that they're
+* flagged under is equal or lower version than version of Savvy in use. (Or
+* if we just decide that we don't want them).
+*/
+
+
+/* ------------ Patches for 0.11.x -------------- */
+
+
+/* ------------ Considerations for 0.12.0 -------------- */
+.g-outline-none {
+  outline: 0;
+}
+
+.u-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.u-visible {
+  visibility: visible;
+  opacity: 1;
+}

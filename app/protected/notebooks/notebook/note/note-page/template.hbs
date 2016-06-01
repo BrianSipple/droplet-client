@@ -1,0 +1,138 @@
+{{#user-navbar
+  class="c-note-page__status-bar
+         u-z1
+         g-bg-theme-primary-1--700
+         g-theme-secondary-2--500"
+   size="xSmall"
+   as |navbar|
+}}
+  {{#if (eq navbar 'navContent')}}
+    <span class="o-grid-cell u-ml2">{{note.notebook.title}}</span>
+  {{/if}}
+{{/user-navbar}}
+
+
+{{#page/page-content class="c-note-page__content
+                            u-z0
+                            g-bg-theme-nearWhite
+                            o-navbar-page--header-xs"
+}}
+  <section class="u-width-90 u-fill-height u-flow-middle u-relative">
+
+    <header class="u-mt2">
+
+      {{content-editable
+        tagName="h1"
+        class="c-note-page__title
+               a-trans-ease-colorShift
+               g-bg-transparent
+               g-border-bottom-s2
+               u-pl3
+               u-pr3
+               u-pt2
+               g-truncate"
+        autofocus=true
+        tabindex="0"
+        placeholder="Title Me..."
+        enter=(action 'onNotebookTitleEntered' value="value")
+        allowNewlines=false
+      }}
+
+    </header>
+
+    <section class="c-note-page__editing-tools
+                    u-relative
+                    u-mt3
+                    g-bg-transparent
+                    u-height-auto
+                    u-pl3
+                    u-pr3">
+
+      <ul class="o-flex-grid
+                 o-flex-grid--noWrap
+                 o-flex-grid--auto
+                 o-flex-grid--justifyStart
+                 u-pt2
+                 u-pb3
+                 u-pl2
+                 u-pr2"
+           tabindex="1"
+           role="menubar">
+        <li class="o-grid-cell u-mr2" tabindex="0" role="menuitem">Color</li>
+        <li class="o-grid-cell u-mr2" tabindex="0" role="menuitem">Font</li>
+
+        {{#widgets/toggle-dot-indicator
+          class="u-width-spacing-3 u-height-spacing-3 u-relative"
+          tagName="li"
+          ariaRole="menuItem"
+          tabIndex="0"
+          onActiveToggled=(action (mut isMarkdownPreviewVisible))
+        }}
+          {{svg-icon class="u-absolute u-transform-center" iconURL="assets/icons.svg#icon_markdown-mark"}}
+        {{/widgets/toggle-dot-indicator}}
+
+
+        <li class="o-grid-cell u-width-spacing-3 u-height-spacing-3 u-ml-auto u-mr2 g-border-circle g-bg-aqua--500 {{if isPersistingChanges 'u-visible' 'u-hidden'}}">
+          Saving...
+        </li>
+
+        <li class="o-grid-cell o-flex-grid o-flex-grid--full u-width-spacing-3 u-height-spacing-3 u-mr2">
+          {{icon-button
+            class="o-grid-cell u-fill-height js-save-note-button"
+            iconURL="assets/icons.svg#icon_test"
+            onPressed=(action 'onManualSaveButtonPressed')
+          }}
+          <small class="o-grid-cell g-font-smaller">Save</small>
+        </li>
+
+        <li class="o-grid-cell o-flex-grid o-flex-grid--full u-width-spacing-3 u-height-spacing-3 u-mr2">
+          {{icon-button
+            class="o-grid-cell u-fill-height js-exit-note-button"
+            iconURL="assets/icons.svg#icon_test"
+            onPressed=(action 'exitNote')
+          }}
+          <small class="o-grid-cell g-font-smaller">{{exitButtonTitle}}</small>
+        </li>
+
+      </ul>
+
+    </section>
+
+    <section class="c-note-page__plain-text-body
+                    u-fill-width
+                    u-relative u-height-auto
+                    g-bg-white
+                    u-fill-height
+                    u-mt3
+                    {{if isMarkdownPreviewVisible 'is-previewing-markdown'}}"
+              role="main">
+
+      {{content-editable
+        tagName="p"
+        class="c-note-page__body u-fill-width u-fill-height"
+        tabindex="0"
+        value=(mut note.content)
+        key-up=(perform persistNoteBodyChanges note)
+      }}
+
+    </section>
+
+    {{#if isMarkdownPreviewVisible}}
+
+      <section class="c-note-page__markdown-preview
+                      u-fill-width
+                      u-relative
+                      u-height-50
+                      u-mt3
+                      g-gb-white
+                      g-gray--500
+                      g-border-top-s1">
+        {{md-text text=note.content typographer=true linkify=false}}
+      </section>
+
+    {{/if}}
+
+    {{yield}}
+
+  </section>
+{{/page/page-content}}

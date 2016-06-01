@@ -1,0 +1,43 @@
+{{#object-form
+  formModel=notebookProperties
+  onSubmit=(action 'onSubmit' notebookProperties)
+}}
+
+  {{#object-form/field
+    class="o-flex-grid o-flex-grid--full"
+    formModel=notebookProperties
+    for='title' as |field|
+  }}
+
+    <label class="c-form__field-label o-grid-cell" for={{field.fieldId}}>Title</label>
+    <input
+      id={{field.fieldId}}
+      class="c-form-field-input o-grid-cell js-input--notebook-title"
+      type="text"
+      onchange={{action (mut notebookProperties.title) value='target.value'}}
+      placeholder="Title">
+
+  {{/object-form/field}}
+
+  <section class="u-mt2 o-flex-grid o-flex-grid--full">
+
+    {{#x-button
+      class="o-grid-cell
+             g-bg-theme-primary-1--700
+             g-nearWhite"
+       type="submit"
+       disabled=isNewNotebookBeingPosted
+    }}
+
+      {{#if isNewNotebookBeingPosted}}
+        Binding up...
+      {{else}}
+        Submit
+      {{/if}}
+
+   {{/x-button}}
+
+  </section>
+
+
+{{/object-form}}

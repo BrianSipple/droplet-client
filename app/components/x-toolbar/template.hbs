@@ -1,0 +1,20 @@
+{{#if hasBlock}}
+  {{yield}}
+
+{{else}}
+
+  {{#if itemComponentNames}}
+    <div class="o-flex-grid o-flex-grid--center u-fill-width u-fill-height">
+      {{!-- Navbar options --}}
+      <nav class="o-grid-cell u-ml-auto">
+        <ul class="o-flex-grid o-flex-grid--auto o-list--reset">
+          {{#each itemComponentNames as |itemComponentName|}}
+            {{component itemComponentName tagName="li" class="c-navbar__item c-navbar__item--option-item o-grid-cell"}}
+          {{/each}}
+        </ul>
+      </nav>
+    </div>
+  {{/if}}
+
+
+{{/if}}

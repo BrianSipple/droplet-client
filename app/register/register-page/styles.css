@@ -1,0 +1,7 @@
+.c-register-page {
+  border-top-color: var(--theme-color__primary-1--500);
+
+  &__form-section {
+    width: 40rem;
+  }
+}

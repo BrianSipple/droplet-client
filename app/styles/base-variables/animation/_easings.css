@@ -1,0 +1,33 @@
+/**
+* DROPLET >>> ANIMATION EASING VARIABLES
+*
+* Extensions to the Savvy Easing variables:
+* https://github.snei.sony.com/bsipple/savvy/blob/master/src/base-settings/animation/_easing.css
+*/
+
+:root {
+
+  /* -------------------------- Ins -------------------------- */
+    --easing__ease-in-sine: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+    --easing__ease-in-quad: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+    --easing__ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    --easing__ease-in-cubic--sluggish: cubic-bezier(0.470, 0.020, 1.000, 0.570);
+    --easing__ease-in-quartic: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    --easing__ease-in-quint: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    --easing__ease-in-circ: cubic-bezier(0.600, 0.040, 0.980, 0.335);
+
+    /* -------------------------- Outs -------------------------- */
+    --easing__ease-out-sine: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    --easing__ease-out-quad: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    --easing__ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    --easing__ease-out-cubic--bounce-25: cubic-bezier(.27, .78, .75, 2.15);
+    --easing__ease-out-quartic: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    --easing__ease-out-quartic--sluggish: cubic-bezier(0.135, 0.535, 0.450, 0.940);
+    --easing__ease-out-quint: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+    --easing__ease-out-quint--bounce-8: cubic-bezier(0.00, 0.300, 0.00, 1.480);
+    --easing__ease-out-circ: cubic-bezier(0.075, 0.820, 0.165, 1.000);
+
+  /* -------------------------- INs & OUTS -------------------------- */
+    --easing__linear-in-slow-out: cubic-bezier(0.00, 0.00, 0.20, 1);
+
+}

@@ -1,0 +1,277 @@
+{{#object-form
+  class="u-m0
+         u-overflow-hide
+         u-b-box
+         o-flex-grid
+         o-flex-grid--full"
+  formModel=model
+  onSubmit=(route-action 'handleLogin')
+}}
+
+  <h1 class="u-flow-middle g-theme-primary-1--300 u-mt3 u-mb3">Login</h1>
+
+  <section class="u-fill-width u-mb3">
+
+  <!-- ******** Username or email ******** -->
+    {{#object-form/field
+      class="c-ripple-form-field
+             u-m2
+             o-flex-grid
+             o-flex-grid--full"
+      formModel=model
+      for="identification" as |field|
+    }}
+
+      <label
+        class="c-form__field-label
+               c-ripple-form-field__label
+               o-grid-cell
+               g-font-700
+               g-inherit"
+             for={{field.fieldId}}>
+        Username or email
+      </label>
+
+      {{input
+        class="c-form-field-input
+               c-form-field-input--dark-background
+               c-ripple-form-field__content
+               o-grid-cell
+               g-font-larger
+               g-border-s1"
+        id=field.fieldId
+        type="text"
+        value=(mut (get model 'identification'))
+      }}
+
+      <div class="c-ripple-form-field__underline"></div>
+
+      {{#if field.fieldErrors}}
+        <div class="c-form__field-errors">
+          {{#each field.fieldErrors as |error|}}
+            <div class="c-form__field-error">
+              Error: error.message
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+
+    {{/object-form/field}}
+
+    <!-- ******** Password ******** -->
+    {{#object-form/field
+      class="c-ripple-form-field
+             o-flex-grid
+             o-flex-grid--full
+             u-m2"
+      formModel=model
+      for="password" as |field|
+    }}
+
+      <label
+        class="c-form__field-label
+               c-ripple-form-field__label
+               o-grid-cell
+               g-font-700
+               g-inherit"
+        for={{field.fieldId}}>
+        Password
+      </label>
+
+      {{input
+        class="c-form-field-input
+               c-ripple-form-field__content
+               o-grid-cell
+               g-font-larger
+               g-border-s1"
+        id=field.fieldId
+        type="password"
+        value=(mut (get model 'password'))
+      }}
+
+      <div class="c-ripple-form-field__underline"></div>
+
+    {{/object-form/field}}
+
+
+    <!-- ******** isAwesome? ******** -->
+    {{#object-form/field
+      class="c-solid-checkbox-field
+             o-flex-grid
+             o-flex-grid--center
+             u-m2"
+      formModel=model
+      for="isAwesome" as |field|
+    }}
+
+      <input id={{field.fieldId}}
+        class="c-form-field-input-checkbox
+               c-solid-checkbox-field__input
+               o-grid-cell
+               o-grid-cell--auto
+               g-border-none
+               u-mr1"
+        type="checkbox">
+
+      <label
+        class="c-form__field-label
+               c-solid-checkbox-field__label
+               o-grid-cell
+               u-mt-auto u-mb-auto
+               u-pointer
+               g-font-700
+               g-inherit"
+        for={{field.fieldId}}>
+        I'm Awesome
+      </label>
+
+    {{/object-form/field}}
+
+
+    <!-- ******** Public profile? ******** -->
+    {{#object-form/field
+      class="c-solid-radio-field
+             o-flex-grid
+             o-flex-grid--center
+             u-m2"
+      formModel=model
+      for="isProfilePublic" as |field|
+    }}
+
+      <input
+        id={{field.fieldId}}
+        class="c-form-field-input
+               c-solid-radio-field__input
+               o-grid-cell
+               o-grid-cell--auto
+               g-border-none
+               u-pointer
+               u-m1"
+        type="radio">
+
+      <label
+        class="c-form__field-label
+               c-solid-radio-field__label
+               o-grid-cell
+               u-mt-auto u-mb-auto
+               g-font-700
+               u-pointer
+               g-inherit"
+              for={{field.fieldId}}>
+        Make my profile visible to others
+      </label>
+
+    {{/object-form/field}}
+
+
+    <!-- ******** Standard Checkbox ******** -->
+    {{#object-form/field
+      class="o-flex-grid
+             o-flex-grid--center
+             u-m2"
+      formModel=model
+      for="isAPlainCheckbox" as |field|
+    }}
+
+      {{input
+        id=field.fieldId
+        class="c-form-field-input
+               o-grid-cell
+               o-grid-cell--auto
+               g-border-none
+               u-width-auto
+               u-mr1"
+        type="checkbox"
+      }}
+
+      <label
+        class="c-form__field-label
+               o-grid-cell
+               u-mt-auto u-mb-auto u-ml1 u-mr1
+               u-pointer
+               g-font-700
+               g-inherit"
+        for={{field.fieldId}}>
+        I'm A Standard Checkbox
+      </label>
+
+    {{/object-form/field}}
+
+
+    <!-- ******** Standard Radio ******** -->
+    {{#object-form/field
+      class="o-flex-grid
+             o-flex-grid--center
+             u-m2"
+      formModel=model
+      for="isStandardRadio" as |field|
+    }}
+
+      {{input
+        id=field.fieldId
+        class="c-form-field-input
+               c-solid-radio-field__input
+               o-grid-cell
+               o-grid-cell--auto
+               g-border-none
+               u-mr1"
+        type="radio"
+      }}
+
+      <label
+        class="c-form__field-label
+               o-grid-cell
+               u-mt-auto u-mb-auto u-ml1 u-mr1
+               u-pointer
+               g-font-700
+               g-inherit"
+        for={{field.fieldId}}>
+        I'm a standard radio button
+      </label>
+    {{/object-form/field}}
+
+
+    <!-- ******** Select T-Shirt Size ******** -->
+    {{#object-form/field
+      class="u-m2
+             o-flex-grid o-flex-grid--full"
+      formModel=model
+      for="tShirtSize" as |field|
+    }}
+
+      <label
+        class="c-form__field-label
+               o-grid-cell
+               u-mt-auto u-mb-auto
+               g-font-700
+               g-inherit"
+         for={{field.fieldId}}>
+       {{field.labelText}}
+     </label>
+
+      <select
+        id={{field.fieldId}}
+        class="c-form-field-input c-form-field-input-select">
+        <optgroup label="Men's">
+          <option value="m-small">Small</option>
+          <option value="m-medium">medium</option>
+          <option value="m-large">Large</option>
+        </optgroup>
+        <optgroup label="Women's">
+          <option value="w-small">Small</option>
+          <option value="w-medium">medium</option>
+          <option value="w-large">Large</option>
+        </optgroup>
+      </select>
+
+    {{/object-form/field}}
+
+  </section>
+
+  {{!--{{object-form/submit-button class="c-button" value="Submit"}}--}}
+  <section class="u-fill-width o-grid-cell">
+    {{!-- <button class="c-button o-grid-cell" type="Submit">Submit</button> --}}
+    {{#x-button class="o-grid-cell g-bg-theme-primary-1--700 g-nearWhite" type="submit"}}Submit{{/x-button}}
+  </section>
+
+{{/object-form}}

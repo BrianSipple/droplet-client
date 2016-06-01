@@ -1,0 +1,59 @@
+/**
+* Form field input for accepting "text"-like properties
+* (i.e., text, number, password, phone, email)
+*/
+.c-form-field-input {
+
+  /*outline: none;*/
+  /*color: var(--color__form-field-input--noFocus);*/
+
+  /* TODO: Replace with o-text-input */
+  line-height: var(--line-height__form-field-input);
+
+  border-radius: var(--border-radius__form-field-input);
+  border-color: var(--border-color__form-field-input--noFocus);
+  padding: var(--padding__form-field-input);
+  transition-property: color background-color;
+  transition-duration: var(--anim-duration__color-shift);
+  transition-timing-function: var(--easing__ease-out-cubic);
+
+  &:focus,
+  &:active {
+    color: var(--color__form-field-input--focus);
+    background-color: var(--background-color__form-field-input--focus);
+    border-color: var(--border-color__form-field-input--focus);
+    transition-timing-function: var(--easing__ease-in-cubic);
+    box-shadow: var(--box-shadow__form-field-input);
+  }
+
+  /**
+  * Autofill for UX and accessiblity is great, but
+  * repulsive yellow backgrounds and forced content coloring
+  * doesn't seem the best way to facilitate that, Chrome.
+  * Until this changes, our standard forms can override like so:
+  *
+  * (Follow status here: https://twitter.com/search?q=%22-webkit-autofill%22&src=typd)
+  */
+  &:-webkit-autofill {
+    color: var(--color__form-field-input--noFocus) !important;
+    -webkit-box-shadow:
+      0 0 0px var(--line-height__form-field-input) var(--background-color__form-field-input--noFocus) inset !important;
+    border-style: solid !important;
+    border-color: var(--border-color__form-field-input--noFocus) !important;
+    -webkit-text-fill-color: var(--color__form-field-input--noFocus);
+  }
+
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+
+    --box-shadow__form-field-input: var(--box-shadow__form-field-input-dark-background--focus);
+
+    color: var(--color__form-field-input--focus) !important;
+    -webkit-box-shadow:
+      0 0 0px var(--line-height__form-field-input) var(--background-color__form-field-input--focus) inset,
+      var(--box-shadow__form-field-input) !important;
+    border-style: solid !important;
+    border-color: var(--border-color__form-field-input--focus) !important;
+    -webkit-text-fill-color: var(--color__form-field-input--focus);
+  }
+}

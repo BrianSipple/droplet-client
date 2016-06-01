@@ -1,0 +1,13 @@
+{{yield (hash
+  focusedIndex=focusedIndex
+  selectedIndex=selectedIndex
+  isSearchDropdownOpen=isDropdownOpen
+  searchInputValue=inputValue
+  selectionWasMade=(action "selectionWasMade")
+  onSearchInput=(action "processNewInput")
+  searchDidExit=(action "searchDidExit")
+  autoCompleteContainerId=elementId
+  autoCompleteListId=listElementId
+  autoCompleteListItemIdPrefix=listItemIdPrefix
+  isAutocomplete=isAutocomplete)
+}}

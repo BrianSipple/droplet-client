@@ -1,0 +1,12 @@
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+  {{component tabItemComponentType
+    classNames=tabComponentClassNames
+    tabDataItems=tabDataItems
+    useAnchors=useAnchors
+    widthDistribution=widthDistribution
+    limit=limit
+    styleButtonsAsLinks=styleButtonsAsLinks
+    onSelect=(action 'filterSelected')}}
+{{/if}}

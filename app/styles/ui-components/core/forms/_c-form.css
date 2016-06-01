@@ -1,0 +1,28 @@
+/**
+ * TODO: Deprecate usage of this file
+ */
+
+/**
+* Form field <select> properties
+*/
+.c-form-field-input-select {
+  appearance: none;
+  background-color: var(--background-color__form-field-input--noFocus);
+  font-size: var(--font-size__form-field-input--select);
+
+  /* Custom arrow styles */
+  background-image: var(--background-image__form-field-select);
+  background-image:
+  image-set(
+    url(var(--background-image__form-field-select)) 1x,
+    url(var(--background-image__form-field-select--2x)) 2x
+  );
+  background-position: right var(--side-padding__form-field-input) center;
+  background-repeat: no-repeat;
+  padding-right:
+    calc(
+      var(--width__form-field-select) +
+      var(--side-padding__form-field-input)
+    );
+  padding: calc(var(--side-padding__form-field-input) / 9);
+}

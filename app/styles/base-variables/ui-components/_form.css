@@ -1,0 +1,47 @@
+:root {
+
+  /*-------- Colors --------*/
+  --color__form-field-input--noFocus: var(--grayscale__black-on-light--input-field);
+  --color__form-field-input--focus: var(--grayscale__black-on-light--secondary-text);
+  --background-color__form-field-input--noFocus: var(--theme-color__nearWhite);
+  --background-color__form-field-input--focus: hsla(0, 100%, 100%, 1.0);
+  --border-color__form-field-input--noFocus: var(--grayscale__black-on-light--divider);
+  --border-color__form-field-input--focus: var(--color__form-field-input--focus);
+  --box-shadow__form-field-input--noFocus: 0 0 0.25em var(--theme-color__primary-1--100);
+  --box-shadow__form-field-input--focus: 0 0 0.5em var(--theme-color__primary-1--300);
+  --box-shadow__form-field-input-dark-background--focus: 0 0 0.5em var(--theme-color__primary-1--700);  /* A bit larger blur radius, but at the same time, we don't need to be so bright */
+  --box-shadow__form-field-input: var(--box-shadow__form-field-input--noFocus);
+
+
+  --font-size__form-field-input--select: 1em;
+
+  /* TODO: Replace with --line-height__text-input object variable */
+  --line-height__form-field-input: 2.5;
+
+  --side-padding__form-field-input: 1em;
+  --border-radius__form-field-input: calc(var(--side-padding__form-field-input) * 0.25);
+  --padding__form-field-input: 0 var(--side-padding__form-field-input);
+
+
+
+  /*-------- checkbox or radio properties --------*/
+  --width__form-field-checkbox: 1rem;
+  --width__form-field-checkbox--large: 1.25rem;
+  --width__form-field-radio: 1rem;
+  --width__form-field-radio--large: 1.25rem;
+
+  --height__form-field-checkbox: 1rem;
+  --height__form-field-checkbox--large: 1.25rem;
+  --height__form-field-radio: 1rem;
+  --height__form-field-radio--large: 1.25rem;
+
+  --gutter__form-field-checkbox-or-radio: var(--spacing-1);
+  --gutter__form-field-checkbox-or-radio--large: var(--spacing-2);
+
+
+  /*-------- <select> properties --------*/
+  --background-image__form-field-select: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAICAQAAACxSAwfAAAAUklEQVQY02P4z0AMRGZGMaShwCisyhITmb8huMzfEhOxKvuvsGAh208Ik+3ngoX/FbBbClcIUcSAw21QhXxfIIrwKAMpfNsEUYRXGVCEFc6CQwBqq4CCCtU4VgAAAABJRU5ErkJggg==";
+  --background-image__form-field-select--2x: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAQCAQAAAA/1a6rAAAAQUlEQVR4Xu3MsQnAMBAEMI1+myf9gw0+3ASCenmu+mQn2yGn3S4Mp906DEW3CEPfzTD03QxD380w3OmIUHe9v+u9QwAt93yns5cAAAAASUVORK5CYII=";
+  --width__form-field-select: 1.25rem;
+
+}

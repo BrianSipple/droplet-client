@@ -1,0 +1,21 @@
+{{#each colorHSLAs as |colorHSLA|}}
+
+  <li class="c-color-palette-menu-widget__color-item-container o-grid-cell">
+
+    {{color-palette-menu-widget/color-item
+      class="c-color-palette-menu-widget__color-item
+             u-width-90
+             u-height-90
+             g-outline-none
+             g-border-circle
+             o-tap-target-sm"
+      colorHSLA=colorHSLA
+      activeHSLA=activeColorHSLA
+      click=(action 'onColorSelected' colorHSLA)
+      onkeydown=(action 'onColorKeydown' colorHSLA preventDefault=false)
+      data-test-selector="color-palette-menu-widget__color-item"
+     }}
+
+  </li>
+
+{{/each}}

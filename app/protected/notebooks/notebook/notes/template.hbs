@@ -1,0 +1,29 @@
+{{#page/page-wrapper as |pageWrapper|}}
+
+  {{#protected/notebooks/notebook/notes/notes-page}}
+
+    {{protected/notebooks/notebook/notes/notes-page/notes-page-toolbar-section
+      class="u-z1 g-bg-theme-primary-1--700"
+      toolbarSize="small"
+      noteSortOptions=model.noteSortOptions
+      currentNoteSortOption=model.currentNoteSortOption
+      noteSearchResults=notesPageContent.noteSearchResults
+      onSearchExited=(action (mut isFilteringNotesForSearch) false)
+      onFilterNotesFromSearchInput=(pipe-action (route-action 'filterNotesFromSearchInput') (action (mut notesPageContent.isFilteringNotesForSearch) true) )
+      data-test-selector="notes-page__toolbar"
+    }}
+
+    {{protected/notebooks/notebook/notes/notes-page/note-card-set-section
+      class="o-navbar-page--header-sm u-overflow-scroll-y u-fill-height u-fill-width"
+      notes=model.notes
+      isFilteringNotesForSearch=notesPageContent.isFilteringNotesForSearch
+      noteSearchResults=notesPageContent.noteSearchResults
+      currentSortOption=model.currentNoteSortOption
+      currentNoteSortProperties=model.currentNoteSortProperties
+      postNewNote=(route-action 'postNewNote')
+      data-test-selector="notes-page__note-card-set"
+    }}
+
+  {{/protected/notebooks/notebook/notes/notes-page}}
+
+{{/page/page-wrapper}}

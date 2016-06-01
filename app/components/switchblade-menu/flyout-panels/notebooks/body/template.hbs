@@ -1,0 +1,66 @@
+{{#scroll-list
+  class="c-switchblade-menu-flyout-panel__scroll-list
+         u-fill-width
+         u-fill-height"
+  items=notebooks as |list|
+}}
+
+  {{!-- Editable item for adding a new notebook --}}
+  {{#switchblade-menu/flyout-panels/notebooks/body/list-item
+    class="c-switchblade-menu-notebooks-flyout-panel__new-notebook-form-item
+           u-z0"
+    classNameBindings="isShowingNewNotebookItemForm:is-visible:is-hidden"
+  }}
+
+    <div class="u-absolute u-fill-width u-fill-height u-edge-left u-edge-top u-z1">
+      {{content-editable
+        class="c-switchblade-menu-notebooks-flyout-panel__new-notebook-form-editable-content
+               u-relative
+               u-fill-width
+               u-height-auto
+               u-nowrap
+               g-outline-none
+               o-flex-grid"
+        tabindex="0"
+        focusWhen=isShowingNewNotebookItemForm
+        placeholder="Enter a Title"
+        value=(mut newNotebookTitle)
+        allowNewLines=false
+        enter=(action 'addNewNotebook' value="value")
+        data-test-selector="sidenav__new-notebook-form"
+      }}
+    </div>
+
+    {{icon-button
+      class="u-absolute
+             u-edge-right
+             u-edge-top
+             u-mr1
+             u-mt1
+             u-z2
+             u-width-spacing-2
+             u-height-spacing-2
+             g-grayscale-bl--icon"
+      iconURL="assets/icons.svg#icon_x"
+      stroke="currentColor"
+      onPressed=(action (mut isShowingNewNotebookItemForm) false)
+      data-test-selector="sidenav__close-new-notebook-form"
+    }}
+
+  {{/switchblade-menu/flyout-panels/notebooks/body/list-item}}
+
+  {{!-- List of existing notebooks --}}
+  {{#each sortedNotebooks as |notebook index|}}
+
+    {{switchblade-menu/flyout-panels/notebooks/body/list-item
+      class="c-switchblade-menu-flyout-panel__scroll-list-item
+             c-switchblade-menu-notebooks-flyout-panel__notebook-item
+             u-pointer"
+      data-test-selector="sidenav__notebook-item"
+      classNameBindings="isShowingNewNotebookItemForm:is-slid-down"
+      notebook=notebook
+      click=(action 'onNotebookItemSelected' notebook)
+    }}
+
+  {{/each}}
+{{/scroll-list}}

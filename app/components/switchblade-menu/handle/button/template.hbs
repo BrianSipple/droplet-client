@@ -1,0 +1,15 @@
+{{#if hasBlock}}
+  {{yield}}
+
+{{else}}
+
+  <div class="o-grid-cell c-switchblade-menu-handle-button__icon">
+    {{svg-icon class="u-width-spacing-3 u-height-spacing-3" fill=fillColor stroke=strokeColor iconURL=iconURL}}
+  </div>
+  <span class="c-switchblade-menu-handle-button__label
+                g-truncate
+                o-grid-cell">
+   {{title}}
+  </span>
+  
+{{/if}}

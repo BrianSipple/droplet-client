@@ -1,0 +1,23 @@
+/**
+ * TYPOGRAPHIC BASE VARIABLES
+ *
+ * Define a set of quality system typefaces,
+ * of the sans-serif variety.
+ */
+
+:root {
+  --font-family-stack:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    Avenir,
+    Geneva,
+    Tahoma,
+    san-serif;
+}

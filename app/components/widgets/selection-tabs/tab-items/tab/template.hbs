@@ -1,0 +1,48 @@
+{{#if hasBlock}}
+  {{yield}}
+
+{{else if useAnchor}}
+
+  {{!-- TODO: Investigate usage of the link-to helper here? --}}
+  <a tabIndex={{tabIndex}}
+    class="o-link
+           c-tab-selectors__tab-text
+           c-tab-links__tab-link
+           u-absolute
+           u-transform-center"
+    {{action 'select' index}}>
+    {{tabItem.title}}
+  </a>
+
+{{else if styleButtonAsLink}}
+
+  {{#ui-kit/button/core-button
+    tabIndex=tabIndex
+    class="o-button
+           o-button--reset
+           c-tab-selectors__tab-text
+           c-tab-buttons__tab-button
+           u-absolute
+           u-transform-center"
+   onPressed=(action 'select' index)
+  }}
+    {{tabItem.title}}
+  {{/ui-kit/button/core-button}}
+
+{{else}}
+
+
+  {{#ui-kit/button/core-button
+    tabIndex=index
+    class="c-tab-selectors__tab-text
+           c-tab-buttons__tab-button
+           o-button
+           o-button--reset
+           u-fill-width
+           u-fill-height"
+     onPressed=(action 'select' index)
+  }}
+    {{tabItem.title}}
+  {{/ui-kit/button/core-button}}
+
+{{/if}}

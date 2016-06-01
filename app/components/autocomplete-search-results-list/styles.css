@@ -1,0 +1,33 @@
+@keyframes ScaleAndFadeInResults {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.c-autocomplete-search-results-list {
+
+  transform-origin: center top;
+  opacity: 0;
+  transform: scaleY(0);
+
+  &.is-visible {
+    animation-name: ScaleAndFadeInResults;
+    animation-duration: var(--anim-duration__fade-in-or-out);
+    animation-timing-function: var(--easing__ease-out-quad);
+    animation-fill-mode: forwards;
+  }
+
+  &.has-toggled:not(.is-visible) {
+    animation-name: ScaleAndFadeInResults;
+    animation-direction: reverse;
+  }
+}

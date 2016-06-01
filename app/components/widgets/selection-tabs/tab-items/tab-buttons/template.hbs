@@ -1,0 +1,29 @@
+{{#each tabDataItems as |tabItem index|}}
+
+  {{#if (lt index numTabs)}}
+    {{ui-kit/widgets/selection-tabs/tab-items/tab
+      tabItem=tabItem
+      tabIndex=index
+      widthDistribution=widthDistribution
+      styleButtonAsLink=styleButtonsAsLinks
+      onSelect=(action 'tabSelect' index)
+    }}
+  {{/if}}
+
+{{/each}}
+
+{{!--Yield to custom content adjacent to the tabDataItems, otherwise, use the indicator --}}
+{{#if hasBlock}}
+  {{yield}}
+{{else}}
+
+  {{ui-kit/widgets/selection-tabs/tabs-indicators/sliding-underline
+    class="c-tab-selectors__indicator c-tab-buttons__indicator"
+    numTabs=numTabs
+    activeIndex=activeIndex
+    tabWidths=tabWidths
+    tabsContainerWidth=tabsContainerWidth
+    indicatorWidths=indicatorWidths
+  }}
+
+{{/if}}

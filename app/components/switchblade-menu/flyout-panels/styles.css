@@ -1,0 +1,67 @@
+@import './notebooks/styles.css';
+
+@keyframes SlideUpFlyupPane {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+
+.c-switchblade-menu-flyout-panel {
+
+  &__scroll-list-item {
+
+    &:hover {
+      background-color: var(--theme-color__primary-2--100);
+      color: var(--theme-color__nearWhite);
+    }
+  }
+
+  &__details-flyup-area {
+    transform: scaleY(0);
+    transform-origin: center bottom;
+  }
+
+
+  &.fresh {
+    transform: translate3d(100%, 0, 0);
+  }
+
+  &.slide-out-left {
+    animation-name: SlideOutLeft;
+    animation-duration: var(--anim-duration__slide-element);
+    animation-fill-mode: forwards;
+  }
+  &.slide-out-right {
+    animation-name: SlideOutRight;
+    animation-duration: var(--anim-duration__slide-element);
+    animation-fill-mode: forwards;
+  }
+
+  &.slide-in-from-right {
+    animation-name: SlideInFromRight;
+    animation-duration: var(--anim-duration__slide-element);
+    animation-fill-mode: forwards;
+  }
+
+  &.slide-in-from-left {
+    animation-name: SlideInFromLeft;
+    animation-duration: var(--anim-duration__slide-element);
+    animation-fill-mode: forwards;
+  }
+
+
+
+  &.slide-up-details-flyup {
+
+    .c-switchblade-menu-flyout-panel__details-flyup-area {
+      animation-name: SlideUpFlyupPane;
+      animation-duration: var(--anim-duration__slide-element);
+      animation-timing-function: var(--easing__ease-out-cubic);
+      animation-fill-mode: forwards;
+    }
+  }
+}

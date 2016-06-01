@@ -1,0 +1,82 @@
+<!-- "Header" Space for Logo -->
+<section class="c-switchblade-menu-handle__header
+                u-relative
+                g-theme-secondary-2--700
+                g-bg-theme-secondary-1--900">
+
+  <header class="u-fill-height">
+
+    {{#link-to 'protected.dashboard' class="o-link--no-under u-fill-height u-block"}}
+      {{svg-icon iconURL=logoIconPath fill="currentColor"}}
+    {{/link-to}}
+
+  </header>
+
+</section>
+
+
+<section class="c-switchblade-menu-handle__body o-flex-grid o-flex-grid--full u-relative">
+
+  <!-- Primary Menu Items That will toggle what's visible in the flyout panel -->
+  <section class="o-grid-cell">
+    {{#each flyoutMenuItems as |menuItem index|}}
+      {{switchblade-menu/handle/button
+        class="c-switchblade-menu-handle__menu-button"
+        type="menu"
+        iconURL=menuItem.iconURL
+        title=menuItem.title
+        isActive=menuItem.isActive
+        onPressed=(action 'mainMenuItemSelected' index menuItem)
+        tabindex="1"
+        data-test-selector="c-switchblade-menu-handle__menu-button"
+      }}
+    {{/each}}
+  </section>
+
+
+  <!-- Auxiliary Tab Items -->
+  <section class="o-grid-cell">
+
+    {{#each auxiliaryTabItems as |tabItem index|}}
+
+      {{switchblade-menu/handle/button
+        class="c-switchblade-menu-handle__auxiliary-tab-button u-mt-auto"
+        iconURL=tabItem.iconURL
+        isActive=(eq tabItem.handleKey activeHandleItemKey)
+        title=tabItem.title
+        type="auxiliary"
+        onPressed=(action 'auxiliaryTabItemSelected' index tabItem.routeName)
+        tabindex="1"
+        data-test-selector="c-switchblade-menu-handle__auxiliary-tab-button"
+      }}
+    {{/each}}
+
+  </section>
+
+  {{!--  Settings widget and Close Button --}}
+  <section class="o-grid-cell">
+
+    {{#switchblade-menu/handle/button
+      class="c-switchblade-menu-handle__user-settings-button u-mt-auto"
+      type="auxiliary"
+      onPressed=(action 'userSettingsWidgetSelected')
+      tabindex="1"
+    }}
+      <img src={{currentUser.avatarURL}} alt="Settings" class="u-absolute u-transform-center g-border-circle u-width-90 u-height-90">
+    {{/switchblade-menu/handle/button}}
+
+
+    <!-- Flyout Toggle Button TODO: Make this a dynamic component based on toggle state?-->
+    {{switchblade-menu/handle/button
+      class="c-switchblade-menu-handle__toggle-button"
+      iconURL=flyoutToggleButtonIconPath
+      title=flyoutToggleButtonLabel
+      onPressed=(route-action 'toggleSidenavFlyout')
+      tabindex="1"
+      type="auxiliary"
+    }}
+
+
+  </section>
+
+</section>

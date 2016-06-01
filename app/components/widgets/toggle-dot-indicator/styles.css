@@ -1,0 +1,10 @@
+.c-toggle-dot-indicator {
+
+  transition: background-color var(--anim-duration__color-shift);
+  background-color: inherit;
+
+  &.is-active {
+    background-color: hotpink;
+  }
+
+}

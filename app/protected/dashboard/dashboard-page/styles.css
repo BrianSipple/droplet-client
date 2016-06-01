@@ -1,0 +1,15 @@
+:root {
+
+}
+
+.c-dashboard-page {
+
+  &__notebook-card {
+    width: var(--width__notebook-card);
+    height: var(--height__notebook-card);
+  }
+
+  &__add-notebook-icon {
+    transform: translate3d(0, 50%, 0);
+  }
+}

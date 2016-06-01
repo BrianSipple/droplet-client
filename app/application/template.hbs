@@ -1,0 +1,69 @@
+<section
+  class="c-application-base
+         u-full-bleed
+         u-fill-width
+         u-overflow-hide
+         g-bg-offWhite
+         g-nearBlack
+         {{if model.sidenav.isFlyoutOpen 'sidenav-flyout-expanded' 'sidenav-flyout-collapsed'}}">
+
+  <!-- Full width/height wrapper that sets a z-index to create a local stacking context -->
+  <section class="u-fill-height u-fill-width u-relative u-z0">
+
+    <!-- UI Mask for opacity/dimming effects (Initial Z-index: -1, animated above anything we want to cover when active) -->
+    {{ui-mask
+      class="g-bg-black
+             u-full-stretch
+             u-full-bleed
+             u-absolute
+             u-edge-top
+             u-edge-left
+             u-zn1"
+      appState=model
+      onPressed=(route-action 'toggleSidenavFlyout')}}
+
+
+    <!-- Main page content (Z-index: 0)-->
+
+    {{#page/page-wrapper
+      class="u-overflow-hide
+             o-flex-grid
+             o-flex-grid--noWrap"
+      hasNavbar=model.navbar.isVisible
+    }}
+
+      {{outlet 'sidenav'}}
+      {{outlet}}
+
+      <!-- Place any footer component here that's treated as a part of each page -->
+      {{x-footer class="c-application-base__footer"}}
+    {{/page/page-wrapper}}
+
+
+    <!-- Place any global footer component here (Z-index: 2)-->
+
+
+    <!-- Place any navbar component here (Z-index: 4) -->
+    {{#route-shy tagName="section" class="u-z4" blacklist=model.navbar.routesWhereHidden syncWith=model.navbar syncProperty="isVisible"}}
+      {{x-toolbar
+        class="c-application-base__navbar
+               o-flex-grid
+               o-flex-grid--center
+               o-flex-grid--auto
+               o-flex-grid--noWrap
+               u-edge-top
+               u-fixed
+               u-fill-width
+               g-grayscale-wd--button
+               g-bg-theme-primary-1--700"
+        itemComponentNames=model.navbar.visibleItemComponentNames
+        sidenavState=model.sidenav}}
+    {{/route-shy}}
+
+    <!-- Place any outer sidenav component here (Z-index: 5) -->
+
+
+    <!-- Place any global dialog overlays here (Z-index: 6)-->
+
+  </section>
+</section>

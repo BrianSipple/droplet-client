@@ -1,0 +1,9 @@
+.c-login-page {
+  .c-login-page__form-card-wrapper {
+    width: 24rem;
+    /*height: 38rem;*/
+  }
+
+  .c-login-page__form-card {
+  }
+}

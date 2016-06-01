@@ -1,0 +1,39 @@
+{{switchblade-menu/handle
+  class="c-switchblade-menu__handle
+         u-fill-height
+         u-absolute
+         u-edge-top
+         u-edge-left
+         g-bg-theme-primary-2--900
+         u-z1"
+   isFlyoutOpen=SidenavService.isFlyoutOpen
+   flyoutMenuItems=SidenavService.flyoutMenuItems
+   activeMenuItemIndex=SidenavService.activeMenuItemIndex
+   previousMenuItemIndex=SidenavService.previousMenuItemIndex
+   auxiliaryTabItems=SidenavService.auxiliaryTabItems
+   onMainMenuItemSelected=(route-action 'onMainMenuItemSelected')
+   onRouteSelection=(route-action 'onRouteSelectionFromSidenav')
+}}
+
+{{!--TODO: Performantly animated box-shadow effect to only show it when the flyout is expanded --}}
+
+{{component SidenavService.activeFlyoutComponentName
+  tagName="section"
+  class="c-switchblade-menu__flyout-panel
+         o-menu
+         u-absolute
+         u-edge-top
+         u-z0
+         u-fill-height
+         u-overflow-hide
+         g-box-shadow-4
+         a-anim-ease-slideIn--light"
+  classNames="c-switchblade-menu-flyout-panel"
+  activeMenuItemIndex=activeMenuItemIndex
+  previousMenuItemIndex=previousMenuItemIndex
+  panelData=SidenavService.activePanelData
+}}
+
+{{!--TODO: (for the flyout)
+  panelData=SidenavService.currentPanelData
+--}}

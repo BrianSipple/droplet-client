@@ -1,0 +1,90 @@
+.c-solid-checkbox-field .c-solid-checkbox-field__input,
+.c-solid-radio-field .c-solid-radio-field__input {
+  opacity: 0;
+  position: absolute;
+}
+
+.c-solid-checkbox-field .c-solid-checkbox-field__label,
+.c-solid-radio-field .c-solid-radio-field__label {
+  position: relative;
+}
+
+
+.c-solid-radio-field .c-solid-radio-field__input + .c-solid-radio-field__label:before,
+.c-solid-checkbox-field .c-solid-checkbox-field__input + .c-solid-checkbox-field__label:before {
+  position: absolute;
+  left: 0;
+  content: '';
+  background-color: hsla(0, 100%, 100%, 1.0);
+  border: 2px solid var(--border-color__form-field-input--noFocus);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: calc(var(--width__form-field-checkbox--large) * 0.5);
+}
+
+
+.c-solid-radio-field .c-solid-radio-field__input,
+.c-solid-radio-field .c-solid-radio-field__label,
+.c-solid-checkbox-field .c-solid-checkbox-field__input,
+.c-solid-checkbox-field .c-solid-checkbox-field__label {
+  /*display: inline-block;
+  vertical-align: middle;
+  margin: var(--spacing-1);
+  cursor: pointer;*/
+}
+
+
+.c-solid-checkbox-field {
+
+  .c-solid-checkbox-field__input {
+
+    + .c-solid-checkbox-field__label:before {
+      width: var(--width__form-field-checkbox--large);
+      height: var(--height__form-field-checkbox--large);
+    }
+
+    &:checked + .c-solid-checkbox-field__label:before {
+      background-color: var(--theme-color__primary-3--500);
+    }
+
+    &:focus + .c-solid-checkbox-field__label:before {
+      outline: 1px solid var(--border-color__form-field-input--noFocus);
+    }
+  }
+
+  .c-solid-checkbox-field__label {
+    padding-left: calc(
+      var(--width__form-field-radio--large) +
+      var(--gutter__form-field-checkbox-or-radio--large)
+    );
+  }
+
+}
+
+
+.c-solid-radio-field {
+
+  .c-solid-radio-field__input {
+
+    + .c-solid-radio-field__label:before {
+      width: var(--width__form-field-radio--large);
+      height: var(--height__form-field-radio--large);
+      border-radius: 50%;
+    }
+
+    &:checked + .c-solid-radio-field__label:before {
+      background-color: var(--grayscale__black-on-light--input-field);
+    }
+
+    &:focus + .c-solid-radio-field__label:before {
+      outline: 1px solid var(--border-color__form-field-input--noFocus);
+    }
+  }
+
+  .c-solid-radio-field__label {
+    padding-left: calc(
+      var(--width__form-field-radio--large) +
+      var(--gutter__form-field-checkbox-or-radio--large)
+    );
+  }
+}

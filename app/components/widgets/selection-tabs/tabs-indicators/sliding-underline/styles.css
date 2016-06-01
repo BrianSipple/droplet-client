@@ -1,0 +1,19 @@
+.c-tabs-indicator {
+
+
+  &.c-tabs-indicator--underline {
+    position: absolute;
+    height: var(--height__indicator--underline);
+    left: 0;
+    bottom: 0;
+
+    /* Render at full width and animate scaleX */
+    width: 100%;
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+
+  &.c-tabs-indicator--circle {
+    border-radius: 50%;
+  }
+}

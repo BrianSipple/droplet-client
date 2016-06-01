@@ -1,0 +1,32 @@
+<li class="u-height-spacing-4 u-fill-width u-relative">
+
+  {{#link-to
+    'protected.notebooks.notebook.note'
+    note.notebook.id note.id
+    class="u-block u-fill-height u-fill-width g-link-reset"
+  }}
+    {{note.title}}
+
+  {{svg-icon
+    class="u-absolute
+           u-edge-right
+           u-edge-bottom
+           u-width-spacing-3
+           u-height-spacing-3
+           u-mr2
+           u-mb1"
+    stroke="currentColor"
+    iconURL="assets/icons.svg#icon_arrow-left-rounded-31"
+  }}
+  {{!-- {{icon-button
+    class="u-absolute
+           u-edge-right
+           u-edge-bottom
+           u-mr2
+           u-mb1"
+    iconURL="assets/icons.svg#icon_test"
+    onPressed=(action 'deleteNote' note)
+  }} --}}
+  {{/link-to}}
+
+</li>

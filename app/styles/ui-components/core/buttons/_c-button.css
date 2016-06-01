@@ -1,0 +1,71 @@
+/**
+ * Component-level styles for a core button
+ */
+ .c-button {
+   cursor : pointer;
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   min-width: var(--min-width__tap-target);
+   min-height: var(--min-height__tap-target);
+   padding: 0.4em 0.9em;
+   border: none;
+   border-radius: var(--border-radius__button);
+
+   /*
+    * Modifers that correspond to color variables allow us to
+    * set the proper color on the button and animate it appropriately from there
+    */
+   &--primary-1-500 {
+     background-color: var(--theme-color__primary-1--500);
+
+     &:hover {
+       background-color: var(--theme-color__primary-1--300);
+     }
+   }
+   &--primary-2-500 {
+     background-color: var(--theme-color__primary-2--500);
+
+     &:hover {
+       background-color: var(--theme-color__primary-2--300);
+     }
+   }
+
+   &--primary-1-300 {
+     background-color: var(--theme-color__primary-1--300);
+
+    &:hover {
+      background-color: var(--theme-color__primary-1--100);
+    }
+   }
+   &--primary-2-300 {
+     background-color: var(--theme-color__primary-2--300);
+
+    &:hover {
+      background-color: var(--theme-color__primary-2--100);
+    }
+   }
+
+   &--left-align {
+     justify-content: flex-start;
+   }
+
+   &--right-align {
+     justify-content: flex-end;
+   }
+
+   &--fab {
+     border-radius: 50%;
+   }
+
+
+   &--hover-highlight {
+
+     transition: all var(--anim-duration__element-scaling--light) var(--easing__ease-out-cubic);
+
+     &:hover {
+
+     }
+   }
+ }

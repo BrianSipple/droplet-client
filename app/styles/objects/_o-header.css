@@ -1,0 +1,15 @@
+.o-header-xs {
+  height: var(--height__header--xSmall);
+}
+
+.o-header-sm {
+  height: var(--height__header--small);
+}
+
+.o-header-md {
+  height: var(--height__header--medium);
+}
+
+.o-header-lg {
+  height: var(--height__header--large);
+}

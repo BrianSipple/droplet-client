@@ -1,0 +1,11 @@
+.o-scale-up-on-hover {
+  transition-property: transform;
+  transition-duration: var(--anim-duration__element-scaling--light);
+  transition-timing-function: var(--easing__ease-out-sine);
+
+  /* Implement your scale transform in the component that's composed with this class */
+  &:hover {
+    transform: scale(1.1);
+    transition-timing-function: var(--easing__ease-in-cubic);
+  }
+}

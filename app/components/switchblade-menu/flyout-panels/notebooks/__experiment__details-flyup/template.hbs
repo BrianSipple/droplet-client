@@ -1,0 +1,63 @@
+<header class="c-switchblade-menu-details-flyup__header
+               u-fill-width
+               u-relative
+               o-header-md
+               g-nearWhite
+               g-bg-theme-primary-1--500">
+
+  <h2 class="c-switchblade-menu-details-flyup__header-title
+             u-absolute
+             u-transform-center">
+    {{notebook.title}}
+  </h2>
+
+  {{#link-to 'protected.notebooks.notebook.note.new' notebook.id
+    class="g-border-circle
+           g-link-reset
+           u-width-spacing-4
+           u-height-spacing-4
+           u-absolute
+           u-edge-right
+           u-edge-bottom
+           u-transform-center--vert
+           g-bg-theme-accent-1--100
+           u-mr3"
+  }}
+    {{svg-icon
+      iconURL="assets/icons.svg#icon_plus--stroke"
+      stroke="currentColor"
+    }}
+  {{/link-to}}
+
+</header>
+
+
+<section
+  class="c-switchblade-menu-details-flyup__body
+         u-fill-height
+         u-fill-width"
+  role="main">
+
+  {{#stagger-set
+    tagName="ul"
+    class="u-fill-height u-fill-width g-list-reset u-overflow-hide"
+    inDirection="down"
+    outDirection="up"
+    inEffect="slideAndFade"
+  }}
+
+    {{#each sortedNotes as |note index|}}
+
+      {{switchblade-menu/flyout-panels/notebooks/details-flyup/list-item note=note tagName=""}}
+
+    {{else}}
+      <span class="u-fill-width u-fill-height u-transform-center">
+        No notes yet. Start adding some!
+      </span>
+    {{/each}}
+
+
+  {{/stagger-set}}
+
+
+</section>

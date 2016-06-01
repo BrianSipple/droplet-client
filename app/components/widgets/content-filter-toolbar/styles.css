@@ -1,0 +1,46 @@
+.c-content-filter-toolbar {
+
+  .c-content-filter-toolbar__tabs {
+    color: inherit;
+    background-color: inherit;
+  }
+
+  .c-content-filter-toolbar__anchor-tabs {
+
+  }
+
+  .c-content-filter-toolbar__link-styled-tabs {
+
+  }
+
+  .c-content-filter-toolbar__button-tabs {
+
+  }
+
+  &.justify-left {
+    .c-content-filter-toolbar__tabs {
+      justify-content: flex-start;
+
+      > li:not(:last-child) {
+        padding-right: 2.5em;
+      }
+    }
+  }
+
+  &.justify-center {
+    .c-content-filter-toolbar__tabs {
+      justify-content: center;
+    }
+  }
+
+  &.justify-right {
+    .c-content-filter-toolbar__tabs {
+      justify-content: flex-end;
+
+      > li:not(:first-child) {
+        padding-left: 2.5em;
+      }
+    }
+  }
+
+}

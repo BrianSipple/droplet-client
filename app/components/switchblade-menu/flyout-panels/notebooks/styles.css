@@ -1,0 +1,61 @@
+/*@import './details-flyup/styles.css';*/
+
+:root {
+  --animation-duration__slide-panel-list-item:  var(--anim-duration__default);
+  --animation-easing__slide-in-panel-list-item:  var(--easing__ease-out-cubic);
+  --animation-easing__slide-out-panel-list-item:  var(--easing__ease-in-cubic);
+}
+
+.c-switchblade-menu-notebooks-flyout-panel {
+
+  &__new-notebook-form-item {
+    transform-origin: center top;
+  }
+
+  &__new-notebook-form-editable-content {
+    font-size: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    /**
+     * This is a bit obscure, but it allows the
+     * placeholder text, and -- when focused but still empty -- the cursor
+     * to appear vertically centered
+     */
+    &[contenteditable=true]:empty:not(:focus):before,
+    &[contenteditable=true]:focus:empty:before {
+      padding-top: 0.5em;
+    }
+  }
+
+  &__new-notebook-form-item,
+  &__notebook-item {
+    transition-property: transform;
+    transition-duration: var(--animation-duration__slide-panel-list-item);
+    transition-timing-function: var(--animation-easing__slide-in-panel-list-item);
+  }
+
+
+  &__new-notebook-form-item.is-visible {
+    transform: scaleY(1);
+    transition-timing-function: var(--animation-easing__slide-out-panel-list-item);
+  }
+
+  &__new-notebook-form-item.is-hidden {
+    transform: scaleY(0);
+  }
+
+
+  /* Pull up to cover the height of the zero-scaled form item */
+  &__notebook-item {
+    transition-property: transform var(--anim-duration__default) var(--easing__ease-out-cubic);
+    transform: translateY(-100%);
+  }
+
+  &__notebook-item.is-slid-down {
+    transform: translateY(0%);
+    transition-timing-function: var(--animation-easing__slide-out-panel-list-item);
+  }
+
+
+}

@@ -1,0 +1,66 @@
+
+ /**
+  * ANIMATION DURATION VARIABLES
+  */
+
+ :root {
+   --anim-duration__default: 0.3s;
+
+   /**
+    * Scaling the size of an element up or down
+    */
+   --anim-duration__element-scaling--light: 0.15s;  /* Lightweight */
+   --anim-duration__element-scaling--heavy: 0.35s;  /* Heavyweight */
+
+   /**
+    * When the position of an element isto a
+    * different order in its common region (http://www.ncbi.nlm.nih.gov/pubmed/1516361)
+    */
+   --anim-duration__reposition-element: 0.45s;
+
+   /**
+    * Duration for sliding an element across the space of the view
+    * NOTE: I'm not convinced that this couldn't often
+    * be unique based upon the actual distance we need to traverse,
+    * but a variable still provides a common setting for cases where
+    * we don't have a special preference.
+    */
+   --anim-duration__slide-element: 0.5s;
+
+   /**
+    * https://www.youtube.com/watch?v=fULNUr0rvEc
+    */
+   --anim-duration__fade-in-or-out: 0.35s;
+
+
+   /**
+    * A similar notion to fading in -- but more aggressive
+    * https://cdn-images-1.medium.com/max/800/1*HJHfcRwn33XU4omMogi6PQ.gif
+    */
+   --anim-duration__pop: 0.275s;
+
+
+   /**
+    * Sliding an element across the space of a view.
+    * Example: sliding a sidebar panel into or out of view
+    */
+   --anim-duration__view-sliding: 0.80s;
+
+
+   /**
+   * Like element scaling, but more widely scoped
+   * (i.e. to a view or collection of elements)
+   */
+   --anim-duration__zoom: 1s;
+
+   /**
+    * Change colors
+    */
+   --anim-duration__color-shift: 0.25s;
+
+   /**
+   * https://media.giphy.com/media/fgsyamMpPw7jW/giphy.gif
+   */
+   --anim-duration__gtfo: 0.2s;
+
+ }

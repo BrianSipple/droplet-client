@@ -1,0 +1,61 @@
+/**
+ * Grayscale color utilities.
+ *
+ * Right now, we're just making utilities for `color`, as
+ * the primary use case is for coloring content in the context of a
+ * light or dark background.
+ */
+
+
+/* Grayscale --> White on Dark */
+.g-grayscale-wd--primary-text {
+  color: var(--grayscale__white-on-dark--primary-text) !important;
+}
+.g-grayscale-wd--icon {
+  color: var(--grayscale__white-on-dark--icon) !important;
+}
+.g-grayscale-wd--button {
+  color: var(--grayscale__white-on-dark--button) !important;
+}
+.g-grayscale-wd--secondary-text {
+  color: var(--grayscale__white-on-dark--secondary-text) !important;
+}
+.g-grayscale-wd--disabled {
+  color: var(--grayscale__white-on-dark--disabled) !important;
+}
+.g-grayscale-wd--hint-text {
+  color: var(--grayscale__white-on-dark--hint-text) !important;
+}
+.g-grayscale-wd--divider {
+  color: var(--grayscale__white-on-dark--divider) !important;
+}
+.g-grayscale-wd--input-field {
+  color: var(--grayscale__white-on-dark--input-field) !important;
+}
+
+
+/* Grayscale --> Black on Light */
+.g-grayscale-bl--primary-text {
+  color: var(--grayscale__black-on-light--primary-text) !important;
+}
+.g-grayscale-bl--icon {
+  color: var(--grayscale__black-on-light--icon) !important;
+}
+.g-grayscale-bl--button {
+  color: var(--grayscale__black-on-light--button) !important;
+}
+.g-grayscale-bl--secondary-text {
+  color: var(--grayscale__black-on-light--secondary-text) !important;
+}
+.g-grayscale-bl--disabled {
+  color: var(--grayscale__black-on-light--disabled) !important;
+}
+.g-grayscale-bl--hint-text {
+  color: var(--grayscale__black-on-light--hint-text) !important;
+}
+.g-grayscale-bl--divider {
+  color: var(--grayscale__black-on-light--divider) !important;
+}
+.g-grayscale-bl--input-field {
+  color: var(--grayscale__black-on-light--input-field) !important;
+}

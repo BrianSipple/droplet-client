@@ -1,0 +1,7 @@
+{{#page/page-wrapper}}
+  {{protected/notebooks/notebook/note/note-page
+    note=model
+    exitNote=(route-action 'onCloseNote')
+    persistNoteChanges=(route-action 'onSaveNote')
+  }}
+{{/page/page-wrapper}}

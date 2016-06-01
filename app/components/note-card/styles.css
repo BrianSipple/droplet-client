@@ -1,0 +1,41 @@
+@keyframes FlashHighlightRing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.c-note-card {
+  width: var(--width__note-card);
+  height: var(--height__note-card);
+
+  transition-property: background-color;
+  transition-duration: var(--anim-duration__color-shift);
+
+  &__color-palette-widget {
+    width: calc(var(--width__note-card) * .6);
+  }
+
+  &__liquid-flash-container,
+  &__liquid-bind-flash-container {
+    pointer-events: none;
+  }
+
+  &__liquid-flash-container .liquid-child,
+  &__liquid-bind-flash-container .liquid-child {
+    position: absolute;
+    top: 0;
+    opacity: 0;   
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 0.2em 0.2em hotpink;
+  }
+
+
+}

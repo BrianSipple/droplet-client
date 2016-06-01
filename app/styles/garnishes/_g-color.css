@@ -1,0 +1,11 @@
+.g-stroke-black {
+  stroke: black;
+}
+.g-fill-black {
+  fill: black;
+}
+.g-placeholder-currentColor {
+  &::placeholder {
+    color: currentColor;
+  }
+}

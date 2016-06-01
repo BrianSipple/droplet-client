@@ -1,0 +1,19 @@
+.o-tap-target-xs {
+  width: var(--diameter__tap-target--xSmall);
+  height: var(--diameter__tap-target--xSmall);
+}
+
+.o-tap-target-sm {
+  width: var(--diameter__tap-target--small);
+  height: var(--diameter__tap-target--small);
+}
+
+.o-tap-target-md {
+  width: var(--diameter__tap-target--medium);
+  height: var(--diameter__tap-target--medium);
+}
+
+.o-tap-target-lg {
+  width: var(--diameter__tap-target--large);
+  height: var(--diameter__tap-target--large);
+}

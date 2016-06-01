@@ -1,0 +1,11 @@
+/*
+ * ELEMENTS
+ *
+ * Styles here directly target HTML elements -- not classes.
+ * They are mainly focused on core, elementary typographic basics for things like
+ * headings, body text, and links which will rarely,
+ * if ever, change.
+ *
+ */
+
+@import './_body.css';

@@ -1,0 +1,10 @@
+.c-notebooks-notebook-page {
+
+  &__route-tab::after {
+    background-color: var(--theme-color__secondary-2--500);
+  }
+
+  &__route-tab.is-active::after {
+    opacity: 0.2;
+  }
+}

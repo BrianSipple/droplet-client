@@ -1,0 +1,29 @@
+@import './button/styles.css';
+
+.c-switchblade-menu-handle {
+
+  font-size: 0.75rem;
+
+  .c-switchblade-menu-handle__menu-button,
+  .c-switchblade-menu-handle__user-settings-button,
+  .c-switchblade-menu-handle__auxiliary-tab-button {
+    min-height: var(--min-height__sidenav-handle-button);
+    height: var(--height__sidenav-handle-button);
+  }
+
+  .c-switchblade-menu-handle__header {
+    height: var(--height__sidenav-flyout-header);
+  }
+
+  .c-switchblade-menu-handle__body {
+    min-height: var(--min-height__sidenav-flyout-body);
+    height: var(--height__sidenav-flyout-body);
+  }
+
+
+  .c-switchblade-menu-handle__toggle-button {
+    min-height: var(--min-height__sidenav-handle-toggle-button);
+    height: var(--height__sidenav-handle-toggle-button);
+  }
+
+}

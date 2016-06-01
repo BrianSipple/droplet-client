@@ -1,0 +1,13 @@
+:root {
+  --ratio__note-dimensions: calc(1.8/1);
+
+  --width__note-card: 25rem;
+
+  --height__note-card: calc(
+    var(--width__note-card) /
+    var(--ratio__note-dimensions)
+  );
+
+
+  /* TODO: Sizing variants */
+}

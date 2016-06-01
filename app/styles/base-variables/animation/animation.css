@@ -1,0 +1,12 @@
+/**
+ * DROPLET >>> ANIMATION SETTINGS
+ *
+ * Variables to complement Savvy animation settings:
+ * https://github.snei.sony.com/bsipple/savvy/blob/master/src/base-settings/_animation.css
+ *
+ */
+
+@import './_delays.css';
+@import './_durations.css';
+@import './_easings.css';
+@import './_keyframes.css';

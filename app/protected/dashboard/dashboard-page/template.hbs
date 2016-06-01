@@ -1,0 +1,69 @@
+{{!-- new Notebook Modal --}}
+{{#if isNotebookFormActivated}}
+
+  {{#widgets/modals/centered-modal
+    close="toggleNewNotebookForm"
+    translucentOverlay="true"
+    container-class="g-bg-white"
+  }}
+
+    <h2 class="g-theme-primary-1--500">Add a Notebook</h2>
+    {{protected/dashboard/dashboard-page/new-notebook-form
+      isNewNotebookBeingPosted=isNewNotebookBeingPosted
+      onSubmit=(action 'addNewNotebook')
+    }}
+
+  {{/widgets/modals/centered-modal}}
+{{/if}}
+{{!-- /new Notebook Modal --}}
+
+{{#user-navbar class="g-theme-primary-1--500" as |navbar|}}
+
+  {{#if (eq navbar 'navContent')}}
+    <h1 class="g-theme-primary-1--300 o-grid-cell">Hello, {{currentUser.username}}!</h1>
+  {{/if}}
+  
+  {{icon-button
+    class="c-button--primary-1-500
+           g-border-circle
+           o-tap-target-md
+           c-dashboard-page__add-notebook-icon
+           g-nearWhite
+           u-height-spacing-4
+           u-width-spacing-4
+           u-absolute
+           u-edge-right
+           u-edge-bottom
+           u-mr4"
+    iconURL="assets/icons.svg#icon_plus--stroke"
+    stroke="currentColor"
+    strokeWidth="0.125em"
+    disabled=isShowingNewNotebookForm
+    onPressed=(action 'toggleNewNotebookForm')
+  }}
+
+{{/user-navbar}}
+
+{{#page/page-content class="o-navbar-page--header-md"}}
+  <h3 class="g-theme-primary-1--300">Recent Notebooks</h3>
+
+  <ul class="c-dashboard-page__notebooks-grid o-flex-grid g-list-reset">
+
+    {{#each notebooksByMostRecent as |notebook|}}
+
+      {{cards/notebook-card
+        tagName="li"
+        class="c-dashboard-page__notebook-card
+               u-pointer
+               g-theme-primary-1--500
+               g-border-s1
+               u-m2"
+        boxShadowDepth=3
+        notebook=notebook
+        onDoubleClick=(route-action 'openNotebook' notebook)
+      }}
+
+    {{/each}}
+
+  </ul>
+{{/page/page-content}}

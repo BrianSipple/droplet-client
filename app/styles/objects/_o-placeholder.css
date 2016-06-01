@@ -1,0 +1,7 @@
+.o-placeholder--light-bg {
+  color: var(--grayscale__black-on-light--hint-text);
+}
+
+.o-placeholder--dark-bg {
+  color: var(--grayscale__white-on-dark--hint-text);
+}

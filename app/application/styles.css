@@ -1,0 +1,111 @@
+@keyframes SlideApplicationPageSectionAreaRight {
+  0% {
+    width: var(--width__main-app-content-area--initial);
+    transform: translate3d(var(--left-position__main-app-content-area--initial), 0, 0);
+  }
+  100% {
+    width: var(--width__main-app-content-area--sidenav-flyout-expanded);
+    transform: translate3d(var(--left-position__main-app-content-area--sidenav-flyout-expanded), 0, 0);
+  }
+}
+
+@keyframes SlideApplicationPageAreaLeft {
+  0% {
+    width: var(--width__main-app-content-area--sidenav-flyout-expanded);
+    transform: translate3d(var(--left-position__main-app-content-area--sidenav-flyout-expanded), 0, 0);
+  }
+  100% {
+    width: var(--width__main-app-content-area--initial);
+    transform: translate3d(var(--left-position__main-app-content-area--initial), 0, 0);
+  }
+}
+
+@keyframes SlideSidenavFlyoutPanelLeft {
+  0% {
+    transform: translate3d(var(--left-position__sidenav-flyout--sidenav-flyout-expanded), 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--left-position__sidenav-flyout--initial), 0, 0);
+  }
+}
+
+@keyframes SlideSidenavFlyoutPanelRight {
+  0% {
+    transform: translate3d(var(--left-position__sidenav-flyout--initial), 0, 0);
+  }
+  100% {
+    transform: translate3d(var(--left-position__sidenav-flyout--sidenav-flyout-expanded), 0, 0);
+  }
+}
+
+.c-application-base {
+
+  &__sidenav {
+
+  }
+
+  &__main-content-wrapper {
+    /* Initalize in collasped state (pulled left) */
+    width: calc(100% - var(--width__sidenav-handle));
+    transform: translate3d(var(--left-position__main-app-content-area--initial), 0, 0);
+    transition-property: width;
+    transition-duration: var(--anim-duration__element-scaling--light);
+    transition-timing-function:
+  }
+
+
+  .c-switchblade-menu__handle {
+    width: var(--width__sidenav-handle);
+  }
+
+  .c-switchblade-menu__flyout-panel {
+    width: var(--width__sidenav-flyout-panel);
+    /*left: var(--width__sidenav-handle);*/
+
+    /* Initalize in collasped state (pulled left) */
+    transform: translate3d(var(--left-position__sidenav-flyout--initial), 0, 0);
+    background-image: linear-gradient(
+      to bottom,
+      var(--theme-color__primary-1--700) 0%,
+      var(--theme-color__primary-1--500) 50%,
+      var(--theme-color__primary-1--300) 80%,
+      var(--theme-color__primary-1--100)
+    );
+  }
+
+
+
+  &.sidenav-flyout-expanded {
+
+    .c-switchblade-menu__flyout-panel,
+    .c-application-base__main-content-wrapper {
+      animation-duration: var(--anim-duration__view-sliding);
+      animation-fill-mode: forwards;
+    }
+
+    .c-switchblade-menu__flyout-panel {
+      animation-name: SlideSidenavFlyoutPanelRight;
+    }
+    .c-application-base__main-content-wrapper {
+      animation-name: SlideApplicationPageSectionAreaRight;
+      width: calc(100% - var(--width__sidenav-menu-area))
+    }
+  }
+
+  &.sidenav-flyout-collapsed {
+
+    .c-switchblade-menu__flyout-panel,
+    .c-application-base__main-content-wrapper {
+      animation-duration: var(--anim-duration__view-sliding);
+      animation-fill-mode: forwards;
+    }
+
+    .c-switchblade-menu__flyout-panel {
+      animation-name: SlideSidenavFlyoutPanelLeft;
+    }
+    .c-application-base__main-content-wrapper {
+      animation-name: SlideApplicationPageSectionAreaLeft;
+    }
+  }
+
+}

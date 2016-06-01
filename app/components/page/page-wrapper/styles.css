@@ -1,0 +1,8 @@
+/**
+ * TODO: Refactor page layout wrapper architecture?
+ */
+.c-page-wrapper {
+  &.c-page-wrapper--navbar-visible {
+    padding-top: var(--height__header--medium);
+  }
+}

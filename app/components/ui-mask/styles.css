@@ -1,0 +1,27 @@
+:root {
+  --opacity__mask--sidenav-active: 0.5;
+  --opacity__mask--modal-dialog-active: 0.66666666667;
+}
+
+.c-ui-mask {
+  opacity: 0;
+  transition: opacity var(--anim-duration__color-shift);
+
+  /* Only capture events when active */
+  pointer-events: none;
+
+  &.sidenav-active,
+  &.modal-dialog-active {
+    pointer-events: auto;
+  }
+
+  &.sidenav-active {
+    z-index: 3;
+    opacity: var(--opacity__mask--sidenav-active);
+  }
+
+  &.modal-dialog-active {
+    z-index: 5;
+    opacity: var(--opacity__mask--modal-dialog-active);
+  }
+}

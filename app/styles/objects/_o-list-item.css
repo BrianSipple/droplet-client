@@ -1,0 +1,7 @@
+.o-list-item {
+  height: var(--height__list-item);
+}
+
+.o-list-item--tall {
+  height: var(--height__list-item--tall);
+}

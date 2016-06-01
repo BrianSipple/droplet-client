@@ -1,0 +1,23 @@
+.c-switchblade-menu-details-flyup {
+
+  &__header-title {
+    opacity: 0;
+    visibility: none;
+    transition-property: opacity visibility;
+    transition-duration: var(--anim-duration__fade-in-or-out);
+    transition-timing-function: var(--easing__ease-out-cubic);
+  }
+
+
+  &.content-visible {
+    .c-switchblade-menu-details-flyup__header-title {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .c-switchblade-menu-details-flyup__body {
+
+    }
+  }
+
+}

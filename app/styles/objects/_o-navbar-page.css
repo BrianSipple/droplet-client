@@ -1,0 +1,12 @@
+.o-navbar-page--header-xs {
+  padding-top: var(--height__header--xSmall);
+}
+.o-navbar-page--header-sm {
+  padding-top: var(--height__header--small);
+}
+.o-navbar-page--header-md {
+  padding-top: var(--height__header--medium);
+}
+.o-navbar-page--header-lg {
+  padding-top: var(--height__header--large);
+}

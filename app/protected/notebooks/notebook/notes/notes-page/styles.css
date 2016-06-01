@@ -1,0 +1,30 @@
+.c-notes-page {
+
+  &__add-note-input {
+    width: var(--width__note-card);
+  }
+
+  &__note-search-widget {
+    width: 40rem;
+  }
+
+  &__note-search-widget-result-item {
+    &.is-focused {
+      color: var(--grayscale__white-on-dark--secondary-text);
+      background-color: var(--theme-color__primary-1--100);
+    }
+  }
+
+  &__add-note-button {
+    transition-property: color;
+    transition-duration: var(--anim-duration__color-shift);
+
+    &:disabled {
+      color: var(--grayscale__white-on-dark--disabled);
+    }
+  }
+
+  &__empty-message {
+    height: var(--height__note-card);
+  }
+}

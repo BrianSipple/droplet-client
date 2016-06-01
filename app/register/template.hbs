@@ -1,0 +1,8 @@
+{{register/register-page
+  class="g-border-top-s3"
+  newUserModel=model.user
+  newUserPrivateInfoModel=model.userPrivateInfo
+  formValues=model.formValues
+  isFormDirty=(mut model.isFormDirty)
+  onRegisterUser=(route-action 'onRegisterUser')
+}}

@@ -1,0 +1,48 @@
+:root {
+
+
+  /*
+  * --------------------------------------------------------
+  * DIMENSIONS: Widths, Heights, etc.
+  * --------------------------------------------------------
+  */
+  --width-factor__sidenav-handle: 0.145;
+  --width__sidenav-menu-area: 26rem;
+
+  --width__sidenav-handle: calc(
+    var(--width__sidenav-menu-area) *
+    var(--width-factor__sidenav-handle)
+  );
+
+  --width__sidenav-flyout-panel: calc(
+    var(--width__sidenav-menu-area) -
+    var(--width__sidenav-handle)
+  );
+
+  /**
+   * Handle Design with a top "logo" button header, 10 "primary" buttons, and a bottom "close" button
+   */
+  --height-factor__sidenav-handle-button: 1 / 13;
+  --height-factor__sidenav-handle-close-button: 1.6 / 13;
+
+
+  --height__sidenav-flyout-header: var(--height__header--medium);
+  --height__sidenav-flyout-body: calc(100% - var(--height__sidenav-flyout-header));
+  --height__sidenav-handle-button: calc(100% * var(--height-factor__sidenav-handle-button));
+  --height__sidenav-handle-toggle-button: calc(100% * var(--height-factor__sidenav-handle-close-button));
+
+  --min-height__sidenav-flyout-body: calc(var(--min-height__screen) - var(--height__sidenav-flyout-header));
+  --min-height__sidenav-handle-button: calc(var(--min-height__screen) * var(--height-factor__sidenav-handle-button));
+  --min-height__sidenav-handle-toggle-button: calc(var(--min-height__screen) * var(--height-factor__sidenav-handle-close-button));
+
+
+  /*
+  * --------------------------------------------------------
+  * Useful shared variables for coloring information
+  * --------------------------------------------------------
+  */
+  --background-color__sidenav-handle-header: var(--theme-color__primary-1--900);
+  --background-color__sidenav-flyout-header: var(--theme-color__primary-1--700);
+
+
+}

@@ -1,0 +1,77 @@
+/**
+ * THEME COLOR PALLETTES
+ *
+ * Theme-specific extensions to the standard Savvy color pallette
+ *
+ * TODO: Proper conceptualization of primary and secondary (accent) colors
+ */
+
+:root {
+
+  --theme-color__primary-1--100: hsla(9, 100%, 86%, 1);
+  --theme-color__primary-1--300: hsla(11, 84%, 78%, 1.00);
+  --theme-color__primary-1--500: hsla(17, 88%, 67%, 1);
+  --theme-color__primary-1--700: hsla(11, 85%, 64%, 1);
+  --theme-color__primary-1--900: hsla(10, 99%, 62%, 1.00);
+
+  --theme-color__accent-1--100: hsla(16, 100%, 74%, 1);
+
+
+  --theme-color__primary-2--100: hsla(262, 48%, 84%, 1);
+  --theme-color__primary-2--300: hsla(263, 49%, 63%, 1);
+  --theme-color__primary-2--500: hsla(263, 56%, 47%, 1);
+  --theme-color__primary-2--700: hsla(259, 64%, 41%, 1);
+  --theme-color__primary-2--900: hsla(255, 80%, 33%, 1);
+
+  --theme-color__accent-2--100: hsla(263, 100%, 76%, 1);
+
+
+  --theme-color__primary-3--100: hsla(103, 80%, 62%, 1);
+  --theme-color__primary-3--300: hsla(103, 80%, 62%, 1);
+  --theme-color__primary-3--500: hsla(103, 80%, 62%, 1);
+  --theme-color__primary-3--700: hsla(103, 80%, 62%, 1);
+  --theme-color__primary-3--900: hsla(103, 80%, 62%, 1);
+
+  --theme-color__accent-3--100: hsla(103, 80%, 62%, 1);
+
+
+  --theme-color__primary-4--100: hsla(187, 74%, 82%, 1);
+  --theme-color__primary-4--300: hsla(187, 74%, 58%, 1);
+  --theme-color__primary-4--500: hsla(187, 100%, 42%, 1);
+  --theme-color__primary-4--700: hsla(186, 100%, 33%, 1);
+  --theme-color__primary-4--900: hsla(183, 100%, 20%, 1);
+
+  --theme-color__accent-4--100: hsla(184, 100%, 50%, 1);
+
+
+
+  --theme-color__secondary-1--100: hsla(214, 47%, 93%, 1);
+  --theme-color__secondary-1--300: hsla(210, 8%, 69%, 1);
+  --theme-color__secondary-1--500: hsla(218, 3%, 45%, 1);
+  --theme-color__secondary-1--700: hsla(214, 3%, 40%, 1);
+  --theme-color__secondary-1--900: hsla(216, 3%, 30%, 1);
+
+
+
+  --theme-color__secondary-2--100: hsla(59, 100%, 84%, 1);
+  --theme-color__secondary-2--300: hsla(57, 100%, 71%, 1);
+  --theme-color__secondary-2--500: hsla(55, 100%, 55%, 1);
+  --theme-color__secondary-2--700: hsla(52, 100%, 50%, 1);
+  --theme-color__secondary-2--900: hsla(50, 100%, 48%, 1);
+
+
+
+  --theme-color__nearBlack--100: #2A2A30;
+  --theme-color__nearBlack--300: #242429;
+  --theme-color__nearBlack--500: #171719;
+  --theme-color__nearBlack--700: #101010;
+  --theme-color__nearBlack--900: #010210;
+
+
+  --theme-color__black: black;
+  --theme-color__white: white;
+  --theme-color__nearWhite: #FAFAFA;
+  --theme-color__offWhite: #DADADA;
+
+
+}

@@ -1,0 +1,33 @@
+.c-color-palette-menu-widget-color-item {
+
+  &__selected-icon {
+    transform: scale(0);
+    transition-property: transform;
+    transition-duration: var(--anim-duration__element-scaling--light);
+  }
+
+  &.is-active {
+
+    .c-color-palette-menu-widget-color-item__selected-icon {
+      transform: scale(1);
+    }
+  }
+
+  &:after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    border: solid hsla(0, 0%, 0%, 0.33) 0.25em;
+    border-radius: 50%;
+  }
+
+  &:focus:after,
+  &:active:after {
+    opacity: 1;
+  }
+}

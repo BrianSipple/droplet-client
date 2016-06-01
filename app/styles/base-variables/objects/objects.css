@@ -1,0 +1,42 @@
+:root {
+
+  /* TODO: Separate files */
+
+  /* ------------Button ------------ */
+  --border-radius__button: 0.25rem;
+
+  /* ------------ List items ------------ */
+  --height__list-item: 2.75rem;
+  --height__list-item--tall: calc(var(--height__list-item) * 2.5);
+
+
+
+  /* ------------ Widget box ------------ */
+  --border-radius__widget-box: 0.4rem;
+
+
+  /* ------------ Content ------------ */
+
+  /**
+   * 180:130 ratio to align content aspect
+   * ratio with the human visual system's FOV: http://vision.arc.nasa.gov/personnel/al/papers/64vision/17_files/image026.jpg
+   */
+  --padding__content: 0.75em 1.05em;
+
+
+  /* ------------ Headers ------------ */
+  --height__header--xSmall: 2.25rem;
+  --height__header--small: 4rem;
+  --height__header--medium: calc(var(--height__header--small) * 2);
+  --height__header--large: calc(var(--height__header--medium) * 2);
+
+
+  /* ------------ Tap Targets ------------ */
+  --diameter__tap-target--xSmall: 2rem;
+  --diameter__tap-target--small: 2.5rem;
+  --diameter__tap-target--medium: calc(var(--diameter__tap-target--small) * 2);
+  --diameter__tap-target--large: calc(var(--diameter__tap-target--medium) * 2);
+
+  /* ------------- Text Input -------- */
+  --line-height__text-input: 2.5;
+}

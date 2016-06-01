@@ -1,0 +1,22 @@
+.o-toggling-indicator {
+  position: relative;
+}
+
+.o-toggling-indicator::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: var(--anim-duration__fade-in-or-out);
+  transition-timing-function: var(--easing__ease-out-quad);
+}
+
+.o-toggling-indicator.is-active::after {
+  opacity: 1;
+  transition-timing-function: var(--easing__ease-in-quad);
+}

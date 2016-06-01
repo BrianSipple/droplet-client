@@ -1,0 +1,13 @@
+/**
+ * Animation Delays
+ */
+
+
+:root {
+  /**
+   * The "reaction time" of an element before it responds
+   * to a hover.
+   */
+   --anim-delay__show-on-hover: 0.4s;
+   --anim-delay__hide-on-leave: 0.1s;
+}
