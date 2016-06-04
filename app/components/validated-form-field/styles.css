@@ -1,0 +1,12 @@
+.c-validated-form-field {
+
+  &__input.is-valid {
+    outline: var(--status-color__valid);
+    border-color: var(--status-color__valid);
+  }
+
+  &__input.has-error {
+    outline: var(--status-color__invalid);
+    border-color: var(--status-color__invalid);
+  }
+}

@@ -18,23 +18,37 @@
 
     <section class="u-fill-width u-mb3">
 
-      <!-- ******** Email ******** -->
-      {{#object-form/field
-        class="c-ripple-form-field
-               u-m2
-               o-flex-grid
-               o-flex-grid--full"
-        value=userForm.email
-        for="email" as |field|
-      }}
 
+      <!-- ******** Email ******** -->
+        {{validated-form-field
+          model=newUserPrivateInfoModel
+          valuePath="email"
+          label="Email"
+          placeholder="youremail@example.com"
+          class="c-ripple-form-field
+                 u-m2
+                 o-flex-grid
+                 o-flex-grid--full"
+          labelClassNames="c-form__field-label
+                           c-ripple-form-field__label
+                           o-grid-cell
+                           g-font-700
+                           g-inherit"
+          inputClassNames="c-form-field-input
+                           c-form-field-input--dark-background
+                           c-ripple-form-field__content
+                           o-grid-cell
+                           g-font-larger
+                           g-border-s1"
+        }}
+      {{!--
         <label
           class="c-form__field-label
                  c-ripple-form-field__label
                  o-grid-cell
                  g-font-700
                  g-inherit"
-               for={{field.fieldId}}>
+               for={{fieldId}}>
           Email
         </label>
 
@@ -45,7 +59,7 @@
                  o-grid-cell
                  g-font-larger
                  g-border-s1"
-          id=field.fieldId
+          id=fieldId
           type="email"
           value=field.value
           data-test-selector="register-page__email-input"
@@ -62,18 +76,20 @@
             {{/each}}
           </div>
         {{/if}}
+      {{/x-form-field}}
+      --}}
 
-      {{/object-form/field}}
+
 
 
       <!-- ******** Username ******** -->
-      {{#object-form/field
+      {{#x-form-field
         class="c-ripple-form-field
                u-m2
                o-flex-grid
                o-flex-grid--full"
         value=userForm.username
-        for="username" as |field|
+        for="username" as |fieldId|
       }}
 
         <label
@@ -82,7 +98,7 @@
                  o-grid-cell
                  g-font-700
                  g-inherit"
-               for={{field.fieldId}}>
+               for={{fieldId}}>
           Username
         </label>
 
@@ -93,7 +109,7 @@
                  o-grid-cell
                  g-font-larger
                  g-border-s1"
-          id=field.fieldId
+          id=fieldId
           type="text"
           value=field.value
           data-test-selector="register-page__username-input"
@@ -111,16 +127,16 @@
           </div>
         {{/if}}
 
-      {{/object-form/field}}
+      {{/x-form-field}}
 
       <!-- ******** Password ******** -->
-      {{#object-form/field
+      {{#x-form-field
         class="c-ripple-form-field
                o-flex-grid
                o-flex-grid--full
                u-m2"
         value=userForm.password
-        for="password" as |field|
+        for="password" as |fieldId|
       }}
 
         <label
@@ -129,7 +145,7 @@
                  o-grid-cell
                  g-font-700
                  g-inherit"
-          for={{field.fieldId}}>
+          for={{fieldId}}>
           Password
         </label>
 
@@ -139,7 +155,7 @@
                  o-grid-cell
                  g-font-larger
                  g-border-s1"
-          id=field.fieldId
+          id=fieldId
           type="password"
           value=field.value
           data-test-selector="register-page__password-input"
@@ -147,17 +163,17 @@
 
         <div class="c-ripple-form-field__underline"></div>
 
-      {{/object-form/field}}
+      {{/x-form-field}}
 
 
       <!-- ******** Confirm Password ******** -->
-      {{#object-form/field
+      {{#x-form-field
         class="c-ripple-form-field
                o-flex-grid
                o-flex-grid--full
                u-m2"
         value=userForm.passwordConfirmation
-        for="passwordConfirmation" as |field|
+        for="passwordConfirmation" as |fieldId|
       }}
 
         <label
@@ -166,7 +182,7 @@
                  o-grid-cell
                  g-font-700
                  g-inherit"
-          for={{field.fieldId}}>
+          for={{fieldId}}>
           Confirm Password
         </label>
 
@@ -176,7 +192,7 @@
                  o-grid-cell
                  g-font-larger
                  g-border-s1"
-          id=field.fieldId
+          id=fieldId
           type="password"
           value=field.value
           data-test-selector="register-page__confirm-password-input"
@@ -184,7 +200,7 @@
 
         <div class="c-ripple-form-field__underline"></div>
 
-      {{/object-form/field}}
+      {{/x-form-field}}
 
     </section>
 

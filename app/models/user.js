@@ -14,6 +14,7 @@ export default Model.extend(UserValidations, {
   lastName: attr('string'),
   username: attr('string'),
   password: attr('string'),
+  passwordConfirmation: attr('string'),
   twitterUsername: attr('string'),
   avatarURL: attr('string'),
   bio: attr('string'),

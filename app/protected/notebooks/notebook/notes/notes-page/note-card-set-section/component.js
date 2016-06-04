@@ -3,9 +3,7 @@ import FocasableMixin from 'droplet/mixins/component/focusable';
 
 const {
   Component,
-  isArray,
   computed,
-  run,
   K,
 } = Ember;
 

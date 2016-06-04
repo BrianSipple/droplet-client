@@ -5,12 +5,18 @@ const { subscriptionTypes } = authConstants;
 
 
 export default buildValidations({
-  email: [
-    validator('presence', true),
-    validator('format', { type: 'email' }),
-  ],
-  subscriptionType: [
-    validator('presence', true),
-    validator('inclusion', { in: Object.values(subscriptionTypes) }),
-  ],
+  email: {
+    debounce: 500,
+    validators: [
+      validator('presence', true),
+      validator('format', { type: 'email' })
+    ]
+  },
+
+  subscriptionType: {
+    validators: [
+      validator('presence', true),
+      validator('inclusion', { in: Object.values(subscriptionTypes) })
+    ]
+  }
 });

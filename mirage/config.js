@@ -41,16 +41,20 @@ export default function() {
   */
 
 
-  this.get('/users');
-  this.post('/users');
-  this.get('/users/:id');
-  this.delete('/users/:id');
-  
+  // this.get('/users');
+  this.passthrough('/users');
+
+  //this.post('/users');
+  // this.get('/users/:id');
+  // this.delete('/users/:id');
+
   this.get('/user-private-infos');
   this.post('/user-private-infos');
+  this.patch('/user-private-infos');
 
 
-  this.post('/authenticate', handleAuthenticatePost);
+  //this.post('/authenticate', handleAuthenticatePost);
+  this.passthrough('/authenticate');
 
 
   this.get('/notebooks', handleNotebooksGet);

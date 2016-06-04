@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 const { Test: { registerHelper } } = Ember;
-const { keys } =  Object;
+const { keys } = Object;
 
 
 function assertModelHasAttr(assert, model, attrName, errorMessage) {

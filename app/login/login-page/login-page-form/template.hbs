@@ -13,13 +13,13 @@
   <section class="u-fill-width u-mb3">
 
   <!-- ******** Username or email ******** -->
-    {{#object-form/field
+    {{#x-form-field
       class="c-ripple-form-field
              u-m2
              o-flex-grid
              o-flex-grid--full"
       formModel=model
-      for="identification" as |field|
+      for="identification" as |fieldId|
     }}
 
       <label
@@ -28,7 +28,7 @@
                o-grid-cell
                g-font-700
                g-inherit"
-             for={{field.fieldId}}>
+             for={{fieldId}}>
         Username or email
       </label>
 
@@ -39,7 +39,7 @@
                o-grid-cell
                g-font-larger
                g-border-s1"
-        id=field.fieldId
+        id=fieldId
         type="text"
         value=(mut (get model 'identification'))
       }}
@@ -56,16 +56,16 @@
         </div>
       {{/if}}
 
-    {{/object-form/field}}
+    {{/x-form-field}}
 
     <!-- ******** Password ******** -->
-    {{#object-form/field
+    {{#x-form-field
       class="c-ripple-form-field
              o-flex-grid
              o-flex-grid--full
              u-m2"
       formModel=model
-      for="password" as |field|
+      for="password" as |fieldId|
     }}
 
       <label
@@ -74,7 +74,7 @@
                o-grid-cell
                g-font-700
                g-inherit"
-        for={{field.fieldId}}>
+        for={{fieldId}}>
         Password
       </label>
 
@@ -84,27 +84,27 @@
                o-grid-cell
                g-font-larger
                g-border-s1"
-        id=field.fieldId
+        id=fieldId
         type="password"
         value=(mut (get model 'password'))
       }}
 
       <div class="c-ripple-form-field__underline"></div>
 
-    {{/object-form/field}}
+    {{/x-form-field}}
 
 
     <!-- ******** isAwesome? ******** -->
-    {{#object-form/field
+    {{#x-form-field
       class="c-solid-checkbox-field
              o-flex-grid
              o-flex-grid--center
              u-m2"
       formModel=model
-      for="isAwesome" as |field|
+      for="isAwesome" as |fieldId|
     }}
 
-      <input id={{field.fieldId}}
+      <input id={{fieldId}}
         class="c-form-field-input-checkbox
                c-solid-checkbox-field__input
                o-grid-cell
@@ -121,25 +121,25 @@
                u-pointer
                g-font-700
                g-inherit"
-        for={{field.fieldId}}>
+        for={{fieldId}}>
         I'm Awesome
       </label>
 
-    {{/object-form/field}}
+    {{/x-form-field}}
 
 
     <!-- ******** Public profile? ******** -->
-    {{#object-form/field
+    {{#x-form-field
       class="c-solid-radio-field
              o-flex-grid
              o-flex-grid--center
              u-m2"
       formModel=model
-      for="isProfilePublic" as |field|
+      for="isProfilePublic" as |fieldId|
     }}
 
       <input
-        id={{field.fieldId}}
+        id={{fieldId}}
         class="c-form-field-input
                c-solid-radio-field__input
                o-grid-cell
@@ -157,24 +157,24 @@
                g-font-700
                u-pointer
                g-inherit"
-              for={{field.fieldId}}>
+              for={{fieldId}}>
         Make my profile visible to others
       </label>
 
-    {{/object-form/field}}
+    {{/x-form-field}}
 
 
     <!-- ******** Standard Checkbox ******** -->
-    {{#object-form/field
+    {{#x-form-field
       class="o-flex-grid
              o-flex-grid--center
              u-m2"
       formModel=model
-      for="isAPlainCheckbox" as |field|
+      for="isAPlainCheckbox" as |fieldId|
     }}
 
       {{input
-        id=field.fieldId
+        id=fieldId
         class="c-form-field-input
                o-grid-cell
                o-grid-cell--auto
@@ -191,24 +191,24 @@
                u-pointer
                g-font-700
                g-inherit"
-        for={{field.fieldId}}>
+        for={{fieldId}}>
         I'm A Standard Checkbox
       </label>
 
-    {{/object-form/field}}
+    {{/x-form-field}}
 
 
     <!-- ******** Standard Radio ******** -->
-    {{#object-form/field
+    {{#x-form-field
       class="o-flex-grid
              o-flex-grid--center
              u-m2"
       formModel=model
-      for="isStandardRadio" as |field|
+      for="isStandardRadio" as |fieldId|
     }}
 
       {{input
-        id=field.fieldId
+        id=fieldId
         class="c-form-field-input
                c-solid-radio-field__input
                o-grid-cell
@@ -225,18 +225,18 @@
                u-pointer
                g-font-700
                g-inherit"
-        for={{field.fieldId}}>
+        for={{fieldId}}>
         I'm a standard radio button
       </label>
-    {{/object-form/field}}
+    {{/x-form-field}}
 
 
     <!-- ******** Select T-Shirt Size ******** -->
-    {{#object-form/field
+    {{#x-form-field
       class="u-m2
              o-flex-grid o-flex-grid--full"
       formModel=model
-      for="tShirtSize" as |field|
+      for="tShirtSize" as |fieldId|
     }}
 
       <label
@@ -245,12 +245,12 @@
                u-mt-auto u-mb-auto
                g-font-700
                g-inherit"
-         for={{field.fieldId}}>
+         for={{fieldId}}>
        {{field.labelText}}
      </label>
 
       <select
-        id={{field.fieldId}}
+        id={{fieldId}}
         class="c-form-field-input c-form-field-input-select">
         <optgroup label="Men's">
           <option value="m-small">Small</option>
@@ -264,7 +264,7 @@
         </optgroup>
       </select>
 
-    {{/object-form/field}}
+    {{/x-form-field}}
 
   </section>
 

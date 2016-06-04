@@ -1,0 +1,4 @@
+:root {
+  --status-color__valid: hsla(100, 41%, 64%, 1.00);
+  --status-color__invalid: hsla(355, 65%, 65%, 1.00);
+}

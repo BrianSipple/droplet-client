@@ -1,0 +1,6 @@
+.g-status__valid {
+  color: var(--status-color__valid);
+}
+.g-status__error {
+  color: var(--status-color__invalid);
+}

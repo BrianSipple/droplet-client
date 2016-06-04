@@ -38,7 +38,7 @@ moduleForAcceptance('Acceptance | notebooks', {
   },
 });
 
-test('visiting /notebooks requires authentication', async function (assert) {
+test('visiting /notebooks requires authentication', async (assert) => {
   assert.expect(2);
 
   await visit(startingRoutePath);
@@ -58,7 +58,7 @@ test('visiting /notebooks requires authentication', async function (assert) {
 });
 
 
-test(`Rendering a list of notebooks into the sidenav`, async function (assert) {
+test(`Rendering a list of notebooks into the sidenav`, async (assert) => {
   assert.expect(1);
   setupState();
 
@@ -69,7 +69,7 @@ test(`Rendering a list of notebooks into the sidenav`, async function (assert) {
 });
 
 
-test(`Creating a new notebook by entering a title into the list form`, async function (assert) {
+test(`Creating a new notebook by entering a title into the list form`, async (assert) => {
   assert.expect(1);
   setupState();
 
@@ -92,7 +92,7 @@ test(`Creating a new notebook by entering a title into the list form`, async fun
 });
 
 
-test('selecting a notebook from the sidenav and transitioning to its details page', async function (assert) {
+test('selecting a notebook from the sidenav and transitioning to its details page', async (assert) => {
   assert.expect(1);
   setupState();
 
@@ -105,7 +105,7 @@ test('selecting a notebook from the sidenav and transitioning to its details pag
 
 });
 
-test('visiting the details page of a notebook', async function(assert) {
+test('visiting the details page of a notebook', async (assert) => {
   assert.expect(2);
   setupState();
 

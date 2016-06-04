@@ -24,10 +24,10 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     try {
       user.setProperties(formValues);
       userPrivateInfo.setProperties(formValues);
-      user.set('userPrivateInfo', userPrivateInfo);
 
-      yield user.save();
       yield userPrivateInfo.save();
+      user.set('userPrivateInfo', userPrivateInfo);
+      yield user.save();
 
       set(this.currentModel, 'isFormDirty', false);
 
