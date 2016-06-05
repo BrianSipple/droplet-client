@@ -1,31 +1,54 @@
 {{#if hasBlock}}
-  {{yield}}
-{{else}}
-  <label for={{fieldId}} class={{labelClassNames}}>{{label}}</label>
-  {{input
-    class=(concat inputClassNames " " "c-validated-form-field__input u-relative")
-    classNameBindings="showErrorClass:has-error isValid"
-    id=fieldId
-    name=valuePath
-    type=fieldType
-    value=value
-    placeholder=placeholder
-    data-test-selector=testSelector
-  }}
+  {{yield (hash
+    fieldId=fieldId
+    shouldShowErrors=showErrorClass
+    isValid=isValid)}}
 
-  <span class="c-validated-form-field__status-icon
-               u-absolute
-               u-width-spacing-4
-               u-height-spacing-4
-               u-edge-right
-               u-edge-top
-               u-transform-center--vert
-               u-mr4
-               u-block">
-    <span class="u-relative g-status__valid">
-      {{#if isValid}}
-        {{svg-icon iconURL="/assets/icons.svg#checkmark" stroke="currentColor" fill="none" class="c-validated-form__icon c-validated-form__icon--success"}}
-      {{/if}}
+{{else}}
+
+  <label
+    for={{fieldId}}
+    class="c-form__field-label
+           c-ripple-form-field__label
+           o-grid-cell
+           g-font-700
+           g-inherit">
+     {{label}}
+   </label>
+
+  <div class="c-validated-form-field__input-container
+              c-ripple-form-field__content
+              o-grid-cell
+              u-relative">
+    {{input
+      class="c-validated-form-field__input
+             g-font-larger
+             g-border-s1
+             o-text-input
+             g-border-none"
+      classNameBindings="showErrorClass:has-error isValid"
+      id=fieldId
+      name=valuePath
+      type=fieldType
+      value=value
+      placeholder=placeholder
+      data-test-selector=testSelector
+    }}
+
+    <span class="c-validated-form-field__status-icon
+                 u-absolute
+                 u-width-spacing-4
+                 u-fill-height
+                 u-edge-right
+                 u-edge-top
+                 u-mr2
+                 u-block">
+      <span class="u-relative g-status__valid">
+        {{#if isValid}}
+          {{svg-icon iconURL="/assets/icons.svg#checkmark" stroke="currentColor" fill="none" class="c-validated-form__icon c-validated-form__icon--success"}}
+        {{/if}}
+      </span>
     </span>
-  </span>
+  </div>
+
 {{/if}}

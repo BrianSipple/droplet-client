@@ -5,7 +5,7 @@
 /**
 * Form field <select> properties
 */
-.c-form-field-input-select {
+.c-form-field-select-input {
   appearance: none;
   background-color: var(--background-color__form-field-input--noFocus);
   font-size: var(--font-size__form-field-input--select);

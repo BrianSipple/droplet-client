@@ -2,17 +2,17 @@
 * Form field input for accepting "text"-like properties
 * (i.e., text, number, password, phone, email)
 */
-.c-form-field-input {
+.c-form-field-text-input {
 
   /*outline: none;*/
   /*color: var(--color__form-field-input--noFocus);*/
 
-  /* TODO: Replace with o-text-input */
-  line-height: var(--line-height__form-field-input);
+  /* TODO: Replace with o-text-input? */
+  /*line-height: var(--line-height__text-input);*/
 
   border-radius: var(--border-radius__form-field-input);
   border-color: var(--border-color__form-field-input--noFocus);
-  padding: var(--padding__form-field-input);
+  /*padding: var(--padding__form-field-input);*/
   transition-property: color background-color;
   transition-duration: var(--anim-duration__color-shift);
   transition-timing-function: var(--easing__ease-out-cubic);
@@ -37,7 +37,7 @@
   &:-webkit-autofill {
     color: var(--color__form-field-input--noFocus) !important;
     -webkit-box-shadow:
-      0 0 0px var(--line-height__form-field-input) var(--background-color__form-field-input--noFocus) inset !important;
+      0 0 0px var(--line-height__text-input) var(--background-color__form-field-input--noFocus) inset !important;
     border-style: solid !important;
     border-color: var(--border-color__form-field-input--noFocus) !important;
     -webkit-text-fill-color: var(--color__form-field-input--noFocus);
@@ -50,7 +50,7 @@
 
     color: var(--color__form-field-input--focus) !important;
     -webkit-box-shadow:
-      0 0 0px var(--line-height__form-field-input) var(--background-color__form-field-input--focus) inset,
+      0 0 0px var(--line-height__text-input) var(--background-color__form-field-input--focus) inset,
       var(--box-shadow__form-field-input) !important;
     border-style: solid !important;
     border-color: var(--border-color__form-field-input--focus) !important;

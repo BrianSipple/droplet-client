@@ -1,5 +1,12 @@
 .c-validated-form-field {
 
+  &__input-container {
+    height: var(--height__text-input);
+  }
+  &__input {
+    height: 100%;
+  }
+
   &__input.is-valid {
     outline: var(--status-color__valid);
     border-color: var(--status-color__valid);

@@ -12,7 +12,7 @@
     <label class="c-form__field-label o-grid-cell" for={{field.fieldId}}>Title</label>
     <input
       id={{field.fieldId}}
-      class="c-form-field-input o-grid-cell js-input--notebook-title"
+      class="c-form-field-text-input o-grid-cell js-input--notebook-title"
       type="text"
       onchange={{action (mut notebookProperties.title) value='target.value'}}
       placeholder="Title">

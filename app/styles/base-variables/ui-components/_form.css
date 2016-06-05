@@ -15,8 +15,6 @@
 
   --font-size__form-field-input--select: 1em;
 
-  /* TODO: Replace with --line-height__text-input object variable */
-  --line-height__form-field-input: 2.5;
 
   --side-padding__form-field-input: 1em;
   --border-radius__form-field-input: calc(var(--side-padding__form-field-input) * 0.25);
