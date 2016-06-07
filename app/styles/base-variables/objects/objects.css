@@ -39,5 +39,6 @@
 
   /* ------------- Text Input -------- */
   --line-height__text-input: 2.5;
-  --height__text-input: 3.5rem;
+  --padding__text-input: var(--padding__content);
+  --height__text-input: 3.5rem;  
 }

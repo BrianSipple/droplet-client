@@ -3,8 +3,8 @@
 }
 
 .o-text-input {
+  box-sizing: border-box;
   line-height: var(--line-height__text-input);
   height: var(--height__text-input);
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: var(--padding__text-input);
 }

@@ -12,7 +12,6 @@ export default PageContentComponent.extend({
   newUserModel: null,
   newUserPrivateInfoModel: null,
   onRegisterUser: null,
-  formValues: null,
   isFormDirty: false,
   isProcessingRegistration: false,
 
@@ -27,15 +26,9 @@ export default PageContentComponent.extend({
     registerUser (formValues) {
       this.set('isProcessingRegistration', true);
       this
-        .get('onRegisterUser')(formValues)
+        .get('onRegisterUser')()
         .then(() => this.set('isProcessingRegistration', false));
-    },
-
-    readFormValuesOnChange (formValues) {
-      if (formValues.get('hasChanges')) {
-        this.set('isFormDirty', true);
-      }
-    },
+    }
   },
 
 });

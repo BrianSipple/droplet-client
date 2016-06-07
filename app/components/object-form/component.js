@@ -10,7 +10,7 @@ const {
 export default Component.extend({
 
   tagName: 'form',
-  classNames: ['c-object-form', 'c-form'],
+  classNames: ['c-object-form'],
   attributeBindings: ['autocomplete', 'novalidate', 'method'],
 
   autocomplete: 'on',

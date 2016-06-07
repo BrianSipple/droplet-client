@@ -6,10 +6,19 @@ import AuthConfig from 'ember-simple-auth/configuration';
 const {
   Route,
   inject: { service },
+  computed: { or, not },
   set,
   assign,
   Object: EmberObject,
 } = Ember;
+
+const RegistrationData = EmberObject.extend({
+  user: null,
+  userPrivateInfo: null,
+  isUserInvalid: not('user.validations.isInvalid'),
+  isUserPrivateInfoInvalid: not('user.validations.isInvalid'),
+  showAlert: or('isUserInvalid', 'isUserPrivateInfoInvalid')
+});
 
 
 export default Route.extend(UnauthenticatedRouteMixin, {
@@ -55,12 +64,11 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     const userPrivateInfo = this.store.createRecord('user-private-info');
     const user = this.store.createRecord('user', { userPrivateInfo });
 
-    return {
+    return RegistrationData.create({
       user,
-      userPrivateInfo,
-      formValues: assign(EmberObject.create(), user.toJSON()),
-      isFormDirty: false,
-    };
+      userPrivateInfo
+    });
+
   },
 
 

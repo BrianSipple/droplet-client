@@ -4,17 +4,14 @@
     <h2 class="g-theme-primary-1--500 u-align-center">Registration</h2>
   </header>
 
-  {{#object-form
-    class="u-m0
-           u-overflow-hide
-           u-b-box
-           o-flex-grid
-           o-flex-grid--full"
-    onSubmit=(action 'registerUser')
-    startingValues=formValues
-    readFormValuesOnChange=(action 'readFormValuesOnChange')
-    as |userForm|
-  }}
+
+  {{#if showAlert}}
+    {{#alert-box class="g-bg-status--error u-mt3 u-mb3" isOpen=showAlert}}
+      Please address the errors listed below before submitting the form.
+    {{/alert-box}}
+  {{/if}}
+
+  {{#x-form class="o-flex-grid o-flex-grid--full" submit=(action 'registerUser')}}
 
     <section class="u-fill-width u-mb3">
 
@@ -30,166 +27,44 @@
                  o-flex-grid
                  o-flex-grid--full"
         }}
-      {{!--
-        <label
-          class="c-form__field-label
-                 c-ripple-form-field__label
-                 o-grid-cell
-                 g-font-700
-                 g-inherit"
-               for={{fieldId}}>
-          Email
-        </label>
-
-        {{input
-          class="c-form-field-text-input
-                 c-form-field-text-input--dark-background
-                 c-ripple-form-field__content
-                 o-grid-cell
-                 g-font-larger
-                 g-border-s1"
-          id=fieldId
-          type="email"
-          value=field.value
-          data-test-selector="register-page__email-input"
-        }}
-
-        <div class="c-ripple-form-field__underline"></div>
-
-        {{#if field.fieldErrors}}
-          <div class="c-form__field-errors">
-            {{#each field.fieldErrors as |error|}}
-              <div class="c-form__field-error">
-                Error: error.message
-              </div>
-            {{/each}}
-          </div>
-        {{/if}}
-      {{/x-form-field}}
-      --}}
-
-
-
 
       <!-- ******** Username ******** -->
-      {{#x-form-field
+      {{validated-form-field
+        model=newUserModel
+        valuePath="username"
+        label="Username"
+        placeholder="Enter your username"
         class="c-ripple-form-field
                u-m2
                o-flex-grid
                o-flex-grid--full"
-        value=userForm.username
-        for="username" as |fieldId|
       }}
 
-        <label
-          class="c-form__field-label
-                 c-ripple-form-field__label
-                 o-grid-cell
-                 g-font-700
-                 g-inherit"
-               for={{fieldId}}>
-          Username
-        </label>
-
-        {{input
-          class="c-form-field-text-input
-                 c-form-field-text-input--dark-background
-                 c-ripple-form-field__content
-                 o-grid-cell
-                 g-font-larger
-                 g-border-s1"
-          id=fieldId
-          type="text"
-          value=field.value
-          data-test-selector="register-page__username-input"
-        }}
-
-        <div class="c-ripple-form-field__underline"></div>
-
-        {{#if field.fieldErrors}}
-          <div class="c-form__field-errors">
-            {{#each field.fieldErrors as |error|}}
-              <div class="c-form__field-error">
-                Error: error.message
-              </div>
-            {{/each}}
-          </div>
-        {{/if}}
-
-      {{/x-form-field}}
 
       <!-- ******** Password ******** -->
-      {{#x-form-field
+      {{validated-form-field
+        model=newUserModel
+        valuePath="password"
+        label="Password"
+        placeholder="Create your password"
         class="c-ripple-form-field
+               u-m2
                o-flex-grid
-               o-flex-grid--full
-               u-m2"
-        value=userForm.password
-        for="password" as |fieldId|
+               o-flex-grid--full"
       }}
-
-        <label
-          class="c-form__field-label
-                 c-ripple-form-field__label
-                 o-grid-cell
-                 g-font-700
-                 g-inherit"
-          for={{fieldId}}>
-          Password
-        </label>
-
-        {{input
-          class="c-form-field-text-input
-                 c-ripple-form-field__content
-                 o-grid-cell
-                 g-font-larger
-                 g-border-s1"
-          id=fieldId
-          type="password"
-          value=field.value
-          data-test-selector="register-page__password-input"
-        }}
-
-        <div class="c-ripple-form-field__underline"></div>
-
-      {{/x-form-field}}
 
 
       <!-- ******** Confirm Password ******** -->
-      {{#x-form-field
+      {{validated-form-field
+        model=newUserModel
+        valuePath="passwordConfirmation"
+        label="Confirm Password"
+        placeholder="Re-enter your password"
         class="c-ripple-form-field
+               u-m2
                o-flex-grid
-               o-flex-grid--full
-               u-m2"
-        value=userForm.passwordConfirmation
-        for="passwordConfirmation" as |fieldId|
+               o-flex-grid--full"
       }}
-
-        <label
-          class="c-form__field-label
-                 c-ripple-form-field__label
-                 o-grid-cell
-                 g-font-700
-                 g-inherit"
-          for={{fieldId}}>
-          Confirm Password
-        </label>
-
-        {{input
-          class="c-form-field-text-input
-                 c-ripple-form-field__content
-                 o-grid-cell
-                 g-font-larger
-                 g-border-s1"
-          id=fieldId
-          type="password"
-          value=field.value
-          data-test-selector="register-page__confirm-password-input"
-        }}
-
-        <div class="c-ripple-form-field__underline"></div>
-
-      {{/x-form-field}}
 
     </section>
 
@@ -225,6 +100,8 @@
 
     </section>
 
-  {{/object-form}}
+  {{/x-form}}
+
+  {{!-- {{/object-form}} --}}
 
 </section>

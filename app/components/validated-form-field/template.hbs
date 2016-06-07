@@ -22,10 +22,12 @@
               u-relative">
     {{input
       class="c-validated-form-field__input
+             u-b-box
              g-font-larger
-             g-border-s1
-             o-text-input
-             g-border-none"
+             u-fill-width
+             u-fill-height
+             o-widget-box
+             g-border-s1"
       classNameBindings="showErrorClass:has-error isValid"
       id=fieldId
       name=valuePath
@@ -43,12 +45,19 @@
                  u-edge-top
                  u-mr2
                  u-block">
-      <span class="u-relative g-status__valid">
+      <span class="u-relative g-status--valid">
         {{#if isValid}}
           {{svg-icon iconURL="/assets/icons.svg#checkmark" stroke="currentColor" fill="none" class="c-validated-form__icon c-validated-form__icon--success"}}
         {{/if}}
       </span>
     </span>
   </div>
+
+  {{#if showMessage}}
+    <div class="g-status--error">
+      {{v-get model valuePath 'message'}}
+    </div>
+
+  {{/if}}
 
 {{/if}}

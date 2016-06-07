@@ -4,16 +4,17 @@
     height: var(--height__text-input);
   }
   &__input {
-    height: 100%;
+    padding: var(--padding__text-input);
+    border-color: var(--grayscale__black-on-light--divider);
   }
 
   &__input.is-valid {
-    outline: var(--status-color__valid);
-    border-color: var(--status-color__valid);
+    outline: var(--status-text-color__valid);
+    border-color: var(--status-text-color__valid);
   }
 
   &__input.has-error {
-    outline: var(--status-color__invalid);
-    border-color: var(--status-color__invalid);
+    outline: var(--status-text-color__invalid);
+    border-color: var(--status-text-color__invalid);
   }
 }

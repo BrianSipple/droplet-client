@@ -42,7 +42,7 @@ export default Mixin.create({
   showErrorClass: and('notValidating', 'showMessage', 'hasContent', 'validation'),
 
   showMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function shouldShowMessage() {
-    return (this.get('validation.isDirty') || this.get('didValidate') && this.get('isInvalid'));
+    return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
   })
 
 });

@@ -1,0 +1,15 @@
+.c-alert-box {
+
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: center top;
+  display: none;
+  transform: scaleY(0);
+
+  &.is-open {
+    opacity: 1;
+    display: block;
+    visibility: visible;
+    transform: scaleY(1);
+  }
+}

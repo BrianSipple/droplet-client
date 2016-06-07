@@ -10,7 +10,6 @@ const { Component, computed } = Ember;
 export default Component.extend(ActionButtonMixin, AriaAttributesMixin, TabbableMixin, {
 
   tagName: 'button',
-  ariaRole: 'button',
   classNames: ['c-icon-button', 'u-pointer', 'g-border-none'],
   classNameBindings: ['tapTargetSizeClass'],
 
