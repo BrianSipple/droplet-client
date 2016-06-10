@@ -9,7 +9,7 @@ const { keys } = Object;
  *
  * http://emberjs.com/api/data/classes/DS.Model.html#property_relationshipsByName
  */
-export default function assertModelRelationship(assert, model, aspectPairs, errorMessage) {
+export default function assertModelRelationship(assert, model, aspectPairs /* , errorMessage */) {
   const relationship = get(model, 'relationshipsByName').get(aspectPairs.key);
 
   keys(aspectPairs).forEach((relationshipAspect) => {

@@ -45,7 +45,7 @@
                  u-edge-top
                  u-mr2
                  u-block">
-      <span class="u-relative g-status--valid">
+      <span class="u-relative {{if isValid 'g-status--valid' 'g-status--error'}}">
         {{#if isValid}}
           {{svg-icon iconURL="/assets/icons.svg#checkmark" stroke="currentColor" fill="none" class="c-validated-form__icon c-validated-form__icon--success"}}
         {{/if}}

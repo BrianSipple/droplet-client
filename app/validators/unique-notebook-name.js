@@ -4,6 +4,7 @@ import BaseValidator from 'ember-cp-validations/validators/base';
 const {
   inject: { service },
   isEmpty,
+  isBlank
 } = Ember;
 
 export default BaseValidator.extend({
@@ -11,9 +12,13 @@ export default BaseValidator.extend({
   store: service(),
 
   validate(value /* , options, model, attribute */) {
-    return this.get('store').query('notebook', { title: value }).then(result => {
-      debugger;
-      return isEmpty(result) ? true : `A notebook with a tile of ${value} already exists.`;
-    });
-  },
+    if (isBlank(value)) {
+      return true;
+    }
+
+    return this
+      .get('store')
+      .query('notebook', { title: value })
+      .then(result => isEmpty(result) ? true : `A notebook with a tile of ${value} already exists.`);
+  }
 });

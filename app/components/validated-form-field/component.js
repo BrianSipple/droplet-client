@@ -5,4 +5,11 @@ import ValidatedFormFieldMixin from 'droplet/mixins/component/validated-form-fie
 
 export default XFormField.extend(ValidatedFormFieldMixin, {
   classNames: ['c-validated-form-field', 'o-flex-grid', 'o-flex-grid--full'],
+
+  placeholder: null,
+  fieldType: null,
+  testSelector: null,
+  inputClassNames: null,
+  labelClassNames: null,
+  label: null,
 });

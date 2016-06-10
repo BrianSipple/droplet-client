@@ -4,4 +4,8 @@
   &__form-section {
     width: 40rem;
   }
+
+  &__alert-box {
+    border-color: var(--status-text-color__invalid);
+  }
 }

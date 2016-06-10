@@ -16,11 +16,6 @@ export default Mixin.create({
   model: null,
   value: null,
   valuePath: null,
-  placeholder: null,
-  testSelector: null,
-  inputClassNames: null,
-  labelClassNames: null,
-  label: null,
 
   isTyping: false,
   validation: null,

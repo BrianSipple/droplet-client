@@ -6,33 +6,37 @@
 
 
   {{#if showAlert}}
-    {{#alert-box class="g-bg-status--error u-mt3 u-mb3" isOpen=showAlert}}
-      Please address the errors listed below before submitting the form.
+    {{#alert-box
+      class="c-register-page__alert-box g-status--error g-bg-status--error g-border-s2 u-mt3 u-mb3"
+      isOpen=showAlert
+    }}
+      <span class="g-nearBlack">Please address the errors listed below before submitting the form.</span>
     {{/alert-box}}
   {{/if}}
 
   {{#x-form class="o-flex-grid o-flex-grid--full" submit=(action 'registerUser')}}
-
     <section class="u-fill-width u-mb3">
 
 
       <!-- ******** Email ******** -->
-        {{validated-form-field
-          model=newUserPrivateInfoModel
-          valuePath="email"
-          label="Email"
-          placeholder="youremail@example.com"
-          class="c-ripple-form-field
-                 u-m2
-                 o-flex-grid
-                 o-flex-grid--full"
-        }}
+      {{validated-form-field
+        model=newUserPrivateInfoModel
+        valuePath="email"
+        label="Email"
+        fieldType="text"
+        placeholder="youremail@example.com"
+        class="c-ripple-form-field
+               u-m2
+               o-flex-grid
+               o-flex-grid--full"
+      }}
 
       <!-- ******** Username ******** -->
       {{validated-form-field
         model=newUserModel
         valuePath="username"
         label="Username"
+        fieldType="text"
         placeholder="Enter your username"
         class="c-ripple-form-field
                u-m2
@@ -46,6 +50,7 @@
         model=newUserModel
         valuePath="password"
         label="Password"
+        fieldType="password"
         placeholder="Create your password"
         class="c-ripple-form-field
                u-m2
@@ -59,6 +64,7 @@
         model=newUserModel
         valuePath="passwordConfirmation"
         label="Confirm Password"
+        fieldType="password"
         placeholder="Re-enter your password"
         class="c-ripple-form-field
                u-m2

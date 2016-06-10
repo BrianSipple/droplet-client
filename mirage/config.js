@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import ENV from 'droplet/config/environment';
 import authenticateHandler from './handlers/authenticate';
 import notebooksHandler from './handlers/notebooks';
@@ -5,7 +6,7 @@ import notebooksHandler from './handlers/notebooks';
 const { APP: { apis: { droplet: { URL_PREFIX } } } } = ENV;
 const { post: handleAuthenticatePost } = authenticateHandler;
 const { get: handleNotebooksGet } = notebooksHandler;
-
+const { isEmpty, isBlank } = Ember;
 
 export default function() {
 
@@ -41,20 +42,31 @@ export default function() {
   */
 
 
-  // this.get('/users');
-  this.passthrough('/users');
+  this.get('/users', ({ users }, { queryParams }) => {
+    if (!isEmpty(queryParams)) {
+      if (!isBlank(queryParams.username)) {
+        return users.where({ username: queryParams.username });
+      }
+    }
 
-  //this.post('/users');
-  // this.get('/users/:id');
-  // this.delete('/users/:id');
+    return users.all();
+
+  });
+
+  this.post('/users');
+  this.patch('/users/:id');
+  this.get('/users/:id');
+  this.delete('/users/:id');
+  //this.passthrough('/users');
+
 
   this.get('/user-private-infos');
   this.post('/user-private-infos');
   this.patch('/user-private-infos');
 
 
-  //this.post('/authenticate', handleAuthenticatePost);
-  this.passthrough('/authenticate');
+  this.post('/authenticate', handleAuthenticatePost);
+  // this.passthrough('/authenticate');
 
 
   this.get('/notebooks', handleNotebooksGet);

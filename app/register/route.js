@@ -6,7 +6,7 @@ import AuthConfig from 'ember-simple-auth/configuration';
 const {
   Route,
   inject: { service },
-  computed: { or, not },
+  computed: { or, not, notEmpty },
   set,
   assign,
   Object: EmberObject,
@@ -14,10 +14,9 @@ const {
 
 const RegistrationData = EmberObject.extend({
   user: null,
-  userPrivateInfo: null,
-  isUserInvalid: not('user.validations.isInvalid'),
-  isUserPrivateInfoInvalid: not('user.validations.isInvalid'),
-  showAlert: or('isUserInvalid', 'isUserPrivateInfoInvalid')
+  isUserInvalid: not('user.validations.isValid'),
+  isUserPrivateInfoInvalid: not('user.userPrivateInfo.validations.isValid'),
+  showAlert: or('isUserInvalid', 'isUserPrivateInfoInvalid') // TODO: Handle this properly
 });
 
 
@@ -27,31 +26,41 @@ export default Route.extend(UnauthenticatedRouteMixin, {
 
 
   registerUser: task(function *registerUser (formValues) {
-    const { user, userPrivateInfo } = this.currentModel;
+    const { user } = this.currentModel;
     const SessionService = this.get('SessionService');
 
     try {
-      user.setProperties(formValues);
-      userPrivateInfo.setProperties(formValues);
+      debugger;
+      user.validate().then(( {model, validations }) => {
+        debugger;
+        if (validations.get('isValid')) {
+          // this.currentModel.setProperties({'isRegistered': true});
+          this.currentModel.set('isRegistered', true);
 
-      yield userPrivateInfo.save();
-      user.set('userPrivateInfo', userPrivateInfo);
+        } else {
+          this.currentModel.set('isRegistered', false);
+        }
+      });
+
       yield user.save();
 
-      set(this.currentModel, 'isFormDirty', false);
+      if (user.get('validations.isValid')) {
+        const credentials = {
+          identification: user.get('username'),
+          password: user.get('password'),
+        };
 
-      const credentials = {
-        // identification: user.get('userPrivateInfo.email'),
-        identification: user.get('username'),
-        password: user.get('password'),
-      };
+        yield SessionService
+          .authenticate('authenticator:oauth2', credentials)
+          .catch(reason => set(user, 'errors.registration', reason.error || reason))
+          .then(() => {
+            this.transitionTo(AuthConfig.routeAfterAuthentication);
+          });
 
-      yield SessionService
-        .authenticate('authenticator:oauth2', credentials)
-        .catch(reason => set(user, 'errors.registration', reason.error || reason))
-        .then(() => {
-          this.transitionTo(AuthConfig.routeAfterAuthentication);
-        });
+      } else {
+        debugger;
+        yield true;
+      }
 
     } catch (e) {
       debugger;
@@ -65,8 +74,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     const user = this.store.createRecord('user', { userPrivateInfo });
 
     return RegistrationData.create({
-      user,
-      userPrivateInfo
+      user
     });
 
   },

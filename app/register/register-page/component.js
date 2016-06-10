@@ -23,9 +23,11 @@ export default PageContentComponent.extend({
 
 
   actions: {
-    registerUser (formValues) {
+    registerUser (ev) {
+      ev.preventDefault();
       this.set('isProcessingRegistration', true);
-      this
+
+      return this
         .get('onRegisterUser')()
         .then(() => this.set('isProcessingRegistration', false));
     }

@@ -9,12 +9,12 @@
   }
 
   &__input.is-valid {
-    outline: var(--status-text-color__valid);
-    border-color: var(--status-text-color__valid);
+    outline: var(--status-background-color__valid);
+    border-color: var(--status-background-color__valid);
   }
 
   &__input.has-error {
-    outline: var(--status-text-color__invalid);
-    border-color: var(--status-text-color__invalid);
+    outline: var(--status-background-color__invalid);
+    border-color: var(--status-background-color__invalid);
   }
 }
