@@ -1,0 +1,34 @@
+.c-material-validated-form-field {
+
+  &__message {
+
+  }
+
+  /**
+   * NOTE: We can style for the classes on the components we use by default here
+   */
+  &.is-valid {
+    .c-material-text-input__input:focus + .c-material-text-input__label,
+    .c-material-text-input__input:active + .c-material-text-input__label {
+      color: var(--status-text-color__valid);
+    }
+
+    .c-material-text-input__input:focus,
+    .c-material-text-input__input:active {
+      border-bottom-color: var(--status-text-color__valid);
+    }
+  }
+
+  &.has-error {
+    .c-material-text-input__input:focus + .c-material-text-input__label,
+    .c-material-text-input__input:active + .c-material-text-input__label {
+      color: var(--status-text-color__invalid);
+    }
+
+    .c-material-text-input__input:focus,
+    .c-material-text-input__input:active {
+      border-bottom-color: var(--status-text-color__invalid);
+    }
+  }
+
+}

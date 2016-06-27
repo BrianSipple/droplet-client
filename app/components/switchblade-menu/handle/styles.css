@@ -8,7 +8,7 @@
   .c-switchblade-menu-handle__user-settings-button,
   .c-switchblade-menu-handle__auxiliary-tab-button {
     min-height: var(--min-height__sidenav-handle-button);
-    height: var(--height__sidenav-handle-button);
+    /*height: var(--height__sidenav-handle-button);*/
   }
 
   .c-switchblade-menu-handle__header {

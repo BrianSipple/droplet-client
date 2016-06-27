@@ -2,11 +2,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
-const {
-  Route,
-  inject: { service },
-  Object: EmberObject,
-} = Ember;
+const { Route, inject: { service }, Object: EmberObject } = Ember;
 
 const { Errors } = DS;
 
@@ -14,7 +10,6 @@ const { Errors } = DS;
 export default Route.extend(UnauthenticatedRouteMixin, {
 
   SessionService: service('session'),
-
 
   /*
    * Prepare a model for logging in the user
@@ -29,7 +24,6 @@ export default Route.extend(UnauthenticatedRouteMixin, {
   },
 
 
-  /* ------------ ACTIONS ------------ */
   actions: {
 
     /*
@@ -53,6 +47,6 @@ export default Route.extend(UnauthenticatedRouteMixin, {
       } finally {
         model.set('isLoading', false);
       }
-    },
-  },
+    }
+  }
 });

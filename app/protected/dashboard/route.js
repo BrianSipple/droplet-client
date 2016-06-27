@@ -26,17 +26,19 @@ export default Route.extend(AuthenticatedRouteMixin, {
     }
   }),
 
-  renderTemplate () {
-    this._super(...arguments);
-
-    this.render(
-      'sidenav',
-      {
-        into: 'protected',
-        outlet: 'sidenavOutlet'
-      }
-    );
-  },
+  // TODO: Possibliy remove for good. Currently commented out, as I think this should only
+  // be performed once at the `protected` level
+  // renderTemplate () {
+  //   this._super(...arguments);
+  //
+  //   this.render(
+  //     'sidenav',
+  //     {
+  //       into: 'protected',
+  //       outlet: 'sidenavOutlet'
+  //     }
+  //   );
+  // },
 
 
   actions: {

@@ -1,63 +1,57 @@
-{{#if hasBlock}}
-  {{yield (hash
-    fieldId=fieldId
-    shouldShowErrors=showErrorClass
-    isValid=isValid)}}
+{{!-- <label
+  for={{fieldId}}
+  class="u-block
+         g-font-700
+         g-inherit">
+   {{label}}
+</label>
 
-{{else}}
+<span class="u-relative u-block">
+  {{input
+    class=(concat
+           inputClassNames
+           " "
+           "u-b-box
+           g-font-larger
+           u-fill-width
+           u-fill-height
+           o-widget-box")
+    id=fieldId
+    name=valuePath
+    type=fieldType
+    value=value
+    placeholder=placeholder
+    data-test-selector=testSelector
+  }}
 
-  <label
-    for={{fieldId}}
-    class="c-form__field-label
-           c-ripple-form-field__label
-           o-grid-cell
-           g-font-700
-           g-inherit">
-     {{label}}
-   </label>
-
-  <div class="c-validated-form-field__input-container
-              c-ripple-form-field__content
-              o-grid-cell
-              u-relative">
-    {{input
-      class="c-validated-form-field__input
-             u-b-box
-             g-font-larger
-             u-fill-width
-             u-fill-height
-             o-widget-box
-             g-border-s1"
-      classNameBindings="showErrorClass:has-error isValid"
-      id=fieldId
-      name=valuePath
-      type=fieldType
-      value=value
-      placeholder=placeholder
-      data-test-selector=testSelector
-    }}
-
-    <span class="c-validated-form-field__status-icon
-                 u-absolute
-                 u-width-spacing-4
-                 u-fill-height
-                 u-edge-right
-                 u-edge-top
-                 u-mr2
-                 u-block">
-      <span class="u-relative {{if isValid 'g-status--valid' 'g-status--error'}}">
-        {{#if isValid}}
-          {{svg-icon iconURL="/assets/icons.svg#checkmark" stroke="currentColor" fill="none" class="c-validated-form__icon c-validated-form__icon--success"}}
-        {{/if}}
-      </span>
+  {{! Validation Status icon }}
+  <span class="c-validated-form-field__status-icon
+               u-absolute
+               u-width-spacing-4
+               u-fill-height
+               u-edge-right
+               u-edge-top
+               u-mr2
+               u-block">
+    <span class="u-relative {{if isValid 'g-status--valid' 'g-status--error'}}">
+      {{#if isValid}}
+        {{svg-icon iconURL="/assets/icons.svg#checkmark" stroke="currentColor" fill="none" class="c-validated-form__icon c-validated-form__icon--success"}}
+      {{/if}}
     </span>
-  </div>
+  </span>
 
-  {{#if showMessage}}
-    <div class="g-status--error">
-      {{v-get model valuePath 'message'}}
-    </div>
+</span> --}}
+{{component inputComponentName
+  fieldId=fieldId
+  value=value
+  label=label
+  placeholder=placeholder
+  errors=errors
+}}
 
-  {{/if}}
 
+{{#if showMessage}}
+  <span class="g-status--error u-block">
+    {{v-get model valuePath 'message'}}
+  </span>
 {{/if}}

@@ -1,0 +1,20 @@
+.c-form-field {
+
+  /**
+   * NOTE: We can style for the classes on the components we use by default here
+   */
+  &.is-valid {
+    .c-text-input__input {
+      outline: var(--status-background-color__valid);
+      border-color: var(--status-background-color__valid);
+    }
+  }
+
+  &.has-error {
+    .c-text-input__input {
+      outline: var(--status-background-color__invalid);
+      border-color: var(--status-background-color__invalid);
+    }
+  }
+
+}

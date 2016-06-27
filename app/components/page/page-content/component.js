@@ -5,7 +5,7 @@ const { Component } = Ember;
 
 export default Component.extend({
 
-  classNames: ['c-page-content', 'o-content'],
+  classNames: ['c-page-content', 'o-content', 'u-b-box'],
 
   classNameBindings: [
     'fillHeight:u-fill-height',

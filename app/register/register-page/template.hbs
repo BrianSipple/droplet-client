@@ -19,57 +19,60 @@
 
 
       <!-- ******** Email ******** -->
-      {{validated-form-field
+      {{!-- {{validated-form-field
+        class="u-m2
+               o-flex-grid
+               o-flex-grid--full"
+        inputClassNames="c-form-field__text-input c-material-text-input"
         model=newUserPrivateInfoModel
         valuePath="email"
         label="Email"
-        fieldType="text"
+        fieldType="email"
         placeholder="youremail@example.com"
-        class="c-ripple-form-field
-               u-m2
-               o-flex-grid
-               o-flex-grid--full"
+      }} --}}
+      {{material-validated-form-field
+        class="u-m2"
+        materialInputClassNames="u-fill-width"
+        model=newUserPrivateInfoModel
+        valuePath="email"
+        label="Email"
+        fieldType="email"
+        placeholder="youremail@example.com"
       }}
 
       <!-- ******** Username ******** -->
       {{validated-form-field
+        class="u-m2"
+        inputClassNames="c-form-field__text-input c-material-text-input"
         model=newUserModel
         valuePath="username"
         label="Username"
         fieldType="text"
         placeholder="Enter your username"
-        class="c-ripple-form-field
-               u-m2
-               o-flex-grid
-               o-flex-grid--full"
       }}
 
 
       <!-- ******** Password ******** -->
       {{validated-form-field
+        class="u-m2"
+        inputClassNames="c-form-field__text-input c-material-text-input"
         model=newUserModel
         valuePath="password"
         label="Password"
         fieldType="password"
         placeholder="Create your password"
-        class="c-ripple-form-field
-               u-m2
-               o-flex-grid
-               o-flex-grid--full"
       }}
 
 
       <!-- ******** Confirm Password ******** -->
       {{validated-form-field
+        class="u-m2"
+        inputClassNames="c-form-field__text-input"
         model=newUserModel
         valuePath="passwordConfirmation"
         label="Confirm Password"
         fieldType="password"
         placeholder="Re-enter your password"
-        class="c-ripple-form-field
-               u-m2
-               o-flex-grid
-               o-flex-grid--full"
       }}
 
     </section>

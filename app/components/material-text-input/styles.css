@@ -1,0 +1,35 @@
+.c-material-text-input {
+
+  --left-offset__label: calc(var(--side-padding__text-input) / 2);
+
+  &__label {
+    top: 0;
+    left: 0;
+    transform: translate3d(var(--left-offset__label), 50%, 0);
+    transition-property: transform color;
+    transition-duration: var(--anim-duration__shift-element);
+    transition-timing-function: var(--easing__ease-out-sine);
+  }
+
+  &__input {
+    color: var(--theme-color__nearBlack--700);
+    padding: var(--padding__text-input);
+    border-color: var(--grayscale__black-on-light--divider);
+  }
+
+
+  /* --------------------------- Animating focus/active states ---------- */
+  .c-material-text-input__input:focus + .c-material-text-input__label,
+  .c-material-text-input__input:active + .c-material-text-input__label {
+    transform: translate3d(calc(-1 * var(--left-offset__label)), -100%, 0);
+    transition-timing-function: var(--easing__ease-in-quad);
+    color: var(--theme-color__primary-2--500);
+  }
+
+  .c-material-text-input__input:focus,
+  .c-material-text-input__input:active {
+    outline: 0;
+    border-bottom: 0.2em solid var(--theme-color__primary-2--500);
+  }
+
+}

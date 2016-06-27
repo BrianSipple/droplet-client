@@ -50,15 +50,14 @@ export default BaseAuthorizer.extend({
     this.authorizationPrefix = this.authorizationPrefix || AUTHORIZATION_PREFIX;
   },
 
-
   /**
   * Authorizes an XHR request by sending the `token`
   * properties from the session in the `Authorization` header:
   */
   authorize (data = {}, block = noOp) {
-    const token = data[get(this, 'tokenPropertyName')];
-    const oneTimeToken = data[get(this, 'oneTimeTokenPropertyName')];
-    const authorizationPrefix = get(this, 'authorizationPrefix') || '';
+    const token = data[this.get('tokenPropertyName')];
+    const oneTimeToken = data[this.get('oneTimeTokenPropertyName')];
+    const authorizationPrefix = this.get('authorizationPrefix') || '';
 
     const isAuthorized = ( this.get('SessionService.isAuthenticated') && !isEmpty(token) ) || oneTimeToken;
 

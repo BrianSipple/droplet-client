@@ -1,0 +1,14 @@
+{{component materialInputComponentName
+  inputClassNames=materialInputClassNames
+  fieldId=fieldId
+  value=value
+  label=label
+  placeholder=placeholder
+  errors=errors
+}}
+
+{{#if message}}
+  <span class="c-material-validated-form-field__message g-status--error u-block">
+    {{v-get model valuePath message}}
+  </span>
+{{/if}}

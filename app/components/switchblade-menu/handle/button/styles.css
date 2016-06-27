@@ -1,6 +1,6 @@
 .c-switchblade-menu-handle-button {
 
-  &.c-switchblade-menu-handle-button--main-menu {
+  &--main-menu {
     background-color: var(--theme-color__secondary-1--900);
     color: var(--theme-color__secondary-2--900);
 
@@ -9,13 +9,17 @@
     }
   }
 
-  &.c-switchblade-menu-handle-button--auxiliary {
+  &--auxiliary {
     background-color: var(--theme-color__secondary-1--300);
     color: var(--theme-color__secondary-2--300);
 
     &.is-active {
       background-color: var(--theme-color__secondary-1--700);
     }
+  }
+
+  &__label {
+    /*transform: translateY(-50%);*/
   }
 
 

@@ -3,11 +3,8 @@ import uuid from 'ember-simple-uuid';
 
 const {
   Component,
-  computed,
-  set,
+  computed
 } = Ember;
-
-const { alias } = computed;
 
 /**
  * Form field that generates a unique id for its field
@@ -15,7 +12,7 @@ const { alias } = computed;
 export default Component.extend({
 
   tagName: 'p',
-  classNames: ['c-form__field-block'],
+  classNames: ['c-form-field'],
 
   for: null,
 

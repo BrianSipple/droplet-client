@@ -27,6 +27,14 @@
     */
    --anim-duration__slide-element: 0.5s;
 
+  /**
+   * shifting an element within its container
+   * This is a swifter motion than sliding across
+   * the overarching view
+   */
+   --anim-duration__shift-element: 0.2s;
+
+
    /**
     * https://www.youtube.com/watch?v=fULNUr0rvEc
     */

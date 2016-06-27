@@ -67,8 +67,8 @@ export default BaseAuthenticator.extend({
     this.identificationField = IDENTIFICATION_FIELD;
     this.passwordField = PASSWORD_FIELD;
     this.tokenPropertyName = TOKEN_PROPERTY_NAME;
-    this.serverTokenEndpoint = `${dropletAPI.URL_PREFIX}/${dropletAPI.BASE_URL}/authenticate`;
-    // this.serverTokenRevocationEndpoint: `${dropletAPI.URL_PREFIX}/${dropletAPI.BASE_URL}/authenticate/revoke`
+    this.serverTokenEndpoint = `${dropletAPI.HOST}/${dropletAPI.NAMESPACE}/authenticate`;
+    // this.serverTokenRevocationEndpoint: `${dropletAPI.HOST}/${dropletAPI.NAMESPACE}/authenticate/revoke`
   },
 
   /**
@@ -134,7 +134,7 @@ export default BaseAuthenticator.extend({
   */
   async authenticate (credentials, scope) {
 
-    log(`Authenticating with credentials: ${JSON.stringify(credentials)}
+    log(`authenticator::oauth2 -- Authenticating with credentials: ${JSON.stringify(credentials)}
     Optional scope: ${scope}`);
 
     const requestData = this.getAuthenticateData(credentials);

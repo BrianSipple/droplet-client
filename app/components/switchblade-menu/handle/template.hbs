@@ -27,7 +27,6 @@
         title=menuItem.title
         isActive=menuItem.isActive
         onPressed=(action 'mainMenuItemSelected' index menuItem)
-        tabindex="1"
         data-test-selector="c-switchblade-menu-handle__menu-button"
       }}
     {{/each}}
@@ -46,7 +45,6 @@
         title=tabItem.title
         type="auxiliary"
         onPressed=(action 'auxiliaryTabItemSelected' index tabItem.routeName)
-        tabindex="1"
         data-test-selector="c-switchblade-menu-handle__auxiliary-tab-button"
       }}
     {{/each}}
@@ -60,7 +58,6 @@
       class="c-switchblade-menu-handle__user-settings-button u-mt-auto"
       type="auxiliary"
       onPressed=(action 'userSettingsWidgetSelected')
-      tabindex="1"
     }}
       <img src={{currentUser.avatarURL}} alt="Settings" class="u-absolute u-transform-center g-border-circle u-width-90 u-height-90">
     {{/switchblade-menu/handle/button}}
@@ -72,7 +69,6 @@
       iconURL=flyoutToggleButtonIconPath
       title=flyoutToggleButtonLabel
       onPressed=(route-action 'toggleSidenavFlyout')
-      tabindex="1"
       type="auxiliary"
     }}
 

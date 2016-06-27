@@ -5,7 +5,7 @@ const PASSWORD_PATTERN = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,14}$/;
 const messages = {
   passwordPattern: `{description} must include at least one number,
   one lowercase letter, and one uppercase letter`
-}
+};
 
 export default buildValidations({
   username: {
@@ -41,13 +41,14 @@ export default buildValidations({
       validator('confirmation', {
         on: 'password',
         message: '{description} do not match',
-        descriptions: 'Passwords',
-      }),
+        descriptions: 'Passwords'
+      })
     ]
   },
 
   userPrivateInfo: {
     validators: [
+      validator('presence', true),
       validator('belongs-to')
     ]
   }

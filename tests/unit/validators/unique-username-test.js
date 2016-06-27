@@ -8,18 +8,18 @@ const User = EmberObject.extend({
 });
 
 const StoreStub = EmberObject.extend({
-  query: function (){}
+  query: function() {}
 });
 
 
-let validator, storeStub, model, validation, message;
+let validator, storeStub, validation, message;
 
 moduleFor('validator:unique-username', 'Unit | Validator | unique-username', {
   needs: [
     'validator:messages',
   ],
 
-  beforeEach () {
+  beforeEach() {
     storeStub = StoreStub.create({ query: () => Promise.resolve(User.create()) });
     validator = this.subject({ store: storeStub });
   }

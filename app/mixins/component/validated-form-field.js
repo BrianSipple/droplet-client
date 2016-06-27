@@ -12,6 +12,7 @@ const {
 
 
 export default Mixin.create({
+  classNameBindings: ['showErrorClass:has-error', 'isValid'],
 
   model: null,
   value: null,
@@ -38,6 +39,8 @@ export default Mixin.create({
 
   showMessage: computed('validation.isDirty', 'isInvalid', 'didValidate', function shouldShowMessage() {
     return (this.get('validation.isDirty') || this.get('didValidate')) && this.get('isInvalid');
-  })
+  }),
+
+  errors: oneWay('validation.errors.[]')  // TODO: Confirm this works
 
 });

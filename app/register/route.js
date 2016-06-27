@@ -9,6 +9,7 @@ const {
   computed: { or, not, notEmpty },
   set,
   assign,
+  Logger: { log },
   Object: EmberObject,
 } = Ember;
 
@@ -24,17 +25,13 @@ export default Route.extend(UnauthenticatedRouteMixin, {
 
   SessionService: service('session'),
 
-
   registerUser: task(function *registerUser (formValues) {
     const { user } = this.currentModel;
     const SessionService = this.get('SessionService');
 
     try {
-      debugger;
-      user.validate().then(( {model, validations }) => {
-        debugger;
+      yield user.validate().then(( {model, validations } ) => {
         if (validations.get('isValid')) {
-          // this.currentModel.setProperties({'isRegistered': true});
           this.currentModel.set('isRegistered', true);
 
         } else {
@@ -45,15 +42,16 @@ export default Route.extend(UnauthenticatedRouteMixin, {
       yield user.save();
 
       if (user.get('validations.isValid')) {
-        const credentials = {
-          identification: user.get('username'),
-          password: user.get('password'),
-        };
+        const { username: identification, password } = user.getProperties('username', 'password');
+        const credentials = { identification, password };
+
+        log(`User registration successful`);
 
         yield SessionService
           .authenticate('authenticator:oauth2', credentials)
           .catch(reason => set(user, 'errors.registration', reason.error || reason))
           .then(() => {
+            log(`User authentication successful`);
             this.transitionTo(AuthConfig.routeAfterAuthentication);
           });
 

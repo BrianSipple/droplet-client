@@ -1,13 +1,13 @@
 'use strict';
 
 module.exports = {
-  "env": {
-    "embertest": true
+  env: {
+    embertest: true
   },
 
   // overrides of our primary ESLint settings that are specifically targeted to
   // the Ember-CLI testing environment.
-  "rules": {
+  rules: {
     "arrow-spacing": 0,
     "comma-dangle": 0,
     "func-names": 0,
@@ -24,7 +24,6 @@ module.exports = {
     "object-curly-spacing": [2, "always"],
     "prefer-arrow-callback": 0,
     "prefer-reflect": 0,
-    "space-before-function-paren": [0, { "anonymous": "always", "named": "always" }],
-
+    "space-before-function-paren": [0, { "anonymous": "always", "named": "always" }]
   }
 };

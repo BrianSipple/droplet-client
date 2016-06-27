@@ -1,6 +1,6 @@
 :root {
 
-  /* TODO: Separate files */
+  /* TODO: Separate filez */
 
   /* ------------Button ------------ */
   --border-radius__button: 0.25rem;
@@ -39,6 +39,10 @@
 
   /* ------------- Text Input -------- */
   --line-height__text-input: 2.5;
-  --padding__text-input: var(--padding__content);
-  --height__text-input: 3.5rem;  
+
+  --vert-padding__text-input: 0.75em;
+  --side-padding__text-input: calc( (1em * var(--line-height__text-input)) / 2 );
+  --padding__text-input: var(--vert-padding__text-input) var(--side-padding__text-input);
+  
+  --height__text-input: 3.5rem; /* TODO: Deprecate and use font-size + padding? */
 }

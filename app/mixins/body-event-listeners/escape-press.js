@@ -36,7 +36,7 @@ export default Mixin.create({
     this._handleEscapePress = function handleEscapePress (event) {
       const onEscapePressed = this.get('onEscapePressed');
 
-      if (typeof this.onEscapePressed === 'function') {
+      if (typeof onEscapePressed === 'function') {
         const keyCode = event.keyCode || event.which || '';
 
         if (keyCode == 27) {

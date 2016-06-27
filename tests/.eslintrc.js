@@ -1,5 +1,6 @@
-'use strict'
-
 module.exports = {
-  "extends": "../config/eslint/eslint-tests.js"
+  extends: [
+    '../node_modules/ember-cli-eslint/coding-standard/ember-testing.js',
+    '../config/eslint/eslint-tests.js'
+  ]
 };

@@ -9,10 +9,9 @@ const {
 
 
 // TODO: Make this a "core button" mixin
-export default Component.extend(TabbableMixin, AriaAttributesMixin, {
+export default Component.extend(TabbableMixin, {
 
   tagName: 'button',
-  ariaRole: 'button',
 
   classNames: ['c-button'],
   classNameBindings: ['highlightOnHoverClass', 'buttonTypeClassName'],

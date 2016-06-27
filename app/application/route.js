@@ -46,7 +46,6 @@ export default Route.extend(ApplicationRouteMixin, {
   // and wireup session-event handlers in the session-events instance initializer
   async sessionAuthenticated () {
     try {
-      debugger;
       const { userId } = this.get('SessionService.data.authenticated');
       const user = await this.get('UserService').getUserForAuthenticatedSession(userId);
 

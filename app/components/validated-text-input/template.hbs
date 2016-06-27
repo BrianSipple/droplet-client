@@ -1,0 +1,44 @@
+<input
+  class={{_inputClassNames}}
+  id={{fieldId}}
+  type="text"
+  value={{value}}
+  placeholder={{placeholder}}
+  onkeyup={{action (mut value) value='target.value'}}
+  data-test-selector={{testSelector}}>
+
+<label
+  for={{fieldId}}
+  class={{_labelClassNames}}
+  data-error={{_errorMessages}}>
+  {{label}}{{yield}}
+</label>
+
+{{!-- NOTE: The commented-out version below is a cool way to say "Don't
+            attempt to validate unless the input actually has a value"
+            However, we can use even better logic
+            with our ValidatedFormFieldMixin
+<input
+  class={{concat
+    _inputClassNames
+    " "
+    (if value
+      (concat "validate "
+        (if errors.length "invalid" "valid")
+      )
+    )
+  }}
+  id={{fieldId}}
+  type="text"
+  value={{value}}
+  placeholder={{placeholder}}
+  onkeyup={{action (mut value) value='target.value'}}
+  data-test-selector={{testSelector}}>
+
+<label
+  for={{fieldId}}
+  class={{_labelClassNames}}
+  data-error={{_errorMessages}}>
+  {{label}}
+</label>
+--}}

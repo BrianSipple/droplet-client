@@ -18,8 +18,8 @@ const { APP: { apis: { droplet: dropletAPI } } } = ENV;
 
 export default JSONAPIAdapter.extend({
 
-  host: dropletAPI.URL_PREFIX,
-  namespace: dropletAPI.BASE_URL,
+  host: dropletAPI.HOST,
+  namespace: dropletAPI.NAMESPACE,
 
   /**
    * Allow ember data to send requests for multiple items at once

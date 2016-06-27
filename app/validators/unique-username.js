@@ -11,7 +11,7 @@ export default BaseValidator.extend({
 
   store: service(),
 
-  validate(value /* options, model, attribute*/) {
+  validate(value /* , options, model, attribute */) {
     if (isBlank(value)) {
       return true;
     }

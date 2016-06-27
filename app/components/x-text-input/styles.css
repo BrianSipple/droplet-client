@@ -1,0 +1,7 @@
+.c-text-input {
+
+  &__input {
+    padding: var(--padding__text-input);
+    border-color: var(--grayscale__black-on-light--divider);    
+  }
+}
