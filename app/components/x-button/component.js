@@ -1,31 +1,32 @@
 import Ember from 'ember';
-import TabbableMixin from 'droplet/mixins/component/tabbable';
-import AriaAttributesMixin from 'droplet/mixins/component/aria-attributes';
 
-const {
-  Component,
-  computed,
-} = Ember;
+const { Component, computed } = Ember;
 
 
-// TODO: Make this a "core button" mixin
-export default Component.extend(TabbableMixin, {
-
+export default Component.extend({
+  attributeBindings: ['disabled', 'type'],
   tagName: 'button',
+  classNameBindings: ['cornerStyleClass', 'disabled::u-pointer'],
 
-  classNames: ['c-button'],
-  classNameBindings: ['highlightOnHoverClass', 'buttonTypeClassName'],
+  classNames: [
+    'c-button',
+    'o-flex-grid',
+    'o-flex-grid--full',
+    'o-flex-grid--center',
+    'u-relative'
+  ],
 
-  // API
-  highlightOnHover: null,
   title: null,
+  disabled: false,
+  size: null,
+  cornerStyle: 'rounded',
 
-
-  // TODO: Make a hoverButton component?
-  highlightOnHoverClass: computed('highlightOnHover', function highlightOnHoverClass() {
-    return this.get('highlightOnHover') ? 'c-button--hover-highlight' : '';
-  }),
-
-
-
+  cornerStyleClass: computed('cornerStyle', {
+    get() {
+      return {
+        rounded: 'c-button--rounded',
+        flat: 'c-button--flat'
+      }[(this.get('cornerStyle') || '').toLowerCase()];
+    }
+  })
 });

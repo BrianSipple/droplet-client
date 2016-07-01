@@ -16,7 +16,7 @@ let validator, storeStub, validation, message;
 
 moduleFor('validator:unique-username', 'Unit | Validator | unique-username', {
   needs: [
-    'validator:messages',
+    'validator:messages'
   ],
 
   beforeEach() {

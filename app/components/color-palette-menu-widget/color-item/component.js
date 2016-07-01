@@ -8,11 +8,9 @@ const {
   K
 } = Ember;
 
-const { bool } = computed;
-
 
 export default Component.extend(TabbableMixin, {
-  
+
   attributeBindings: ['style'],
 
   classNameBindings: ['isActive:is-active'],
@@ -48,6 +46,6 @@ export default Component.extend(TabbableMixin, {
     this._super(...arguments);
 
     this.onkeydown = (typeof this.onkeydown === 'function') ? this.onkeydown : K;
-  },
+  }
 
 });

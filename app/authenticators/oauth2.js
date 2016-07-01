@@ -12,7 +12,7 @@ const {
   $: { ajax },
   isEmpty,
   computed,
-  Object: EmberObject,
+  Object: EmberObject
 } = Ember;
 
 
@@ -48,7 +48,7 @@ export default BaseAuthenticator.extend({
     const { username } = this.get('currentUser');
 
     if (!isEmpty(username)) {
-      return { Username : username };
+      return { Username: username };
     }
   }),
 

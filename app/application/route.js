@@ -113,19 +113,20 @@ export default Route.extend(ApplicationRouteMixin, {
   * ---------- HELPER FUNCTIONS ----------
   */
   _setNavbarOptionsOnRouteActivate () {
-    const navbarComponentNames = this.get('NavbarService.navItemComponentNames');
-
-    this.get('NavbarService').set('visibleItemComponentNames', [
-      // WIP
-      // navbarComponentNames.searchWidget,
-      // navbarComponentNames.loginButton,
-      // navbarComponentNames.searchWidget,
-    ]);
+    ////////// WIP ///////////
+    // const navbarComponentNames = this.get('NavbarService.navItemComponentNames');
+    //
+    // this.get('NavbarService').set('visibleItemComponentNames', [
+    //
+    //   navbarComponentNames.searchWidget,
+    //   navbarComponentNames.loginButton,
+    //   navbarComponentNames.searchWidget
+    // ]);
   },
 
 
   _onInvalidateSessionError (/* error */) {
     // this.get('notifications').showAlert(error.message, { type: 'error', key: 'session.invalidate.failed' });
-  },
+  }
 
 });

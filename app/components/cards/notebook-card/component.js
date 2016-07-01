@@ -5,11 +5,11 @@ const { Component, K } = Ember;
 
 
 export default Component.extend(SavvyBoxShadowClassMixin, {
-
   classNames: ['c-notebook-card', 'o-content'],
 
   notebook: null,
   onDoubleClick: null,
+
 
   init () {
     this._super(...arguments);
@@ -18,8 +18,8 @@ export default Component.extend(SavvyBoxShadowClassMixin, {
   },
 
 
-  doubleClick(ev) {
+  doubleClick(/* ev */) {
     this.get('onDoubleClick')();
-  },
+  }
 
 });

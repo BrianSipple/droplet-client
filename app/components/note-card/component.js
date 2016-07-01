@@ -27,7 +27,7 @@ export default Component.extend({
     'u-pt1',
     'u-pr2',
     'u-pb1',
-    'u-pl2',
+    'u-pl2'
   ],
 
   onThemeColorSelected: null,

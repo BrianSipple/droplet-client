@@ -8,8 +8,7 @@ import AuthConstants from 'droplet/utils/constants/auth';
 const {
   inject: { service },
   isEmpty,
-  K: noOp,
-  get,
+  K: noOp
 } = Ember;
 
 
@@ -59,7 +58,7 @@ export default BaseAuthorizer.extend({
     const oneTimeToken = data[this.get('oneTimeTokenPropertyName')];
     const authorizationPrefix = this.get('authorizationPrefix') || '';
 
-    const isAuthorized = ( this.get('SessionService.isAuthenticated') && !isEmpty(token) ) || oneTimeToken;
+    const isAuthorized = (this.get('SessionService.isAuthenticated') && !isEmpty(token)) || oneTimeToken;
 
     if (isAuthorized) {
       const tokenToUse = oneTimeToken || token;
