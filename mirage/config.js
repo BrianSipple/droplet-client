@@ -4,7 +4,7 @@ import authenticateHandler from './handlers/authenticate';
 import notebooksHandler from './handlers/notebooks';
 import notesHandler from './handlers/notes';
 
-const { APP: { apis: { droplet: { HOST } } } } = ENV;
+const { APP: { apis: { droplet: { HOST, NAMESPACE } } } } = ENV;
 const { post: handleAuthenticatePost } = authenticateHandler;
 const { get: handleNotebooksGet } = notebooksHandler;
 const { get: handleNotesGet } = notesHandler;
@@ -19,8 +19,10 @@ export default function() {
 
     Note: these only affect routes defined *after* them!
   */
+  this.passthrough('assets/**');
+
   this.urlPrefix = HOST; // make this `http://localhost:8080`, for example, if your API is on a different server
-  this.namespace = `api/v1`;    // make this `api`, for example, if your API is namespaced
+  this.namespace = `/${NAMESPACE}`;    // make this `/api`, for example, if your API is namespaced
   this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
   /*
@@ -42,7 +44,6 @@ export default function() {
       return schema.post.all();
     });
   */
-
 
   this.get('/users', ({ users }, { queryParams }) => {
     if (!isEmpty(queryParams)) {

@@ -1,10 +1,10 @@
 'use strict';
 
-const SERVER_PORT = 4500;  // TODO: Store this in a better place
+const PHOENIX_SERVER_PORT = 4500;  // TODO: Store this in a better place
 
 
 module.exports = function(environment) {
-
+  const PORT = process.env.PORT || PHOENIX_SERVER_PORT;
   const isProductionLikeBuild = ['production', 'staging'].indexOf(environment) > -1;
 
   const ENV = {
@@ -22,12 +22,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      SERVER_PORT,
 
       // TODO: Refactor this structure to something a bit more intuitive
       apis: {
         droplet: {
-          HOST: `http://localhost:${SERVER_PORT}`,
+          HOST: `http://localhost:${PORT}`,
           NAMESPACE: 'api/v1'
         }
       }
