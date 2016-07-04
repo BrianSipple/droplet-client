@@ -2,12 +2,12 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const buildOptions = require('./build/build-options');
-const mergeTrees = require('broccoli-merge-trees');
+const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 
 /**
  * Place service-worker files at the root of the application files.
- * This is critical --  a service worker must exist at the root of the
+ * THIS IS CRITICAL --  a service worker must exist at the root of the
  * scope that we intend it to control, or higher.
  */
 const serviceWorkerAppFiles = new Funnel('service-workers', {
@@ -16,7 +16,7 @@ const serviceWorkerAppFiles = new Funnel('service-workers', {
   include: ['**/*.js']
 });
 
-const serviceWorkerToolbox = new Funnel('bower-components/sw-toolbox', {
+const serviceWorkerToolbox = new Funnel('bower_components/sw-toolbox', {
   srcDir: '/',
   destDir: '/',
   include: ['sw-toolbox.js']

@@ -24,14 +24,14 @@ const cssNext = require('postcss-cssnext');
 const cssReporter = require('postcss-reporter');
 const cssNested = require('postcss-nested');
 
-const mergeTrees = require('broccoli-merge-trees');
+const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 
 const MATCH_CSS = new RegExp('.*\\.css$');
 
 // Round up our styles throughout the app and avail them to the "@import"
 // mechanism that can be used in app/styles/app.css
-const appCSS = mergeTrees([
+const appCSS = new MergeTrees([
 
   // common component styles
   new Funnel('app/components', {

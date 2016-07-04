@@ -2,7 +2,7 @@ export function initialize(/* application */) {
   // application.inject('route', 'foo', 'service:foo');
   if ('serviceWorker' in navigator) {
     debugger;
-    navigator.serviceWorker.register('/service-workers/sw.js')
+    navigator.serviceWorker.register('/sw.js')
       .then(() => {
         debugger;
         console.info('`initializer:service-worker`, Service Workers Registered!');

@@ -22,8 +22,8 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
-    "broccoli-funnel": "^1.0.1",
-    "broccoli-merge-trees": "^1.1.1",
+    "broccoli-funnel": "1.0.2",
+    "broccoli-merge-trees": "1.1.1",
     "chalk": "1.1.1",
     "css-mqpacker": "^4.0.0",
     "csswring": "^4.2.1",
