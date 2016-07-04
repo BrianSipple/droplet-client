@@ -93,6 +93,7 @@ export default Component.extend({
 
   handleNewInput: task(function *handleNewInputTask(newInput) {
     yield timeout(800);
+
     yield this.get('on-input')(newInput);
 
     this.set('inputValue', newInput);

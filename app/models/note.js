@@ -5,7 +5,7 @@ import attr from 'ember-data/attr';
 import { hasMany, belongsTo } from 'ember-data/relationships';
 import NoteValidations from 'droplet/validations/note';
 
-const { computed: { alias, map } } = Ember;
+const { computed: { alias } } = Ember;
 
 
 export default Model.extend(NoteValidations, {
@@ -21,18 +21,18 @@ export default Model.extend(NoteValidations, {
   /* ----- Relationship Attributes ----- */
   collaborators: hasMany('user', {
     inverse: null,
-    defaultValue: () => [],
+    defaultValue: () => []
   }),
 
   notebook: belongsTo('notebook'),
   tags: hasMany('tag', { defaultValue: () => [] }),
 
   activeThemeColor: belongsTo('theme-color', {
-    inverse: null,
+    inverse: null
   }),
 
   /* ----- Computed Attributes ----- */
   owner: alias('notebook.owner'),
-  collaboratorCount: alias('collaborators.length'),
+  collaboratorCount: alias('collaborators.length')
 
 });

@@ -5,6 +5,7 @@
   }
 
   &__route-tab.is-active::after {
-    opacity: 0.2;
+    opacity: 0.5;
   }
+
 }

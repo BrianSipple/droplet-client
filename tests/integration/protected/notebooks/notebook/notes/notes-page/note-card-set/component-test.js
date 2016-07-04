@@ -3,7 +3,7 @@ import Ember from 'ember';
 import { moduleForComponent } from 'ember-qunit';
 import test from 'droplet/tests/ember-sinon-qunit/test';
 import hbs from 'htmlbars-inline-precompile';
-import getNode from 'droplet/tests/helpers/integration/get-node';
+// import getNode from 'droplet/tests/helpers/integration/get-node';
 import moment from 'moment';
 import startMirage from 'droplet/tests/helpers/start-mirage';
 
@@ -17,10 +17,10 @@ const DataDown = EmberObject.extend({
 });
 
 function createNotebookModel() {
-  const notebook = server.create('notebook', { title: 'Seattle'});
+  const notebook = server.create('notebook', { title: 'Seattle' });
   const notes = [
-    server.create('note', { title: 'A', lastUpdatedAt: moment, createdAt: moment, notebook, }),
-    server.create('note', { title: 'B', lastUpdatedAt: moment, createdAt: moment, notebook, }),
+    server.create('note', { title: 'A', lastUpdatedAt: moment, createdAt: moment, notebook }),
+    server.create('note', { title: 'B', lastUpdatedAt: moment, createdAt: moment, notebook }),
   ];
 
   notebook.notes = notes;
@@ -35,12 +35,10 @@ function setUpData () {
     notebook: notebook,
     notes: server.db.notes,
     currentNoteSortOption: notebook.currentNoteSortOption,
-    currentNoteSortProperties: notebook.currentNoteSortProperties,
+    currentNoteSortProperties: notebook.currentNoteSortProperties
   });
 }
 
-
-let expected, actual, dataDown;
 
 moduleForComponent('protected/notebooks/notebook/notes/notes-page/note-card-set', 'Integration | Component | protected/notebooks/notebook/notes/notes-page/note card set', {
   integration: true,
@@ -57,16 +55,13 @@ moduleForComponent('protected/notebooks/notebook/notes/notes-page/note-card-set'
   }
 });
 
-test('rendering a toolbar for... tooling with notes and a body section for the notes list content', function(assert) {
-  dataDown = setUpData();
-});
+// test('rendering a toolbar for... tooling with notes and a body section for the notes list content', function(assert) {
+//   dataDown = setUpData();
+// });
 
 test('sorting notes accoring to the passed-in `currentNoteSortProperties`', function(assert) {
 
   dataDown = setUpData();
-
-  // TODO: Delete this after making sure sinon is working proerly
-  assert.equal(this.myName, 'Brian');
 
   this.set('dataDown', dataDown);
   this.render(hbs`{{protected/notebooks/notebook/notes/notes-page/note-card-set
@@ -76,6 +71,7 @@ test('sorting notes accoring to the passed-in `currentNoteSortProperties`', func
     currentNoteSortProperties=dataDown.currentNoteSortProperties
     notebook=dataDown.notebook
   }}`);
+
   const component = this.subject({
     notes: dataDown.get('notes'),
     noteSortOptions: dataDown.get('noteSortOptions'),
@@ -84,13 +80,6 @@ test('sorting notes accoring to the passed-in `currentNoteSortProperties`', func
     notebook: dataDown.get('notebook'),
   });
 
+  assert.ok(component); // TODO: Legitimate testing
 
 });
-
-
-
-
-// test('rendering an empty message when the component has no `sortedNotes`', function (assert) {
-//
-//
-// });

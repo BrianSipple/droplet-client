@@ -92,24 +92,25 @@ export default Component.extend({
   }),
 
 
-  tabJustificationClassName: computed('justifyItems', function () {
-    if (this.get('justifyItems')) {
-      const justification = this.get('justifyItems').toLowerCase();
+  tabJustificationClassName: computed('justifyItems', {
+    get() {
+      if (this.get('justifyItems')) {
+        const justification = this.get('justifyItems').toLowerCase();
 
-      if (~['flexstart', 'flex-start', 'start', 'left'].indexOf(justification)) {
-        return 'justify-left';
+        if (~['flexstart', 'flex-start', 'start', 'left'].indexOf(justification)) {
+          return 'justify-left';
+        }
+        if (~['middle', 'center'].indexOf(justification)) {
+          return 'justify-center';
+        }
+        if (~['flexend', 'flex-end', 'end', 'right'].indexOf(justification)) {
+          return 'justify-right';
+        }
       }
-      if (~['middle', 'center'].indexOf(justification)) {
-        return 'justify-center';
-      }
-      if (~['flexend', 'flex-end', 'end', 'right'].indexOf(justification)) {
-        return 'justify-right';
-      }
+
+      return 'justify-center';
     }
-
-    return 'justify-center';
   }),
-
 
   tabComponentClassNames: computed('tabAppearanceClassName', function tabComponentClassNames() {
     return `c-content-filter-toolbar__tabs ${this.get('tabAppearanceClassName')}`;
@@ -119,8 +120,7 @@ export default Component.extend({
     return this.get('filters').filter(filterItem => filterItem.isActive)[0];
   }),
 
-
-  tabDataItems: map('filters', function mapTabDataItems(item /*, idx */) {
+  tabDataItems: map('filters', function mapTabDataItems(item /* , idx */) {
 
     const title = get(item, 'title');
     const isActive = !!get(item, 'isActive');
@@ -132,13 +132,12 @@ export default Component.extend({
 
 
   actions: {
-
     /* The component itsef takes care of animating the indicator. Here, we just broadcast the index selected */
     filterSelected (index) {
       if (typeof this.attrs.onFilterSelected === 'function') {
         this.attrs.onFilterSelected(index);
       }
     }
-  },
+  }
 
 });

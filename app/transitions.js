@@ -10,14 +10,14 @@ export default function liquidFireTransitionMap() {
   const flashOutOptions = { duration: 2000 };
 
   this.transition(
-    this.hasClass('c-note-card__liquid-bind-flash-container'),
+    this.hasClass('js-note-card__liquid-bind-flash-container'),
     this.toValue(false),
     // this.use('flash'),
     this.use('flash', null, flashInOptions, flashOutOptions)
   );
 
   this.transition(
-    this.hasClass('c-note-card__liquid-revisions-number'),
+    this.hasClass('js-note-card__liquid-revisions-number'),
     this.use('bounceUpScale', 2.5)
   );
 }

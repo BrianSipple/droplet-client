@@ -1,4 +1,91 @@
-{{yield (hash
-  noteSearchResults=noteSearchResults
-  isFilteringNotesForSearch=isFilteringNotesForSearch)
+{{!-- {{yield (hash
+    noteSearchResults=noteSearchResults
+    isFilteringNotesForSearch=isFilteringNotesForSearch
+  )
+}} --}}
+
+{{x-select
+  class="o-grid-cell
+         o-grid-cell--auto
+         c-select-input
+         o-widget-box
+         o-menu
+         g-bg-theme-primary-1--300
+         g-theme-primary-1--900
+         g-border-none
+         u-pl1
+         u-pr2
+         u-ml2
+         u-mr2"
+  optionClassNames="c-select-input__option"
+  onSelectionChanged=(route-action 'noteSortingDidChange')
+  content=noteSortOptions
+  optionLabelKey='label'
+  optionValueKey='code'
+  selectedOption=currentNoteSortOption
+  data-test-selector="notebook-notes-page__note-order-select"
 }}
+
+{{#x-form
+  class="c-notes-page__add-note-form
+         u-mt3
+         u-mb3
+         u-ml-auto
+         u-mr-auto
+         g-border-s1
+         o-tap-target-sm"
+  onSubmit=(action (
+    pipe-action
+      (action (mut isNewNoteBeingPosted) value=true)
+      (action 'newNoteEntered' newNoteProps)
+      (action (mut isNewNoteBeingPosted) value=false)
+    )
+  )
+  data-test-selector="notebook-notes-page__new-note-form"
+}}
+
+  <section class="u-fill-height u-relative">
+    {{!-- TODO: Componentize an input with an inner button/icon  --}}
+    <p class="u-fill-height
+              u-nowrap">
+      <input
+        class="js-notebook-notes-page__add-note-input
+               u-fill-height
+               u-width-75
+               u-b-box
+               o-content
+               u-float-left"
+        type="text"
+        placeholder="Add A Note"
+        value={{newNoteProps.title}}
+        oninput={{action (mut newNoteProps.title) value="target.value"}}
+        data-test-selector="notebook-notes-page__new-note-title-input">
+
+      <button
+        class="c-button
+               u-fill-height
+               u-width-25
+               g-bg-theme-primary-1--700"
+        value="Submit"
+        type="submit"
+        disabled={{isAddNoteButtonDisabled}}>
+      </button>
+
+    </p>
+
+
+  </section>
+{{/x-form}}
+
+{{protected/notebooks/notebook/notes/notes-page/note-card-set-section
+  class="u-fill-width"
+  notes=sortedNotes
+}}
+
+{{!-- {{protected/notebooks/notebook/notes/notes-page/note-card-set-section
+  class="u-fill-width"
+  notes=notes
+  currentNoteSortOption=currentNoteSortOption
+  currentNoteSortProperties=currentNoteSortProperties
+  postNewNote=(route-action 'postNewNote')
+}} --}}

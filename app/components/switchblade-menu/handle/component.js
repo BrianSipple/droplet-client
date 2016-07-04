@@ -4,10 +4,8 @@ import AssetConstants from 'droplet/utils/constants/asset-paths';
 const {
   Component,
   computed,
-  run,
-  set,
   get,
-  K,
+  K
 } = Ember;
 
 
@@ -59,7 +57,7 @@ export default Component.extend({
 
     userSettingsWidgetSelected () {
 
-    },
-  },
+    }
+  }
 
 });

@@ -5,16 +5,24 @@ const {
   inject: { service },
 } = Ember;
 
+const ROUTE_NAMES = {
+  NOTES: 'protected.notebooks.notebook.notes',
+  ACTIVITY: 'protected.notebooks.notebook.activity'
+};
 
 export default Service.extend({
-
   store: service(),
 
+  activeRoute: ROUTE_NAMES.NOTES,
+
   noteSearchResults: null,
+
   navLinks: [
-    { routeName: 'protected.notebooks.notebook.notes', title: 'Notes' },
-    { routeName: 'protected.notebooks.notebook.activity', title: 'Activity' }
+    { routeName: ROUTE_NAMES.NOTES, title: 'Notes' },
+    { routeName: ROUTE_NAMES.ACTIVITY, title: 'Activity' }
   ],
+
+  // TODO: isFilteringNotesForSearch property?
 
 
   /**
@@ -28,4 +36,10 @@ export default Service.extend({
 
     return results;
   },
+
+  setActiveRoute(routeName) {
+    if (this.get('navLinks').any(link => link.routeName === routeName)) {
+      this.set('activeRoute', routeName);
+    }
+  }
 });

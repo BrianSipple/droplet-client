@@ -7,7 +7,7 @@ const {
   K,
 } = Ember;
 
-const { map, notEmpty, and, alias, or, not } = computed;
+const { map, notEmpty, and, alias, or } = computed;
 
 const SELECTORS = {
   colorPaletteToggleElem: '.js-color-pallete-select',
@@ -48,10 +48,12 @@ export default Component.extend({
 
   isBeingEdited: or('isCardTitleBeingEdited'),
 
-  style: computed('activeNoteThemeColor', function computedStyle () {
-    const backgroundHSLA = this.get('activeNoteThemeColor') || 'initial';
+  style: computed('activeNoteThemeColor', {
+    get() {
+      const backgroundHSLA = this.get('activeNoteThemeColor') || 'initial';
 
-    return `background-color: ${backgroundHSLA};`;
+      return `background-color: ${backgroundHSLA};`;
+    }
   }),
 
 
@@ -88,7 +90,7 @@ export default Component.extend({
       this.set('shouldShowColorPaletteWidget', true);
     },
 
-    toggleNoteColorPalette (note) {
+    toggleNoteColorPalette (/* note */) {
       this.toggleProperty('shouldShowColorPaletteWidget');
     },
 
@@ -110,5 +112,5 @@ export default Component.extend({
       note.set('title', newValue.trim());
       this.get('updateNoteData')(note);
     }
-  },
+  }
 });

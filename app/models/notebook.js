@@ -12,7 +12,6 @@ const { alias } = computed;
 
 const {
   queryParamCodes: { RECENTLY_UPDATED: RECENTLY_UPDATED_PARAM_CODE },
-  properties: noteSortProperties,
   options: noteSortOptions
 } = noteSortingConstants;
 

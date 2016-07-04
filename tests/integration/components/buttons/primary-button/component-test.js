@@ -5,7 +5,7 @@ import getNode from 'droplet/tests/helpers/integration/get-node';
 let actual, expected;
 
 
-moduleForComponent('icon-button', 'Integration | Component | icon button', {
+moduleForComponent('buttons/primary-button', 'Integration | Component | buttons/primary button', {
   integration: true
 });
 
@@ -13,7 +13,7 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{icon-button}}`);
+  this.render(hbs`{{buttons/primary-button}}`);
 
   expected = '';
   actual = getNode(this).textContent.trim();
@@ -21,9 +21,9 @@ test('it renders', function(assert) {
 
   // Template block usage:
   this.render(hbs`
-    {{#icon-button}}
+    {{#buttons/primary-button}}
       template block text
-    {{/icon-button}}
+    {{/buttons/primary-button}}
   `);
 
   expected = 'template block text';

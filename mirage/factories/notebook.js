@@ -2,7 +2,11 @@ import { Factory, faker } from 'ember-cli-mirage';
 import moment from 'moment';
 import noteSortingConstants from 'droplet/utils/constants/note-sorting';
 
-const { queryParamCodes: noteSortQueryParamCodes, options: noteSortOptions, properties: noteSortProperties } = noteSortingConstants;
+const {
+  queryParamCodes: noteSortQueryParamCodes,
+  options: noteSortOptions,
+  properties: noteSortProperties
+} = noteSortingConstants;
 
 const notebookTitles = [
   'VR Designs',
@@ -15,8 +19,6 @@ const notebookTitles = [
   'Reminders',
   'Git',
 ];
-
-const { random, floor } = Math;
 
 
 export default Factory.extend({
@@ -40,5 +42,8 @@ export default Factory.extend({
     return noteSortProperties.RECENTLY_UPDATED.split(',');
   },
 
+  afterCreate(notebook, server) {
+    server.createList('note', 5, { notebook });
+  }
 
 });

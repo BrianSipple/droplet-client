@@ -1,15 +1,9 @@
 import Ember from 'ember';
+import FormMixin from 'droplet/mixins/component/form';
 
 const { Component } = Ember;
 
 
-export default Component.extend({
-
-  tagName: 'form',
-  classNames: ['u-m0', 'u-overflow-hide', 'u-b-box', 'o-content'],
-  attributeBindings: ['autocomplete', 'novalidate', 'method'],
-
-  autocomplete: 'on',
-  novalidate: 'novalidate',
-  method: 'post'
+export default Component.extend(FormMixin, {
+  classNames: ['c-form']
 });

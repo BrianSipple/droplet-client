@@ -3,5 +3,7 @@
  * own full-on Ember components associated with them
  */
 
+ @import './_navbar.css';
+
  @import './buttons/buttons.css';
  @import './forms/forms.css';

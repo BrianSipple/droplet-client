@@ -1,13 +1,12 @@
 import Ember from 'ember';
 import { Model } from 'ember-cli-mirage';
 
-const { computed } = Ember;
+const { computed, getProperties } = Ember;
 
 
 export default Model.extend({
 
   HSLAString: computed('hue', 'saturation', 'lightness', 'alpha', function HSLAString () {
-    debugger;
     const { hue, saturation, lightness, alpha } = getProperties(this,
       'hue',
       'saturation',
@@ -16,5 +15,5 @@ export default Model.extend({
     );
 
     return `hsla(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
-  }),
+  })
 });

@@ -6,7 +6,6 @@
  * to contain a single concern (e.g: o-widget-box simply defines a border-radius)
  */
 
-@import './_o-button.css';
 @import './_o-content.css';
 @import './_o-header.css';
 @import './_o-highlighted-on-hover.css';

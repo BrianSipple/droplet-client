@@ -12,7 +12,7 @@ moduleForComponent('svg-icon', 'Integration | Component | svg icon', {
 test(`rendering a <use> element with an \`xlink:href\`
   attribute of its provided \`iconURL\``, function(assert) {
 
-  const iconPath = 'assets/icons.svg#eye-of-sauron';
+  const iconPath = '/assets/icons.svg#eye-of-sauron';
 
   this.set('iconURL', iconPath);
   this.render(hbs`{{svg-icon iconURL=iconURL}}`);

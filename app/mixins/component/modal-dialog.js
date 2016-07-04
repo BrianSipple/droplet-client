@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import SavvyBoxShadowClassMixin from 'droplet/mixins/component/savvy-box-shadow';
 
 const { Mixin } = Ember;
 
@@ -16,7 +15,7 @@ export default Mixin.create({
     'g-border-s1',
     'g-box-shadow-1',
     'o-content',
-    'u-fixed',
+    'u-fixed'
   ],
 
   /**
@@ -31,7 +30,7 @@ export default Mixin.create({
     'u-edge-bottom',
     'u-edge-left',
     'u-full-bleed',
-    'u-z500',
+    'u-z500'
   ],
 
   /* custom overrides for the default of "ember-modal-wrapper" */
@@ -51,7 +50,7 @@ export default Mixin.create({
    */
   init () {
     this._super(...arguments);
-  },
+  }
 
 
 });

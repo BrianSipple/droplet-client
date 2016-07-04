@@ -10,7 +10,7 @@ module.exports = function(environment) {
   const ENV = {
     modulePrefix: 'droplet',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -60,7 +60,7 @@ module.exports = function(environment) {
   ////////////// ENVIRONMENT-SPECIFIC SETTINGS TO OVERRIDE defaults ///////////////////
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     // Basic logging, e.g. "Transitioned into 'post'"
@@ -76,7 +76,6 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter

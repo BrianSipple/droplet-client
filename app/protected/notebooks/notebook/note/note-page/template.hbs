@@ -1,20 +1,18 @@
-{{#user-navbar
+{{#x-toolbar
   class="c-note-page__status-bar
          u-z1
+         o-content
          g-bg-theme-primary-1--700
          g-theme-secondary-2--500"
    size="xSmall"
    as |navbar|
 }}
-  {{#if (eq navbar 'navContent')}}
-    <span class="o-grid-cell u-ml2">{{note.notebook.title}}</span>
-  {{/if}}
-{{/user-navbar}}
+  {{#link-to 'protected.notebooks.notebook' class="g-link-reset"}}{{note.notebook.title}}{{/link-to}}
+{{/x-toolbar}}
 
 
 {{#page/page-content class="c-note-page__content
                             u-z0
-                            g-bg-theme-nearWhite
                             o-navbar-page--header-xs"
 }}
   <section class="u-width-90 u-fill-height u-flow-middle u-relative">
@@ -33,7 +31,7 @@
                g-truncate"
         autofocus=true
         tabindex="0"
-        placeholder="Title Me..."
+        placeholder=(or note.title "Title Me...")
         enter=(action 'onNotebookTitleEntered' value="value")
         allowNewlines=false
       }}
@@ -68,7 +66,7 @@
           tabIndex="0"
           onActiveToggled=(action (mut isMarkdownPreviewVisible))
         }}
-          {{svg-icon class="u-absolute u-transform-center" iconURL="assets/icons.svg#icon_markdown-mark"}}
+          {{svg-icon class="u-absolute u-transform-center" iconURL="/assets/icons.svg#icon_markdown-mark"}}
         {{/widgets/toggle-dot-indicator}}
 
 
@@ -77,18 +75,18 @@
         </li>
 
         <li class="o-grid-cell o-flex-grid o-flex-grid--full u-width-spacing-3 u-height-spacing-3 u-mr2">
-          {{icon-button
+          {{buttons/icon-button
             class="o-grid-cell u-fill-height js-save-note-button"
-            iconURL="assets/icons.svg#icon_test"
+            iconURL="/assets/icons.svg#icon_test"
             onPressed=(action 'onManualSaveButtonPressed')
           }}
           <small class="o-grid-cell g-font-smaller">Save</small>
         </li>
 
         <li class="o-grid-cell o-flex-grid o-flex-grid--full u-width-spacing-3 u-height-spacing-3 u-mr2">
-          {{icon-button
+          {{buttons/icon-button
             class="o-grid-cell u-fill-height js-exit-note-button"
-            iconURL="assets/icons.svg#icon_test"
+            iconURL="/assets/icons.svg#icon_test"
             onPressed=(action 'exitNote')
           }}
           <small class="o-grid-cell g-font-smaller">{{exitButtonTitle}}</small>

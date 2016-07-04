@@ -1,74 +1,37 @@
 
-  <form class="u-fill-width u-mt3 o-text-input u-align-center"
-        onsubmit={{action 'onNewNoteFormSubmitted'}}
-        data-test-selector="notebook-notes-page__new-note-form">
-    <section class="c-notes-page__add-note-input-section
-                    u-fill-width
-                    u-height-sizing-4
-                    o-flex-grid
-                    o-flex-grid--noWrap
-                    o-flex-grid--spaceAround
-                    o-flex-grid--center
-                    o-flex-grid--auto">
-      <input
-        type="text"
-        class="c-notes-page__add-note-input
-               js-notes-page__add-note-input
+{{#if notes}}
+
+  <ul class="c-notebook-page__notes-grid
+             o-flex-grid
+             o-flex-grid--auto
+             u-mt3
+             g-list-reset">
+
+    {{#each notes as |note|}}
+
+      {{note-card
+        tagName="li"
+        class="c-notes-page__note-card
+               u-relative
                o-grid-cell
-               o-text-input
-               u-mr2"
-        placeholder="Add A Note"
-        value={{newNoteProps.title}}
-        oninput={{action (mut newNoteProps.title) value="target.value"}}
-        data-test-selector="notebook-notes-page__new-note-title-input">
+               g-theme-primary-1--500
+               g-box-shadow-3
+               u-m2"
+         note=note
+         updateNoteData=(route-action 'updateNoteDataFromListPage')
+         doubleClick=(route-action 'openNote' note)
+         data-test-selector="notebook-notes-page__note-card"
+      }}
 
-      <input
-        class="c-notes-page__add-note-button
-               o-button
-               g-bg-theme-primary-1--700
-               o-tap-target-sm
-               u-ml2
-               o-grid-cell"
-        value="Submit"
-        disabled={{isAddNoteButtonDisabled}}
-        type="submit">
+    {{/each}}
+  </ul>
 
-    </section>
-  </form>
+{{else}}
 
-  {{#if sortedNotes}}
-
-    <ul class="c-notebook-page__notes-grid
-               o-flex-grid
-               o-flex-grid--auto
-               u-mt3
-               g-list-reset">
-
-      {{#each sortedNotes as |note|}}
-
-        {{note-card
-          tagName="li"
-          class="c-notes-page__note-card
-                 u-relative
-                 o-grid-cell
-                 g-theme-primary-1--500
-                 g-box-shadow-3
-                 u-m2"
-           note=note
-           updateNoteData=(route-action 'updateNoteDataFromListPage')
-           doubleClick=(route-action 'openNote' note)
-           data-test-selector="notebook-notes-page__note-card"
-        }}
-
-      {{/each}}
-    </ul>
-
-  {{else}}
-
-    <div class="c-notes-page__empty-message g-bg-theme-primary-1--100 u-transform-center u-absolute u-width-60 u-align-middle">
-      <div class="u-absolute u-transform-center u-absolute u-align-middle">
-        <i>{{notebook.title}}</i> is empty! Time to get started.
-      </div>
+  <div class="c-notes-page__empty-message g-bg-theme-primary-1--100 u-transform-center u-absolute u-width-60 u-align-middle">
+    <div class="u-absolute u-transform-center u-absolute u-align-middle">
+      <i>{{notebook.title}}</i> is empty! Time to get started.
     </div>
+  </div>
 
-  {{/if}}
+{{/if}}

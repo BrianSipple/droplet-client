@@ -5,7 +5,7 @@ import getNode from 'droplet/tests/helpers/integration/get-node';
 let actual, expected;
 
 
-moduleForComponent('action-button', 'Integration | Component | action button', {
+moduleForComponent('x-navbar', 'Integration | Component | x navbar', {
   integration: true
 });
 
@@ -13,7 +13,7 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{action-button}}`);
+  this.render(hbs`{{x-navbar}}`);
 
   expected = '';
   actual = getNode(this).textContent.trim();
@@ -21,9 +21,9 @@ test('it renders', function(assert) {
 
   // Template block usage:
   this.render(hbs`
-    {{#action-button}}
+    {{#x-navbar}}
       template block text
-    {{/action-button}}
+    {{/x-navbar}}
   `);
 
   expected = 'template block text';

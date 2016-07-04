@@ -8,12 +8,5 @@ export default Component.extend({
 
   SidenavService: service('sidenav'),
   classNames: ['c-switchblade-menu'],
-  classNameBindings: ['isFlyoutOpen:is-flyout-expanded:is-flyout-collapsed'],
-
-
-  actions: {
-    onMenuItemSelected (itemIndex, menuItem) {
-      this.get('SidenavService.onMenuItemSelected')(...arguments);
-    },
-  }
+  classNameBindings: ['isFlyoutOpen:is-flyout-expanded:is-flyout-collapsed']
 });

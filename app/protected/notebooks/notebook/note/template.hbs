@@ -1,7 +1,8 @@
 {{#page/page-wrapper}}
   {{protected/notebooks/notebook/note/note-page
+    class="g-bg-theme-nearWhite u-z2"
     note=model
-    exitNote=(route-action 'onCloseNote')
+    onExitNote=(route-action 'onCloseNote')
     persistNoteChanges=(route-action 'onSaveNote')
   }}
 {{/page/page-wrapper}}

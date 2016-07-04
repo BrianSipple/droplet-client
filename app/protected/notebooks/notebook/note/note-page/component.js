@@ -1,16 +1,17 @@
 import Ember from 'ember';
+import PageContentComponent from 'droplet/components/page/page-content/component';
 import { task, timeout } from 'ember-concurrency';
 
-const { Component, K, computed } = Ember;
+const { K, computed } = Ember;
 const BODY_UPDATE_DEBOUNCE_MS = 1200;
 
 
-export default Component.extend({
+export default PageContentComponent.extend({
 
   classNames: ['c-note-page'],
 
   isMarkdownPreviewVisible: false,
-  exitNote: null,
+  onExitNote: null,
   persistNoteChanges: null,
   isPersistingChanges: false,
   discardOnExit: false,
@@ -34,16 +35,16 @@ export default Component.extend({
   init () {
     this._super(...arguments);
 
-    this.exitNote = (typeof this.exitNote === 'function') ? this.exitNote : K;
+    this.onExitNote = (typeof this.onExitNote === 'function') ? this.onExitNote : K;
     this.persistNoteChanges = (typeof this.persistNoteChanges === 'function') ? this.persistNoteChanges : K;
   },
 
 
   actions: {
 
-    exitNote () {
+    exitNote() {
       const note = this.get('note');
-      this.get('exitNote')(note);
+      this.get('onExitNote')(note);
     },
 
     onNotebookTitleEntered (title) {

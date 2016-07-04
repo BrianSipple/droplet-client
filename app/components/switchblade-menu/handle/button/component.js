@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ActionButtonMixin from 'droplet/mixins/component/action-button';
+import ActionButtonMixin from 'droplet/mixins/component/press-action';
 import TabbableMixin from 'droplet/mixins/component/tabbable';
 
 

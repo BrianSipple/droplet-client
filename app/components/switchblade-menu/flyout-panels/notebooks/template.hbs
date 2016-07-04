@@ -28,12 +28,11 @@
      notebooks=notebooks
      isShowingNewNotebookItemForm=(mut isShowingNewNotebookItemForm)
      postNewNotebook=(route-action 'postNewNotebook')
-     onNotebookItemSelected=(route-action 'closeSidenavFlyoutAndTransition' 'protected.notebooks.notebook')
    }}
 
 </section>
 
-{{icon-button
+{{buttons/icon-button
   class="o-tap-target-md
          g-border-circle
          g-border-none
@@ -47,7 +46,7 @@
          u-mr2
          u-mb2"
   stroke="currentColor"
-  iconURL="assets/icons.svg#icon_plus--stroke"
+  iconURL="/assets/icons.svg#icon_plus--stroke"
   onPressed=(action (mut isShowingNewNotebookItemForm) true)
   data-test-selector="sidenav__toggle-new-notebook-form"
 }}

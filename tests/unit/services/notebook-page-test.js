@@ -15,5 +15,6 @@ moduleFor('service:notebook-page', 'Unit | Service | Notebook Page', {
 // Replace this with your real tests.
 test('filterNotesFromSearchInput', function(assert) {
   const service = this.subject();
+  assert.ok(service, 'it exists!');
   debugger;
 });

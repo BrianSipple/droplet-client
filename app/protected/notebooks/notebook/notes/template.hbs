@@ -1,29 +1,52 @@
 {{#page/page-wrapper as |pageWrapper|}}
 
-  {{#protected/notebooks/notebook/notes/notes-page}}
+  {{protected/notebooks/notebook/notes/notes-page
+    notes=model.notes
+    noteSortOptions=model.noteSortOptions
+    currentNoteSortOption=model.currentNoteSortOption
+    currentNoteSortProperties=model.currentNoteSortProperties
+    postNewNote=(route-action 'postNewNote')
+  }}
 
-    {{protected/notebooks/notebook/notes/notes-page/notes-page-toolbar-section
-      class="u-z1 g-bg-theme-primary-1--700"
-      toolbarSize="small"
-      noteSortOptions=model.noteSortOptions
-      currentNoteSortOption=model.currentNoteSortOption
-      noteSearchResults=notesPageContent.noteSearchResults
-      onSearchExited=(action (mut isFilteringNotesForSearch) false)
-      onFilterNotesFromSearchInput=(pipe-action (route-action 'filterNotesFromSearchInput') (action (mut notesPageContent.isFilteringNotesForSearch) true) )
-      data-test-selector="notes-page__toolbar"
+{{/page/page-wrapper}}
+
+
+  {{!-- {{#protected/notebooks/notebook/notes/notes-page}}
+
+    {{x-select
+      class="o-grid-cell
+             o-grid-cell--auto
+             c-notes-page__note-order-select
+             c-select-input
+             o-widget-box
+             o-menu
+             g-bg-theme-primary-1--300
+             g-theme-primary-1--900
+             g-border-none
+             u-pl1
+             u-pr2
+             u-ml2
+             u-mr2"
+      optionClassNames="c-select-input__option"
+      onSelectionChanged=(route-action 'noteSortingDidChange')
+      content=model.noteSortOptions
+      optionLabelKey='label'
+      optionValueKey='code'
+      selectedOption=model.currentNoteSortOption
+      data-test-selector="notebook-notes-page__note-order-select"
     }}
+
+
+
+
+
 
     {{protected/notebooks/notebook/notes/notes-page/note-card-set-section
       class="o-navbar-page--header-sm u-overflow-scroll-y u-fill-height u-fill-width"
       notes=model.notes
-      isFilteringNotesForSearch=notesPageContent.isFilteringNotesForSearch
-      noteSearchResults=notesPageContent.noteSearchResults
-      currentSortOption=model.currentNoteSortOption
+      currentNoteSortOption=model.currentNoteSortOption
       currentNoteSortProperties=model.currentNoteSortProperties
       postNewNote=(route-action 'postNewNote')
-      data-test-selector="notes-page__note-card-set"
     }}
 
-  {{/protected/notebooks/notebook/notes/notes-page}}
-
-{{/page/page-wrapper}}
+  {{/protected/notebooks/notebook/notes/notes-page}} --}}

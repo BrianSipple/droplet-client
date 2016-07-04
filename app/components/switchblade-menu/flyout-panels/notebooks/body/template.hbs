@@ -7,11 +7,13 @@
 
   {{!-- Editable item for adding a new notebook --}}
   {{#switchblade-menu/flyout-panels/notebooks/body/list-item
-    class="c-switchblade-menu-notebooks-flyout-panel__new-notebook-form-item
-           u-z0"
-    classNameBindings="isShowingNewNotebookItemForm:is-visible:is-hidden"
+    class=(concat
+             "c-switchblade-menu-notebooks-flyout-panel__new-notebook-form-item
+             u-z0"
+             " "
+             (if isShowingNewNotebookItemForm "is-visible" "is-hidden")
+           )
   }}
-
     <div class="u-absolute u-fill-width u-fill-height u-edge-left u-edge-top u-z1">
       {{content-editable
         class="c-switchblade-menu-notebooks-flyout-panel__new-notebook-form-editable-content
@@ -31,7 +33,7 @@
       }}
     </div>
 
-    {{icon-button
+    {{buttons/icon-button
       class="u-absolute
              u-edge-right
              u-edge-top
@@ -41,7 +43,7 @@
              u-width-spacing-2
              u-height-spacing-2
              g-grayscale-bl--icon"
-      iconURL="assets/icons.svg#icon_x"
+      iconURL="/assets/icons.svg#icon_x"
       stroke="currentColor"
       onPressed=(action (mut isShowingNewNotebookItemForm) false)
       data-test-selector="sidenav__close-new-notebook-form"
@@ -53,13 +55,12 @@
   {{#each sortedNotebooks as |notebook index|}}
 
     {{switchblade-menu/flyout-panels/notebooks/body/list-item
-      class="c-switchblade-menu-flyout-panel__scroll-list-item
-             c-switchblade-menu-notebooks-flyout-panel__notebook-item
-             u-pointer"
       data-test-selector="sidenav__notebook-item"
-      classNameBindings="isShowingNewNotebookItemForm:is-slid-down"
+      class=(concat
+        "c-switchblade-menu-notebooks-flyout-panel__notebook-item"
+        (if isShowingNewNotebookItemForm " is-slid-down")
+      )
       notebook=notebook
-      click=(action 'onNotebookItemSelected' notebook)
     }}
 
   {{/each}}

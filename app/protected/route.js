@@ -1,29 +1,31 @@
 import Ember from 'ember';
 import SidenavRouteMixin from 'droplet/mixins/route/sidenav';
 import RouteConstants from 'droplet/utils/constants/routes';
-import AuthConfiguration from 'ember-simple-auth/configuration';
 
 const { Route, inject: { service } } = Ember;
 const { GUEST_ROUTE } = RouteConstants;
 
-export default Route.extend(SidenavRouteMixin, {
 
+export default Route.extend(SidenavRouteMixin, {
+  NavbarService: service('navbar'),
   SessionService: service('session'),
 
   /**
    * TODO: More robust login around retrys, aborts, etc.
    */
-  beforeModel (transition) {
+  beforeModel () {
     if (!this.get('SessionService.isAuthenticated')) {
       this.transitionTo(GUEST_ROUTE);
     }
+
+    this.get('NavbarService').set('isNavbarVisible', false);
   },
 
   renderTemplate() {
     this.render();
     this.render(
       'sidenav',
-      { into: 'application', outlet: 'sidenav' }
+      { into: 'application', outlet: 'sidenavOutlet' }
     );
   },
 

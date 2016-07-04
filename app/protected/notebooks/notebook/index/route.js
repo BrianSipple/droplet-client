@@ -1,20 +1,23 @@
 import Ember from 'ember';
 
-const { Route } = Ember;
+const { Route, inject: { service } } = Ember;
 
 
 export default Route.extend({
 
-  actions: {
+  NotebookPageService: service('notebook-page'),
 
+  beforeModel() {
+    this.transitionTo(this.get('NotebookPageService.activeRoute'));
+  },
+
+  actions: {
     didTransition () {
       const notebook = this.currentModel.notebook;
 
       if (notebook) {
         document.title = `Droplet: ${notebook.get('title')}`;
       }
-
-    },
-
-  },
+    }
+  }
 });

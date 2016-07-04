@@ -1,13 +1,12 @@
 import Ember from 'ember';
 import AuthConfiguration from 'ember-simple-auth/configuration';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
-import ApplicationModel from 'droplet/models/application';
 import statusCodes from 'droplet/utils/status-codes';
 
 const {
   Route,
   K,
-  inject,
+  inject: { service },
   Logger: { log },
 } = Ember;
 
@@ -15,28 +14,19 @@ const {
 export default Route.extend(ApplicationRouteMixin, {
 
   // NotificationService: inject.service(),  // future idea
-  SessionService: inject.service('session'),
-  UserService: inject.service('user'),
-  NavbarService: inject.service('navbar'),
-  SidenavService: inject.service('sidenav'),
+  SessionService: service('session'),
+  UserService: service('user'),
+  NavbarService: service('navbar'),
+  SidenavService: service('sidenav'),
 
-
-  activate () {
-    this._super(...arguments);
-
-    this._setNavbarOptionsOnRouteActivate();
-  },
-
-  model () {
-    // TODO: Re-evaluate if this is necessary
-    return ApplicationModel.create({
-      navbar: this.get('NavbarService'),
+  model() {
+    return {
       sidenav: this.get('SidenavService'),
-    });
+      navbar: this.get('NavbarService')
+    };
   },
 
   afterModel (/* model, transition */) {
-
     if (this.get('SessionService.isAuthenticated')) {
       // transition.send('loadServerNotifications');  // TODO: Something like this with future NotificationService
     }
@@ -66,13 +56,10 @@ export default Route.extend(ApplicationRouteMixin, {
       log(err.stack);
       // throw new Error(err);
     }
-
   },
-
 
   // noop default for unhandled save (used from shortcuts)
   save: K,
-
 
   /**
   * ---------- ACTIONS ----------
@@ -112,18 +99,6 @@ export default Route.extend(ApplicationRouteMixin, {
   /**
   * ---------- HELPER FUNCTIONS ----------
   */
-  _setNavbarOptionsOnRouteActivate () {
-    ////////// WIP ///////////
-    // const navbarComponentNames = this.get('NavbarService.navItemComponentNames');
-    //
-    // this.get('NavbarService').set('visibleItemComponentNames', [
-    //
-    //   navbarComponentNames.searchWidget,
-    //   navbarComponentNames.loginButton,
-    //   navbarComponentNames.searchWidget
-    // ]);
-  },
-
 
   _onInvalidateSessionError (/* error */) {
     // this.get('notifications').showAlert(error.message, { type: 'error', key: 'session.invalidate.failed' });

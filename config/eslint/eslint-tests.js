@@ -11,7 +11,7 @@ module.exports = {
     "arrow-spacing": 0,
     "comma-dangle": 0,
     "func-names": 0,
-    "max-len": [1, 110, 2, {
+    "max-len": [1, 130, 2, {
       "ignoreComments": true,
       "ignoreUrls": true,
       "ignorePattern": "^moduleFor\(\?\:Component)\?\\(.*"   // `moduleFor[Component]` can generate lengthy, but still highly usefull names/descriptions

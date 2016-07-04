@@ -1,0 +1,18 @@
+/**
+* Special stlyes for Liquid Fire concerns
+*
+* Prefix these with `lf` (unless we're directly
+* targeting LiquidFire selectors)
+*/
+
+.lf-child-container--full-child .liquid-child {
+  width: 100%;
+  height: 100%;
+}
+
+/**
+* maintain expected stacking contexts, even when animating
+*/
+.liquid-child {
+  transform: none;
+}

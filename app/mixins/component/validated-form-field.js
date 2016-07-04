@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { computed, defineProperty, mixin, Mixin } = Ember;
+const { computed, defineProperty, Mixin } = Ember;
 
 const {
   oneWay,

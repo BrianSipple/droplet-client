@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ComponentActionButtonMixin from 'droplet/mixins/component/action-button';
+import ComponentActionButtonMixin from 'droplet/mixins/component/press-action';
 import { module, test } from 'qunit';
 
 module('Unit | Mixin | component/action button');

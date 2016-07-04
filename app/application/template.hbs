@@ -32,7 +32,7 @@
       hasNavbar=model.navbar.isVisible
     }}
 
-      {{outlet 'sidenav'}}
+      {{outlet 'sidenavOutlet'}}
       {{outlet}}
 
       <!-- Place any footer component here that's treated as a part of each page -->
@@ -44,8 +44,7 @@
 
 
     <!-- Place any navbar component here (Z-index: 4) -->
-    {{#route-shy tagName="section" class="u-z4" blacklist=model.navbar.routesWhereHidden syncWith=model.navbar syncProperty="isVisible"}}
-      {{x-toolbar
+      {{x-navbar
         class="c-application-base__navbar
                o-flex-grid
                o-flex-grid--center
@@ -56,9 +55,8 @@
                u-fill-width
                g-grayscale-wd--button
                g-bg-theme-primary-1--700"
-        itemComponentNames=model.navbar.visibleItemComponentNames
-        sidenavState=model.sidenav}}
-    {{/route-shy}}
+         size="small"
+       }}
 
     <!-- Place any outer sidenav component here (Z-index: 5) -->
 

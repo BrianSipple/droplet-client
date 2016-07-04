@@ -1,5 +1,5 @@
 import { moduleFor } from 'ember-qunit';
-import test from 'droplet/tests/ember-sinon-qunit/test';
+// import test from 'droplet/tests/ember-sinon-qunit/test';
 
 
 moduleFor('component:protected/notebooks/notebook/notes/notes-page', 'Unit | Route | protected/notebooks/notebooks/notebook/notes/notes-page', {

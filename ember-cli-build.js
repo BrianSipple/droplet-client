@@ -2,6 +2,26 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const buildOptions = require('./build/build-options');
+const mergeTrees = require('broccoli-merge-trees');
+const Funnel = require('broccoli-funnel');
+
+/**
+ * Place service-worker files at the root of the application files.
+ * This is critical --  a service worker must exist at the root of the
+ * scope that we intend it to control, or higher.
+ */
+const serviceWorkerAppFiles = new Funnel('service-workers', {
+  srcDir: '/',
+  destDir: '/',
+  include: ['**/*.js']
+});
+
+const serviceWorkerToolbox = new Funnel('bower-components/sw-toolbox', {
+  srcDir: '/',
+  destDir: '/',
+  include: ['sw-toolbox.js']
+});
+
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, buildOptions);
@@ -20,5 +40,5 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
   app.import('vendor/savvy/savvy.min.css');
 
-  return app.toTree();
+  return app.toTree(new MergeTrees([serviceWorkerAppFiles, serviceWorkerToolbox]));
 };

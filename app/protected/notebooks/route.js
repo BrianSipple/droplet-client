@@ -20,21 +20,21 @@ export default Route.extend({
   }),
 
 
-  model () {
-    const userId = this.get('currentUser.id');
+  // model () {
+  //   debugger;
+  //   const userId = this.get('currentUser.id');
+  //
+  //   return this.store.query('notebook', { owner: userId });
+  // },
 
-    return this.store.query('notebook', { owner: userId });
-  },
 
-
-  renderTemplate () {
-    this.render();
-    this.render(
-      'sidenav',
-      { into: 'application', outlet: 'sidenav' }
-    );
-  },
-
+  // renderTemplate () {
+  //   this.render();
+  //   this.render(
+  //     'sidenav',
+  //     { into: 'application', outlet: 'sidenavOutlet' }
+  //   );
+  // },
 
   actions: {
 
@@ -42,11 +42,9 @@ export default Route.extend({
       return this.get('addNewNotebookTask').perform(notebookProps);
     },
 
-
     didTransition () {
       document.title = 'Droplet - Notebooks';
-    },
-
-  },
+    }
+  }
 
 });

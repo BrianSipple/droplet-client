@@ -12,6 +12,10 @@ export default Route.extend({
   }).restartable(),
 
 
+  renderTemplate() {
+    this.render({ into: 'protected.notebooks.notebook', outlet: 'noteOutlet' });
+  },
+
   actions: {
 
     onCloseNote (note) {

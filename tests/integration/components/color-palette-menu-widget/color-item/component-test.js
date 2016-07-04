@@ -2,18 +2,18 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import getNode from 'droplet/tests/helpers/integration/get-node';
 
-const HSLAStrings = [
-  'hsla(10, 40%, 22%, 1.0)',
-  'hsla(20, 99%, 66%, 1.0)',
-  'hsla(30, 34%, 22%, 1.0)',
-  'hsla(40, 99%, 94%, 1.0)',
-  'hsla(50, 21%, 50%, 1.0)',
-  'hsla(14, 99%, 56%, 1.0)',
-  'hsla(70, 59%, 48%, 1.0)',
-  'hsla(80, 29%, 87%, 1.0)',
-  'hsla(90, 84%, 21%, 1.0)',
-  'hsla(290, 48%, 11%, 1.0)',
-];
+// const HSLAStrings = [
+//   'hsla(10, 40%, 22%, 1.0)',
+//   'hsla(20, 99%, 66%, 1.0)',
+//   'hsla(30, 34%, 22%, 1.0)',
+//   'hsla(40, 99%, 94%, 1.0)',
+//   'hsla(50, 21%, 50%, 1.0)',
+//   'hsla(14, 99%, 56%, 1.0)',
+//   'hsla(70, 59%, 48%, 1.0)',
+//   'hsla(80, 29%, 87%, 1.0)',
+//   'hsla(90, 84%, 21%, 1.0)',
+//   'hsla(290, 48%, 11%, 1.0)',
+// ];
 
 
 let actual, expected;

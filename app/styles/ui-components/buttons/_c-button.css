@@ -2,22 +2,30 @@
  * Component-level styles for a core button
  */
  .c-button {
-   cursor : pointer;
-   display: flex;
-   text-align: center;
-   justify-content: center;
-   align-items: center;
-   min-width: var(--min-width__tap-target);
-   min-height: var(--min-height__tap-target);
-   padding: 0.4em 0.9em;
-   border: none;
-   border-radius: var(--border-radius__button);
+   padding: 0.5em 0.9em;
+   border: 0;
+   transition-property: opacity;
+   transition-duration: var(--anim-duration__color-shift);
+   transition-timing-function: var(--easing__ease-out-cubic);
+
+  &:disabled {
+    opacity: 0.7;
+    transition-timing-function: var(--easing__ease-in-cubic);
+    cursor: not-allowed;
+  }
+
+  &--rounded {
+    border-radius: var(--border-radius__button);
+  }
+  &--flat {
+    border-radius: 0;
+  }
 
    /*
     * Modifers that correspond to color variables allow us to
     * set the proper color on the button and animate it appropriately from there
     */
-   &--primary-1-500 {
+   /*&--primary-1-500 {
      background-color: var(--theme-color__primary-1--500);
 
      &:hover {
@@ -45,15 +53,15 @@
     &:hover {
       background-color: var(--theme-color__primary-2--100);
     }
-   }
+   }*/
 
-   &--left-align {
+   /*&--left-align {
      justify-content: flex-start;
    }
 
    &--right-align {
      justify-content: flex-end;
-   }
+   }*/
 
    &--fab {
      border-radius: 50%;

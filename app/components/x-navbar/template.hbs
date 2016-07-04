@@ -1,0 +1,16 @@
+{{buttons/icon-button
+  class="c-navbar__sidenav-toggle-button o-grid-cell o-grid-cell--flex-none"
+  iconURL="/assets/icons.svg#icon_menu-more-dots"
+}}
+
+{{#if title}}
+  {{#link-to 'index' class="o-grid-cell o-grid-cell--flex-none g-link-reset c-navbar__brand-logo"}}
+    {{title}}
+  {{/link-to}}
+{{/if}}
+
+{{yield (hash
+    navLinks=activeNavLinks
+    navLink=(component 'nav-link')
+  )
+}}

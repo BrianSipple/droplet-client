@@ -22,36 +22,19 @@ export default function(server) {
     location: 'everywhere',
   });
 
-  const userPrivateInfo = server.create('user-private-info', {
+  server.create('user-private-info', {
     userId: user1.id,
     email: 'bsipple57@gmail.com',
     subscriptionType: subscriptionTypes.INDIVIDUAL_PREMIUM,
     role: userRoles.ADMIN,
   });
 
-  const userNotebook1 = server.create('notebook', {
-    title: 'Tracking Hydra',
-    ownerId: user1.id,
-    lastUpdatedAt: new Date(),
-  });
-
-  // const userNotebook1Note = server.create('note', {
-  //   title: 'Paris',
-  //   content: 'Know operatives: N/A',
-  //   notebookId: userNotebook1.id,
-  //   ownerId: user1.id,
-  //   lastUpdatedAt: new Date(),
-  // });
-  const userNotebooks = server.createList('notebook', 10, { ownerId: user1.id });
-  const userNotes = server.createList('note', 10, { notebookId: userNotebook1.id }, );
-
   server.createList('theme-color', 10);
 
   // Create more miscellaneous data to help verify
   // that we're selecting the right stuff
-  server.createList('user', 10);
-  server.createList('user-private-info', 10);
-  server.createList('notebook', 10);
+  server.createList('user', 2);
+  server.createList('user-private-info', 2);
   server.createList('tag', 10);
   server.createList('notification', 10);
 

@@ -15,7 +15,7 @@ export default xNavbar.extend({
   ],
 
   classNames: [
-    'c-user-navbar',
+    'c-x-toolbar',
     'u-relative',
     'u-fill-width',
     'u-edge-top',
@@ -24,6 +24,7 @@ export default xNavbar.extend({
 
   useBorder: false,
   flex: true,
+  direction: 'horizontal',
   useBoxShadow: true,
   isFixed: true,
   size: 'medium',
@@ -39,10 +40,12 @@ export default xNavbar.extend({
     }[size];
   }),
 
-  flexClassNames: computed('flex', function flexClassNames () {
-    const isFlex = this.get('flex');
+  flexClassNames: computed('flex', 'direction', {
+    get() {
+      const isFlex = this.get('flex');
 
-    return isFlex ? `o-flex-grid o-flex-grid--center o-flex-grid--noWrap` : null;
-  }),
+      return isFlex ? `o-flex-grid o-flex-grid--center o-flex-grid--noWrap` : null;
+    }
+  })
 
 });

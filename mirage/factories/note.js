@@ -8,7 +8,7 @@ export default Factory.extend({
     return faker.random.words();
   },
 
-  priority(i) {
+  priority() {
     return floor((random() * 5) + 1);
   },
 
@@ -25,6 +25,6 @@ export default Factory.extend({
   },
 
   lastUpdatedAt (i) {
-    return moment().subtract(i, 'days')
-  },
+    return moment().subtract(i, 'days');
+  }
 });

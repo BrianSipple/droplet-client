@@ -6,7 +6,7 @@ module('Unit | Mixin | component/validated form field');
 
 // Replace this with your real tests.
 test('it works', function(assert) {
-  let ComponentValidatedFormFieldObject = Ember.Object.extend(ComponentValidatedFormFieldMixin);
-  let subject = ComponentValidatedFormFieldObject.create();
+  const ComponentValidatedFormFieldObject = Ember.Object.extend(ComponentValidatedFormFieldMixin);
+  const subject = ComponentValidatedFormFieldObject.create();
   assert.ok(subject);
 });

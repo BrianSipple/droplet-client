@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { task } from 'ember-concurrency';
 
 const { Route } = Ember;
 
@@ -9,17 +8,17 @@ export default Route.extend({
     sortBy: {
       refreshModel: true,
       replace: true,  // prevents an additional item from being added to browser history
-      as: 'sort',
+      as: 'sort'
     },
     search: {
       refreshModel: false,
       replace: true,
-      as: 'search',
-    },
+      as: 'search'
+    }
   },
 
 
-  model ({ sortBy }) {
+  model({ sortBy }) {
     const notebook = this.modelFor('protected.notebooks.notebook.notes');
 
     if (sortBy) {
@@ -33,8 +32,8 @@ export default Route.extend({
   actions: {
     noteSortingDidChange (selectedOptionItem) {
       this.transitionTo(this.routeName, {
-        queryParams: { sortBy: selectedOptionItem.code },
+        queryParams: { sortBy: selectedOptionItem.code }
       });
-    },
+    }
   }
 });

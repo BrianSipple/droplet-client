@@ -1,6 +1,7 @@
 .c-notes-page {
 
-  &__add-note-input {
+  &__add-note-form {
+    border-color: var(--grayscale__white-on-dark--input-field);
     width: var(--width__note-card);
   }
 

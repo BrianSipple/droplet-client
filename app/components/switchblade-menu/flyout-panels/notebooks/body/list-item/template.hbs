@@ -3,25 +3,32 @@
 
 {{else}}
 
-  <h4 class="g-theme-primary-2--300 u-align-center">{{notebook.title}}</h4>
+  {{#link-to
+    'protected.notebooks.notebook'
+    notebook
+    class="u-relative u-fill-width u-fill-height g-link-reset u-block"}}
 
-  <p class="u-absolute
-            u-edge-bottom
-            u-mb2
-            o-flex-grid
-            o-flex-grid--auto
-            o-flex-grid--spaceAround">
+    <h4 class="g-theme-primary-2--300 u-align-center">{{notebook.title}}</h4>
 
-    <span class="o-grid-cell u-width-60 g-truncate">
-      Updated:
-      <time datetime={{html-datetime notebook.lastUpdatedAt}} class="g-theme-primary-2--300">
-        {{notebook.lastUpdatedAt}}
-      </time>
-    </span>
+    <p class="u-absolute
+              u-edge-bottom
+              u-mb2
+              o-flex-grid
+              o-flex-grid--auto
+              o-flex-grid--spaceAround">
 
-    <span class="o-grid-cell">
-      Notes: {{notebook.noteCount}}
-    </span>
-  </p>
+      <span class="o-grid-cell u-width-60 g-truncate">
+        Updated:
+        <time datetime={{html-datetime notebook.lastUpdatedAt}} class="g-theme-primary-2--300">
+          {{notebook.lastUpdatedAt}}
+        </time>
+      </span>
 
+      <span class="o-grid-cell">
+        Notes: {{notebook.noteCount}}
+      </span>
+    </p>
+  {{/link-to}}
+  
+  {{yield}}
 {{/if}}

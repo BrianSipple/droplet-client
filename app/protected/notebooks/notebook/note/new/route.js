@@ -4,14 +4,13 @@ import { task } from 'ember-concurrency';
 const {
   Route,
   run,
-  inject: { service },
+  inject: { service }
 } = Ember;
 
 
 export default Route.extend({
 
   SidenavService: service('sidenav'),
-
 
   addNote: task(function *addNote(noteModel) {
     try {
@@ -43,13 +42,6 @@ export default Route.extend({
     });
   },
 
-  renderTemplate() {
-    debugger;
-    this._super(...arguments);
-    this.render();
-  },
-
-
   actions: {
 
     /**
@@ -70,7 +62,6 @@ export default Route.extend({
         // TODO: Flash message saynig that the note was deleted
         this.transitionTo('protected.dashboard');
       });
-    },
-
-  },
+    }
+  }
 });

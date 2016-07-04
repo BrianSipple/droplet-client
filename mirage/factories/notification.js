@@ -1,49 +1,56 @@
-import { Factory } from 'ember-cli-mirage';
+import { Factory, faker } from 'ember-cli-mirage';
 import moment from 'moment';
 
 const NOTIFICATION_TYPES = [
-  'success',
-  'error',
-  'warning',
+  'notification',
+  'alert',
   'reminder',
+  'info',
+  'help'
 ];
 
 const NOTIFICATION_STATUSES = [
-  'notification',
-  'alert',
+  'success',
+  'error',
+  'warning',
+  'info'
 ];
 
 export default Factory.extend({
 
-  dismissible() {
-    return Math.round(Math.random()) ? true : false;
+  isDismissible() {
+    return !!(Math.round(Math.random()));
   },
 
-  audible() {
-    return Math.round(Math.random()) ? true : false;
+  isAudible() {
+    return !!(Math.round(Math.random()));
   },
 
-  status () {
+  isUnread() {
+    return !!(Math.round(Math.random()));
+  },
+
+  status() {
     return faker.list.random(NOTIFICATION_STATUSES);
   },
 
-  type () {
+  type() {
     return faker.list.random(NOTIFICATION_TYPES);
   },
 
-  message () {
+  data() {
     return faker.lorem.sentence(1);
   },
 
-  title () {
+  title() {
     return faker.lorem.words(Math.floor(Math.random() * 5));
   },
 
-  createdAt (i) {
+  createdAt(i) {
     return moment().subtract((i + 1) * i, 'days');
   },
 
-  lastUpdatedAt (i) {
+  lastUpdatedAt(i) {
     return moment().subtract(i, 'days');
   },
 });

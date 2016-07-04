@@ -1,13 +1,10 @@
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
 
-const { Route, inject: { service } } = Ember;
+const { Route } = Ember;
 
 
 export default Route.extend({
-
-  NotebookPageService: service('notebook-page'),
-
 
   postNoteTask: task(function *newNoteTask(noteProps) {
     const notebook = this.currentModel;
@@ -40,13 +37,6 @@ export default Route.extend({
       if (note.get('hasDirtyAttributes') || skipDirtyCheck) {
         return this.get('updateNoteTask').perform(note);
       }
-    },
-
-    filterNotesFromSearchInput (searchInput) {
-      const notes = this.currentModel.get('notes');
-
-      return this.get('NotebookPageService').filterNotesFromSearchInput(searchInput, notes);
     }
-
   }
 });

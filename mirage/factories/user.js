@@ -1,9 +1,8 @@
 import { Factory, faker } from 'ember-cli-mirage';
-import ENV from 'droplet/config/environment';
 import moment from 'moment';
 import authConstants from 'droplet/utils/constants/auth';
 
-const { roles: userRoles, subscriptionTypes } = authConstants;
+const { roles: userRoles } = authConstants;
 const { floor, random } = Math;
 
 
@@ -38,5 +37,10 @@ export default Factory.extend({
     const roleKey = roleKeys[floor(random() * roleKeys.length)];
 
     return userRoles[roleKey];
+  },
+
+  afterCreate(user, server) {
+    server.createList('notebook', 10, { ownerId: user.id });
+    server.createList('notification', 5, { userId: user.id });
   }
 });

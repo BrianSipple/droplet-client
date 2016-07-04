@@ -3,13 +3,10 @@ import test from 'droplet/tests/ember-sinon-qunit/test';
 import { skip } from 'qunit';
 import moduleForAcceptance from 'droplet/tests/helpers/module-for-acceptance';
 import { authenticateSession } from 'droplet/tests/helpers/ember-simple-auth';
-import sessionData from 'droplet/tests/helpers/payloads/session-data';
 import currentUserHelpers from 'droplet/tests/helpers/current-user';
 import RouteConstants from 'droplet/utils/constants/routes';
-import noteSortingConstants from 'droplet/utils/constants/note-sorting';
 
-const { queryParamCodes: noteSortQueryParamCodes, options: noteSortOptions, properties: noteSortProperties } = noteSortingConstants;
-const { Object: EmberObject, computed: { sort } } = Ember;
+const { Object: EmberObject, computed: { sort }, set } = Ember;
 const { GUEST_ROUTE } = RouteConstants;
 const { wireUpCurrentUser } = currentUserHelpers;
 const startingNotesCount = 10;
@@ -28,7 +25,7 @@ const TestData = EmberObject.extend({
   sortedNotes: sort('notes', 'noteSortProperties'),
 });
 
-let actual, expected, message, app, currentUser, currentNoteSort, TEST_DATA, ROUTE_PATH;
+let TEST_DATA, ROUTE_PATH, currentUser;
 
 function createData () {
 
@@ -45,7 +42,7 @@ function createData () {
 
 function prepareState (application) {
   createData();
-  ROUTE_PATH = `/notebooks/${TEST_DATA.get('notebook.id')}/notes`,
+  ROUTE_PATH = `/notebooks/${TEST_DATA.get('notebook.id')}/notes`;
   authenticateSession(application);
 }
 
@@ -62,6 +59,8 @@ function assertLastNoteTitleMatch (assert, expected, message = '') {
   assert.equal(getNoteTitle(TEST_DATA.get('notes').length - 1), expected, message);
 }
 
+
+let actual, expected, message, app;
 
 moduleForAcceptance('Acceptance | notebook/notes', {
   beforeEach () {
@@ -80,7 +79,7 @@ test(`the route functions as an authenticated route`, async (assert) => {
   actual = currentURL();
   assert.equal(actual, expected);
 
-  await visit('/')
+  await visit('/');
 
   prepareState(app);
 
@@ -147,7 +146,7 @@ typing into the note search input`, async (assert) => {
   prepareState(app);
 
   TEST_DATA.get('sortedNotes').forEach((note, idx, notes) => {
-    note.title = idx >= (notes.length / 2) ? 'Seattle' : 'San Francisco';
+    set(note, 'title', idx >= (notes.length / 2) ? 'Seattle' : 'San Francisco');
     note.save();
   });
 

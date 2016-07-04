@@ -5,6 +5,7 @@ const { Component } = Ember;
 
 export default Component.extend({
   tagName: 'li',
-  classNames: ['u-mr2', 'u-ml2', 'u-relative'],
+  classNames: ['c-tab'],
   classNameBindings: ['isActive'],
+  ariaRole: 'presentation'
 });

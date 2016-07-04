@@ -1,4 +1,4 @@
-{{#liquid-bind isBeingEdited class="c-note-card__liquid-bind-flash-container u-fill-width u-fill-height u-absolute u-edge-top u-edge-left u-overflow-show"}}{{/liquid-bind}}
+{{#liquid-bind isBeingEdited class="js-note-card__liquid-bind-flash-container u-fill-width u-fill-height u-absolute u-edge-top u-edge-left u-overflow-show"}}{{/liquid-bind}}
 
 <section class="u-fill-width o-grid-cell o-flex-grid o-flex-grid--full">
 
@@ -31,10 +31,10 @@
 
     <li class="js-color-pallete-select o-grid-cell u-ml2 u-mr2 o-tap-target-sm" onmouseover={{action 'openColorPaletteWidget'}}>
 
-      {{icon-button
+      {{buttons/icon-button
         class="u-fill-width u-fill-height"
         fill="currentColor"
-        iconURL="assets/icons.svg#icon_test"
+        iconURL="/assets/icons.svg#icon_test"
         aria-label="Open Note Color Menu"
         onPressed=(action 'toggleNoteColorPalette' note)
       }}
@@ -53,9 +53,9 @@
           target=colorPaletteToggleSelector
           aria-hidden=isColorPaletteWidgetShowing
         }}
-          {{icon-button
+          {{buttons/icon-button
             class="u-absolute u-edge-top u-edge-right u-mt2 umr2 o-tap-target-xs g-grayscale-bl--icon"
-            iconURL="assets/icons.svg#icon_x"
+            iconURL="/assets/icons.svg#icon_x"
             stroke="currentColor"
             onPressed=(action (mut shouldShowColorPaletteWidget) value=false)
             aria-label="Close Note Color Menu"
@@ -76,7 +76,7 @@
     <li class="o-grid-cell u-ml2 u-mr2 u-align-center">
       {{!-- Revisions: {{#liquid-bind note.revisionCount tagName="span" containerless="true" class="c-note-card__revisions-number" use="bounceScale"}}{{note.revisionCount}}{{/liquid-bind}} --}}
       Revisions:
-      {{#liquid-bind note.revisionCount class="c-note-card__liquid-revisions-number"}}
+      {{#liquid-bind note.revisionCount class="js-note-card__liquid-revisions-number"}}
         <span class="c-note-card__revisions-number">{{note.revisionCount}}</span>
       {{/liquid-bind}}
     </li>

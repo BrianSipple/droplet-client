@@ -2,8 +2,7 @@ import Ember from 'ember';
 
 const {
   Mixin,
-  inject: { service },
-  run,
+  inject: { service }
 } = Ember;
 
 
@@ -16,7 +15,8 @@ export default Mixin.create({
   activate() {
     this._super(...arguments);
 
-    this._setSidenavPanelModelData(this.get('SidenavService.activeFlyoutMenuItem.routeName'));
+    const menuItem = this.get('SidenavService.activeFlyoutMenuItem');
+    this._setSidenavPanelData(menuItem);
   },
 
 
@@ -35,21 +35,20 @@ export default Mixin.create({
     },
 
     onMainMenuItemSelected (itemIndex, menuItem) {
-      this._setPanelModelData(menuItem.routeName);
+      this._setSidenavPanelData(menuItem);
       this.get('SidenavService').onMainMenuItemSelected(itemIndex, menuItem);
-
-      // this.transitionTo(menuItem.routeName);
-    },
-
-    closeSidenavFlyoutAndTransition (routeName, ...params) {
-      this.send('closeSidenavFlyout');
-      run.scheduleOnce('afterRender', this, () => this.transitionTo(routeName, ...params));
-    },
+    }
   },
 
 
-  _setSidenavPanelModelData(modelFor) {
-    this.set('SidenavService.activePanelData', this.modelFor(modelFor));
+  async _setSidenavPanelData({ modelRouteName, queryFunc, hasRouteActivated }) {
+    if (hasRouteActivated) {
+      this.set('SidenavService.activePanelData', this.modelFor(modelRouteName));
+
+    } else {
+      const panelData = await queryFunc.call(this);
+      this.set('SidenavService.activePanelData', panelData);
+    }
   }
 
 });

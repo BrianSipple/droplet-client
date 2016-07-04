@@ -5,6 +5,7 @@ const { Router } = Ember;
 
 const AppRouter = Router.extend({
   location: ENV.locationType,
+  rootURL: ENV.rootURL
 });
 
 /* eslint array-callback-return: 0 */
@@ -20,7 +21,9 @@ AppRouter.map(function mapRouter() {
   /* eslint max-nested-callbacks: 0 */
   this.route('protected', { path: '' }, function () {
 
-    this.route('notebooks', function () {
+    this.route('dashboard', { path: '/' });
+
+    this.route('notebooks', { path: 'notebooks' }, function () {
       this.route('notebook', { path: ':notebook_id' }, function () {
         this.route('notes', function () {
           // this.route('new');
@@ -35,7 +38,6 @@ AppRouter.map(function mapRouter() {
 
     });
 
-    this.route('dashboard');
     this.route('admin');
     this.route('tags');
     this.route('ponds');

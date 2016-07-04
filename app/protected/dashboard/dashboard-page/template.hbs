@@ -17,13 +17,11 @@
 {{/if}}
 {{!-- /new Notebook Modal --}}
 
-{{#user-navbar class="g-theme-primary-1--500" as |navbar|}}
+{{#x-toolbar class="g-theme-primary-1--500" as |navbar|}}
 
-  {{#if (eq navbar 'navContent')}}
-    <h1 class="g-theme-primary-1--300 o-grid-cell">Hello, {{currentUser.username}}!</h1>
-  {{/if}}
-  
-  {{icon-button
+  <h1 class="g-theme-primary-1--300 o-grid-cell">Hello, {{currentUser.username}}!</h1>
+
+  {{buttons/icon-button
     class="c-button--primary-1-500
            g-border-circle
            o-tap-target-md
@@ -35,14 +33,14 @@
            u-edge-right
            u-edge-bottom
            u-mr4"
-    iconURL="assets/icons.svg#icon_plus--stroke"
+    iconURL="/assets/icons.svg#icon_plus--stroke"
     stroke="currentColor"
     strokeWidth="0.125em"
     disabled=isShowingNewNotebookForm
     onPressed=(action 'toggleNewNotebookForm')
   }}
 
-{{/user-navbar}}
+{{/x-toolbar}}
 
 {{#page/page-content class="o-navbar-page--header-md"}}
   <h3 class="g-theme-primary-1--300">Recent Notebooks</h3>

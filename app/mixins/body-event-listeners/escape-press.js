@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Mixin, K } = Ember;
+const { Mixin } = Ember;
 
 /**
  * TODO: Would this be better off as a general `keydown` body listener?

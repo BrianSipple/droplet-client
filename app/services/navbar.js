@@ -1,35 +1,32 @@
 import Ember from 'ember';
 
-const { Service } = Ember;
+const {
+  Service,
+  A,
+  Object: EmberObject,
+  computed: { uniqBy }
+} = Ember;
 
-// NOTE: These are still very tentative
-const navbarItemComponentNames = {
-  // plans: 'guest-navbar/toolbar-tool/plans-link',
-  // about: 'guest-navbar/toolbar-tool/about-link',
-  // loginButton: 'guest-navbar/toolbar-tool/login-button',
-};
-
-const NAVBAR_HIDDEN_ROUTES = [
-  /[^(?:protected)]\.*/,
-];
+const NavLink = EmberObject.extend({
+  routeName: null,
+  title: null
+});
 
 
 export default Service.extend({
+  navLinks: A(),
 
-  visibleItemComponentNames: [],
-  navItemComponentNames: navbarItemComponentNames,
-  routesWhereHidden: NAVBAR_HIDDEN_ROUTES,
-  isVisible: true,
+  activeNavLinks: uniqBy('navLinks', 'routeName'),
+  isNavbarVisible: true,
 
-  addNavbarOption (optionName) {
-    this.get('navbar.visibleOptions').pushObject(optionName);
+
+  addNavLink(routeName, title) {
+    this.get('navLinks').addObject(NavLink.create({ routeName, title }));
   },
 
-  removeNavbarOption (optionName) {
-    this.set(
-      'navbar.visibleOptions',
-      this.get('navbar.visibleOptions').filter(name => name !== optionName)
+  removeNavLink(routeName) {
+    this.get('navLinks').removeObjects(
+      this.get('navLinks').filter(link => link.get('routeName') === routeName)
     );
-  },
-
+  }
 });

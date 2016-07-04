@@ -1,0 +1,5 @@
+.c-navbar {
+  &:not(.is-visible) {
+    display: none;
+  }
+}

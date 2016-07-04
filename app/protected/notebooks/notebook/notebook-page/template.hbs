@@ -1,49 +1,125 @@
-{{#user-navbar
+{{#x-toolbar
   class="g-bg-theme-primary-1--700 g-border-bottom-s1 u-b-box u-z2"
   size="small"
   useBoxShadow=false
   as |navbar|
 }}
 
-  {{#if (eq navbar 'navContent')}}
-    <h4 class="g-nearWhite o-grid-cell--auto-size u-ml2 u-mr2">{{notebook.title}}</h4>
-  {{/if}}
+  <h4 class="g-nearWhite o-grid-cell--auto-size u-ml2 u-mr2">{{notebook.title}}</h4>
 
-  {{#if (eq navbar 'navItems')}}
-
-    <ul class="o-grid-cell
+  <ul class="o-grid-cell
+             o-flex-grid
+             o-flex-grid--flexStart
+             o-flex-grid--auto
+             o-flex-grid--noWrap
+             o-flex-grid--center
+             g-list-reset
+             u-fill-height
+             c-notebooks-notebook-page__route-tabs">
+    {{#each navLinks as |navLink index|}}
+      {{#indicator-tab
+        class="o-grid-cell
                o-flex-grid
-               o-flex-grid--flexStart
-               o-flex-grid--auto
-               o-flex-grid--noWrap
                o-flex-grid--center
-               g-list-reset
+               u-align-middle
                u-fill-height
-               c-notebooks-notebook-page__route-tabs">
-      {{#each navLinks as |navLink index|}}
-        {{#indicator-tab
-          class="o-grid-cell
-                 o-flex-grid
-                 o-flex-grid--center
-                 u-align-middle
-                 u-fill-height
-                 c-notebooks-notebook-page__route-tab"
-           isActive=(eq index activeLinkIndex)
+               c-notebooks-notebook-page__route-tab"
+         isActive=(eq index activeLinkIndex)
+      }}
+        {{#link-to
+          navLink.routeName
+          notebook
+          class="g-link-reset o-grid-cell u-pl2 u-pr2"}}
+            {{capitalize navLink.title}}
+        {{/link-to}}
+
+      {{/indicator-tab}}
+    {{/each}}
+  </ul>
+
+  <div class="c-notebooks-notebook-page__note-search-widget-container
+              o-grid-cell
+              u-relative
+              u-height-75
+              u-mr2
+              u-ml2">
+
+      {{#autocomplete-search
+        class="c-notebooks-notebook-page__note-search-widget
+               u-ml-auto
+               u-relative
+               u-fill-height"
+        on-select=(route-action 'openNote')
+        on-input=(pipe-action (action (mut isFilteringNotesForSearch) true) (perform noteSearchInputTask))
+        searchDidExit=(action (mut isFilteringNotesForSearch) false)
+        searchResults=noteSearchResults
+        displayProperty='title'
+        ariaRole="combobox"
+        tabindex="0"
+        as |autocompleteSearch|
+      }}
+
+        {{autocomplete-search-input
+          class="c-notes-page__note-search-widget-input
+                 o-widget-box
+                 o-text-input
+                 g-border-none
+                 g-bg-theme-primary-1--300
+                 g-placeholder-currentColor
+                 g-theme-primary-1--100
+                 u-fill-height"
+          placeholder="Search Notes"
+          value=autocompleteSearch.searchInputValue
+          isAutocomplete=autocompleteSearch.isAutocomplete
+          owningListId=autocompleteSearch.autoCompleteListId
+          on-input=autocompleteSearch.onSearchInput
+          on-blur=autocompleteSearch.searchDidExit
+          data-test-selector="notebook-notes-page__note-search-widget-input"
         }}
-          {{#link-to navLink.routeName notebook class="g-link-reset o-grid-cell u-pl2 u-pr2"}}{{capitalize navLink.title}}{{/link-to}}
-        {{/indicator-tab}}
-      {{/each}}
-    </ul>
 
-  {{/if}}
+        {{#autocomplete-search-dropdown}}
+          {{#autocomplete-search-results-list
+            id=autoCompleteListId
+            class="c-notes-page__note-search-widget-results-list
+                   g-bg-white
+                   g-grayscale-bl--secondary-text
+                   g-box-shadow-2
+                   g-list-reset
+                   o-flex-grid
+                   o-flex-grid--full
+                   o-flex-grid--center"
+            isShowing=autocompleteSearch.isSearchDropdownOpen
+            data-test-selector="notebook-notes-page__note-search-widget-results"
+          }}
 
-{{/user-navbar}}
+            {{#each noteSearchResults as |note index|}}
+              {{#autocomplete-search-results-option
+                class="c-notes-page__note-search-widget-result-item o-list-item o-grid-cell g-border-bottom-s1 u-relative u-overflow-hide"
+                item=note
+                index=index
+                idPrefix=autocompleteSearch.autoCompleteListItemIdPrefix
+                isFocused=(eq index autocompleteSearch.focusedIndex)
+                isSelected=(eq index autocompleteSearch.selectedIndex)
+                onItemSelected=autocompleteSearch.selectionWasMade
+              }}
+                <a href="#" class="g-link-reset u-absolute u-transform-center u-width-80">{{note.title}}</a>
+              {{/autocomplete-search-results-option}}
+            {{else}}
+              <li class="o-list-item o-grid-cell u-relative">
+                <a href="#" class="g-link-reset u-absolute u-transform-center u-width-80">No matching results</a>
+              </li>
+            {{/each}}
 
-{{outlet 'experimentalNotebookRouteOutlet'}}
+          {{/autocomplete-search-results-list}}
+        {{/autocomplete-search-dropdown}}
+      {{/autocomplete-search}}
+
+  </div>
+
+
+{{/x-toolbar}}
+
 
 <div class="o-navbar-page--header-sm u-relative u-fill-width u-fill-height u-z1">
-
-  {{!-- {{outlet 'notebookOulet'}} --}}
-  {{!-- TODO: Fix height of liquid-child that gets placed in here --}}
-  {{liquid-outlet class="u-fill-width u-fill-height u-relative"}}
+  {{liquid-outlet class="lf-child-container--full-child u-fill-width u-fill-height u-relative"}}
 </div>

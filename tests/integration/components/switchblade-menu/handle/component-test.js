@@ -81,7 +81,7 @@ test('calling onRouteSelection with a `routeName` in its `auxiliaryTabItemSelect
 
 test(`calling \`onMainMenuItemSelected\` with the index of the item selected`, function (assert) {
   assert.expect(2);
-  
+
   const startingActiveItemIndex = 2;
   const newActiveItemIndex = 0;
 

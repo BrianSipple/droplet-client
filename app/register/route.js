@@ -6,9 +6,8 @@ import AuthConfig from 'ember-simple-auth/configuration';
 const {
   Route,
   inject: { service },
-  computed: { or, not, notEmpty },
+  computed: { or, not },
   set,
-  assign,
   Logger: { log },
   Object: EmberObject,
 } = Ember;
@@ -25,12 +24,12 @@ export default Route.extend(UnauthenticatedRouteMixin, {
 
   SessionService: service('session'),
 
-  registerUser: task(function *registerUser (formValues) {
+  registerUser: task(function *registerUser () {
     const { user } = this.currentModel;
     const SessionService = this.get('SessionService');
 
     try {
-      yield user.validate().then(( {model, validations } ) => {
+      yield user.validate().then(({/* model, */ validations }) => {
         if (validations.get('isValid')) {
           this.currentModel.set('isRegistered', true);
 

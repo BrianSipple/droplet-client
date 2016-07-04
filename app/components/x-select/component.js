@@ -69,8 +69,8 @@ export default Component.extend({
           return get(optionItem, optionValueKey).toString() === selectedValue;
         });
       }
+      
       this.get('onSelectionChanged')(fullSelection);
-    },
-
-  },
+    }
+  }
 });
