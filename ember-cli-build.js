@@ -16,6 +16,12 @@ const serviceWorkerAppFiles = new Funnel('service-workers', {
   include: ['**/*.js']
 });
 
+const offlineExperienceFiles = new Funnel('app/offline', {
+  srcDir: '/',
+  destDir: '/offline',
+  //include: ['sw-toolbox.js']
+});
+
 const serviceWorkerToolbox = new Funnel('bower_components/sw-toolbox', {
   srcDir: '/',
   destDir: '/',
@@ -40,5 +46,9 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
   app.import('vendor/savvy/savvy.min.css');
 
-  return app.toTree(new MergeTrees([serviceWorkerAppFiles, serviceWorkerToolbox]));
+  return app.toTree(new MergeTrees([
+    serviceWorkerAppFiles,
+    serviceWorkerToolbox,
+    offlineExperienceFiles
+  ]));
 };

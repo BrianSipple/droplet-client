@@ -13,8 +13,7 @@
     "test": "ember try:testall",
     "postinstall": "node ./bin/copy-directory.js node_modules/savvy-css/dist vendor/savvy/",
     "build:prod": "ember build --environment=production",
-    "serve:mirage": "export PORT=4900; ember serve"
-
+    "serve:mirage": "export MIRAGE=true; ember serve"
   },
   "repository": "",
   "engines": {
@@ -38,6 +37,7 @@
     "ember-cli-dependency-checker": "^1.2.0",
     "ember-cli-deprecation-workflow": "0.2.3",
     "ember-cli-eslint": "1.6.0",
+    "ember-cli-flash": "1.3.16",
     "ember-cli-get-component-path-option": "1.0.0",
     "ember-cli-github-pages": "0.0.6",
     "ember-cli-htmlbars": "^1.0.3",

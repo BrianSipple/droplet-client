@@ -13,7 +13,7 @@ module.exports = {
     path.join(__dirname, 'rules/best-practices.js'),
     path.join(__dirname, 'rules/errors.js'),
     path.join(__dirname, 'rules/es6.js'),
-    path.join(__dirname, 'rules/node.js'),
+    // path.join(__dirname, 'rules/node.js'),  // TODO: Determine whether node rules are appropriate for client app -- atm, I think no
     path.join(__dirname, 'rules/strict.js'),
     path.join(__dirname, 'rules/style.js'),
     path.join(__dirname, 'rules/variables.js')

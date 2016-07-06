@@ -4,7 +4,6 @@ const PHOENIX_SERVER_PORT = 4500;  // TODO: Store this in a better place
 
 
 module.exports = function(environment) {
-  const PORT = process.env.PORT || PHOENIX_SERVER_PORT;
   const isProductionLikeBuild = ['production', 'staging'].indexOf(environment) > -1;
 
   const ENV = {
@@ -26,7 +25,7 @@ module.exports = function(environment) {
       // TODO: Refactor this structure to something a bit more intuitive
       apis: {
         droplet: {
-          HOST: `http://localhost:${PORT}`,
+          HOST: `http://localhost:${PHOENIX_SERVER_PORT}`,
           NAMESPACE: 'api/v1'
         }
       }
@@ -38,17 +37,17 @@ module.exports = function(environment) {
     authenticationRoute: 'login',
     guestRoute: 'homepage',
     routeAfterAuthentication: 'protected.dashboard',
-    routeIfAlreadyAuthenticated: 'protected.notebooks',  // TODO: Currently this clashes with our routeAfterAuthentication
+    routeIfAlreadyAuthenticated: 'protected.notebooks'  // TODO: Currently this clashes with our routeAfterAuthentication
   };
 
   ENV['ember-devtools'] = {
     global: true,
-    enabled: environment === 'development',
+    enabled: environment === 'development'
   };
 
   // disable this to use http-proxy instead of mirage/pretender
   ENV['ember-cli-mirage'] = {
-    enabled: !isProductionLikeBuild,  // TODO: Figure out why this might break the broccoli sourcemapping build
+    enabled: !!process.env.MIRAGE && !isProductionLikeBuild  // TODO: Figure out why this might break the broccoli sourcemapping build
   };
 
   ENV['ember-a11y-testing'] = {

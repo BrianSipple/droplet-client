@@ -3,6 +3,8 @@
  * own full-on Ember components associated with them
  */
 
+ @import './_flash-message.css';
+ @import './_flash-messages.css';
  @import './_navbar.css';
 
  @import './buttons/buttons.css';

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ComponentSavvyBoxShadowMixin from 'droplet/mixins/component/savvy-box-shadow';
+import ComponentSavvyBoxShadowMixin from 'droplet/mixins/component/box-shadow-class';
 import { module, test } from 'qunit';
 import styleConstants from 'droplet/utils/constants/styles';
 

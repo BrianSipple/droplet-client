@@ -93,24 +93,29 @@ export default BaseAuthenticator.extend({
   },
 
 
-  getResponsePromise (requestData, headers) {
-    return new Promise((resolve, reject) => {
-
-      this
-        .makeRequest(requestData, headers)
-        .then(
-          // success
-          response => {
-            run(() => { resolve(response); });
-          },
-          // failure
-          xhrResponse /* status, err */ => {
-            run(() => {
-              reject(xhrResponse.responseJSON || xhrResponse.responseText);
-            });
-          }
-        );
-    });
+  getResponsePromise(requestData, headerOptions) {
+    // return new Promise((resolve, reject) => {
+    //   this
+    //     .makeRequest(requestData, headerOptions)
+    //     .then(
+    //       // success
+    //       (response) => {
+    //         debugger;
+    //         run(() => { resolve(response); });
+    //       },
+    //       // failure
+    //       (response) => {
+    //         run(() => {
+    //           reject(response.responseJSON || response.responseText);
+    //         });
+    //       }
+    //     );
+    // });
+    return this.makeRequest(requestData, headerOptions)
+      .then(
+        response => { return response.json(); },
+        errResponse => { throw new Error(errResponse); }
+      );
   },
 
 
@@ -206,40 +211,55 @@ export default BaseAuthenticator.extend({
   @param {Object} headers Additional headers that will be sent to server
   @private
   */
-  makeRequest (requestData, headers = {}) {
-    const options = {
+  makeRequest (requestData, headerOptions = {}) {
+    // const options = {
+    //   url: this.serverTokenEndpoint,
+    //   method: 'POST',
+    //   data: JSON.stringify(requestData),
+    //   dataType: 'json',
+    //   contentType: 'application/json',
+    //   headers: this._makeHeadersBeforeRequest(headers),
+    //   beforeSend: (xhr, settings) => {
+    //     xhr.setRequestHeader('Accept', settings.accepts.json);
+    //     if (headers) {
+    //       for (const headerKey of Object.keys(headers)) {
+    //         xhr.setRequestHeader(headerKey, headers[headerKey]);
+    //       }
+    //     }
+    //   },
+    // };
+    debugger;
+
+    const requestOptions = {
       url: this.serverTokenEndpoint,
       method: 'POST',
-      data: JSON.stringify(requestData),
-      dataType: 'json',
-      contentType: 'application/json',
-      headers: Object.assign(headers, this._makeAdditionalHeadersBeforeRequest()),
-      beforeSend: (xhr, settings) => {
-        xhr.setRequestHeader('Accept', settings.accepts.json);
-        if (headers) {
-          for (const headerKey of Object.keys(headers)) {
-            xhr.setRequestHeader(headerKey, headers[headerKey]);
-          }
-        }
-      },
+      // body: JSON.stringify(requestData),
+      body: requestData,
+      mode: 'cors',
+      headers: this._makeHeadersBeforeRequest(headerOptions)
     };
 
-    return ajax(options);
+    // return ajax(options);
+    return fetch(this.serverTokenEndpoint, new Request(requestOptions));
+
   },
 
-  _makeAdditionalHeadersBeforeRequest () {
-    const additionalHeaders = {};
+  _makeHeadersBeforeRequest(customHeaderOpts = {}) {
     const clientIdHeader = this.get('_clientIdHeader');
     const usernameHeader = this.get('usernameHeader');
 
+    const headerOpts = { 'Content-Type': 'application/json' };
+
     if (!isEmpty(clientIdHeader)) {
-      Object.assign(additionalHeaders, clientIdHeader);
+      Object.assign(headerOpts, clientIdHeader);
     }
 
     if (!isEmpty(usernameHeader)) {
-      Object.assign(additionalHeaders, usernameHeader);
+      Object.assign(headerOpts, usernameHeader);
     }
 
-    return additionalHeaders;
-  },
+    Object.assign(headerOpts, customHeaderOpts);
+
+    return new Headers(headerOpts);
+  }
 });

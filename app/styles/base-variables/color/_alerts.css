@@ -1,6 +1,14 @@
 :root {
 
-  /* QUESTION: Make these more general than "form" (i.e.: just "warning" or "invalid")? */
-  --alert-color--form-invalid: hsla(356, 63%, 64%, 1);
-  --alert-color--form-warning: hsla(39, 100%, 50%, 1);
+  --alert-color__danger--700: hsla(0, 100%, 66%, 1.00);
+  --alert-color__warning--700: hsla(54, 100%, 62%, 1.00);
+  --alert-color__success--700: hsla(165, 82%, 51%, 1.00);
+  --alert-color__info--700: hsla(199, 98%, 48%, 1.00);
+
+
+  --alert-color__danger--300: hsla(5, 100%, 75%, 1.00);
+  --alert-color__warning--300: hsla(60, 100%, 78%, 1.00);
+  --alert-color__success--300: hsla(137, 77%, 85%, 1.00);
+  --alert-color__info--300: hsla(180, 100%, 76%, 1.00);
+
 }

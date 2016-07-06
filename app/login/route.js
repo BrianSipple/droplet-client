@@ -36,12 +36,13 @@ export default Route.extend(UnauthenticatedRouteMixin, {
         identification: model.get('identification'),
         password: model.get('password'),
       };
-
       model.set('isLoading', true);
       try {
+        debugger;
         await this.get('SessionService').authenticate('authenticator:oauth2', credentials);
 
       } catch (error) {
+        debugger;
         model.get('errors').pushObject(error);
 
       } finally {

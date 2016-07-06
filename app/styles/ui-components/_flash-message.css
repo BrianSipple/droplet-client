@@ -1,0 +1,28 @@
+.c-flash-message {
+
+  border-left: 0.85em solid;
+
+  &--danger {
+    border-left-color: var(--alert-color__danger--700);
+    background-color: var(--alert-color__danger--300);
+    color: var(--grayscale__black-on-light--primary-text);
+  }
+
+  &--warning {
+    border-left-color: var(--alert-color__warning--700);
+    background-color: var(--alert-color__warning--300);
+    color: var(--grayscale__black-on-light--primary-text);
+  }
+
+  &--success {
+    border-left-color: var(--alert-color__success--700);
+    background-color: var(--alert-color__success--300);
+    color: var(--grayscale__black-on-light--primary-text);
+  }
+
+  &--info {
+    border-left-color: var(--alert-color__info--700);
+    background-color: var(--alert-color__info--300);
+    color: var(--grayscale__black-on-light--primary-text);
+  }
+}

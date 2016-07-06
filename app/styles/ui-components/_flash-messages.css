@@ -1,0 +1,24 @@
+.c-flash-messages {
+
+  pointer-events: none;
+
+  &__flash-message {
+    opacity: 0;
+    transform: translateY(100%);
+    transition:
+      top var(--anim-duration__shift-element) var(--easing__ease-out-cubic),
+      transform var(--anim-duration__shift-element) var(--easing__ease-out-cubic),
+      opacity var(--anim-duration__fade-in-or-out) var(--easing__ease-out-sine);
+  }
+
+  &__flash-message.is-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  &__flash-message.is-exiting {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+
+}

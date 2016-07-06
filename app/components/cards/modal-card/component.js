@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import SavvyBoxShadowClassMixin from 'droplet/mixins/component/savvy-box-shadow';
+import SavvyBoxShadowClassMixin from 'droplet/mixins/component/box-shadow-class';
 
 const { Component } = Ember;
 
