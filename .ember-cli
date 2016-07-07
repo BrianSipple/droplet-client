@@ -7,7 +7,9 @@
   */
     "disableAnalytics": false,
     "usePods": true,
-    "port": 4900,
+    "port": 4900
+    /*
     "liveReload": true,
     "watcher": "polling"
+    */
   }

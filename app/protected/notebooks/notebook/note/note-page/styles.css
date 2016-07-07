@@ -1,3 +1,5 @@
+@import './chat-panel/styles.css';
+
 .c-note-page {
 
   &__title,
@@ -26,6 +28,13 @@
     &.is-previewing-markdown {
       height: 50%;
     }
+  }
+
+  &__chat-panel-container  {
+  }
+
+  &__chat-panel-container.is-showing {
+    // TODO: Control animation
   }
 
 

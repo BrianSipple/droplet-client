@@ -5,6 +5,7 @@ const {
   inject: { service },
   computed,
   K,
+  String: { htmlSafe }
 } = Ember;
 
 const { map, notEmpty, and, alias, or } = computed;
@@ -52,7 +53,7 @@ export default Component.extend({
     get() {
       const backgroundHSLA = this.get('activeNoteThemeColor') || 'initial';
 
-      return `background-color: ${backgroundHSLA};`;
+      return htmlSafe(`background-color: ${backgroundHSLA};`);
     }
   }),
 

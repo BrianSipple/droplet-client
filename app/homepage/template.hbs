@@ -1,1 +1,36 @@
-{{homepage/homepage-page class="u-min-width-breakpoint--md"}}
+{{#page/page-content class="p-homepage g-bg-theme-primary-2--100 u-min-width-breakpoint--md"}}
+
+  <h1 class="u-align-center">Welcome to Droplet</h1>
+
+  <div class="p-homepage__main-options-container u-transform-center u-relative u-width-80">
+
+
+    <div class="o-flex-grid o-flex-grid--spaceAround">
+      {{#link-to
+        "protected.dashboard"
+        class="o-grid-cell
+               p-homepage__main-option-button
+               o-content
+               u-m2
+               g-border-s2
+               g-link-reset
+               u-relative"}}
+        <span class="u-absolute u-transform-center">Enter</span>
+      {{/link-to}}
+
+      {{#link-to
+        "register"
+        class="o-grid-cell
+               p-homepage__main-option-button
+               o-content
+               u-m2
+               g-border-s2
+               g-link-reset
+               u-relative"}}
+        <span class="u-absolute u-transform-center">Register</span>
+      {{/link-to}}
+
+    </div>
+
+  </div>
+{{/page/page-content}}

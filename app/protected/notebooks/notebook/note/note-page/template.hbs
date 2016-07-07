@@ -11,10 +11,27 @@
 {{/x-toolbar}}
 
 
+<div class="c-note-page__chat-panel-container
+            u-absolute
+            u-edge-top
+            u-edge-right
+            u-fill-height
+            u-z1
+            {{if isShowingChatPanel 'is-showing'}}">
+  {{protected/notebooks/notebook/note/note-page/chat-panel
+    classNames="g-bg-nearWhite"
+    chatViews=NotePageService.chatViews
+    activeChatViewIndex=(mut NotePageService.activeChatViewIndex)
+  }}
+</div>
+
+
 {{#page/page-content class="c-note-page__content
                             u-z0
+                            u-overflow-auto-y
                             o-navbar-page--header-xs"
 }}
+
   <section class="u-width-90 u-fill-height u-flow-middle u-relative">
 
     <header class="u-mt2">

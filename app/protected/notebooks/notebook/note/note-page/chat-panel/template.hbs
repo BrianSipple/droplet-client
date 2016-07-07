@@ -1,0 +1,100 @@
+<header class="c-note-page-chat-panel__header u-relative u-fill-width g-bg-theme-primary-1--900">
+  {{!-- {{x-toolbar
+    size="medium"
+    isFixed=false
+    title="Chat"
+    class="g-bg-theme-primary-1--900"
+  }} --}}
+  <h2 class="u-align-center">Chat</h2>
+</header>
+
+{{#ivy-tabs
+  tagName=""
+  on-select=(action (mut activeChatViewIndex))
+  selected-index=activeChatViewIndex as |viewTabs|
+}}
+
+  <section class="c-note-page-chat-panel__body g-bg-nearWhite u-fill-height u-fill-width u-relative">
+
+    {{!-- TODO: Make these their own components at this level? --}}
+
+    {{#viewTabs.tabpanel
+      tagName="section"
+      class=(concat
+        "c-note-page-chat-panel__view-section
+        u-absolute
+        u-edge-top
+        u-edge-left
+        u-fill-width
+        u-fill-height"
+        (if (eq activeChatViewIndex 0) ' is-showing' '')
+      )
+    }}
+      {{protected/notebooks/notebook/note/note-page/chat-panel/message-panel}}
+    {{/viewTabs.tabpanel}}
+
+    {{#viewTabs.tabpanel
+      tagName="section"
+      class=(concat
+        "c-note-page-chat-panel__view-section
+        u-absolute
+        u-edge-top
+        u-edge-left
+        u-fill-width
+        u-fill-height"
+        (if (eq activeChatViewIndex 1) ' is-showing' '')
+      )
+    }}
+      {{protected/notebooks/notebook/note/note-page/chat-panel/video-panel}}
+    {{/viewTabs.tabpanel}}
+
+    {{#viewTabs.tabpanel
+      tagName="section"
+      class=(concat
+        "c-note-page-chat-panel__view-section
+        u-absolute
+        u-edge-top
+        u-edge-left
+        u-fill-width
+        u-fill-height"
+        (if (eq activeChatViewIndex 2) ' is-showing' '')
+      )
+    }}
+      {{protected/notebooks/notebook/note/note-page/chat-panel/settings-panel}}      
+    {{/viewTabs.tabpanel}}
+
+  </section>
+
+  <footer class="c-note-page-chat-panel__footer
+                 u-relative
+                 u-edge-bottom
+                 u-fill-width
+                 g-bg-theme-primary-1--500">
+
+     {{#viewTabs.tablist
+       class="g-list-reset
+               u-fill-width
+               u-fill-height
+               o-flex-grid
+               o-flex-grid--center
+               o-flex-grid--noWrap" as |tablist|
+     }}
+       {{#each chatViews as |chatView|}}
+         {{#tablist.tab
+           class="c-note-page-chat-panel__view-tab
+                  o-grid-cell
+                  u-z1"
+         }}
+           {{buttons/icon-button
+             class="u-fill-width u-fill-height u-flow-middle"
+             iconURL="/assets/icons.svg#icon_tag"
+           }}
+         {{/tablist.tab}}
+       {{/each}}
+     {{/viewTabs.tablist}}
+
+  </footer>
+
+{{/ivy-tabs}}
+
+{{yield}}

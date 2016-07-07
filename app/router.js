@@ -11,8 +11,8 @@ const AppRouter = Router.extend({
 /* eslint array-callback-return: 0 */
 AppRouter.map(function mapRouter() {
   this.route('about');
-  this.route('homepage');
   this.route('register');
+  this.route('homepage');
   this.route('login');
   this.route('logout');
 
@@ -22,6 +22,7 @@ AppRouter.map(function mapRouter() {
   this.route('protected', { path: '' }, function () {
 
     this.route('dashboard', { path: '/' });
+    // this.route('dashboard', { path: 'dashboard' });
 
     this.route('notebooks', { path: 'notebooks' }, function () {
       this.route('notebook', { path: ':notebook_id' }, function () {

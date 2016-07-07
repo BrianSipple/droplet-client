@@ -6,7 +6,6 @@ const {
 } = Ember;
 
 export default Component.extend({
-
   tagName: 'section',
   classNames: [
     'c-page-wrapper',
@@ -16,16 +15,18 @@ export default Component.extend({
     'u-edge-left',
     'u-edge-right',
     'u-edge-top',
-    'u-edge-bottom',
-    'u-overflow-auto-y'
+    'u-edge-bottom'
   ],
 
-  classNameBindings: ['pageNavbarClass'],
+  classNameBindings: ['pageNavbarClass', 'overflowY:u-overflow-auto-y'],
 
   hasNavbar: null,
+  overflowY: true,
 
-  pageNavbarClass: computed('hasNavbar', function pageNavbarClass() {
-    return this.get('hasNavbar') ? 'c-page-wrapper--navbar-visible' : '';
-  }),
+  pageNavbarClass: computed('hasNavbar', {
+    get() {
+      return this.get('hasNavbar') ? 'c-page-wrapper--navbar-visible' : '';
+    }
+  })
 
 });

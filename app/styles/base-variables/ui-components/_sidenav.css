@@ -7,7 +7,7 @@
   * --------------------------------------------------------
   */
   --width-factor__sidenav-handle: 0.145;
-  --width__sidenav-menu-area: 26rem;
+  --width__sidenav-menu-area: var(--width__flyout-panel);
 
   --width__sidenav-handle: calc(
     var(--width__sidenav-menu-area) *

@@ -1,12 +1,19 @@
-/**
- * USAGE: Compose this class with your own class that sets its desired colors
- */
-.o-highlighted-on-hover {
-  transition-property: color background-color;
-  transition-duration: var(--anim-duration__color-shift);
-  transition-timing-function: var(--easing__ease-out-cubic);
+.o-highlighted-on-hover::after {
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 
-  &:hover {
-    transition-timing-function: var(--easing__ease-in-cubic);
-  }
+  transition-property: opacity;
+  transition-duration: var(--anim-duration__color-shift);
+  transition-timing-function: var(--easing__ease-out-quad);
+}
+
+.o-highlighted-on-hover:hover::after,
+.o-highlighted-on-hover:focus::after {
+  opacity: 0.75;
+  transition-timing-function: var(--easing__ease-in-sine);
 }

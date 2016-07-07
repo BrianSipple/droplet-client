@@ -1,0 +1,18 @@
+.p-homepage {
+  &__main-options-container {
+    width: 30rem;
+  }
+
+  &__main-option-button {
+    font-size: 3rem;
+    color: var(--theme-color__secondary-2--700);
+    transition-property: all;
+    transition-duration: var(--anim-duration__color-shift);
+    transition-timing-function: var(--easing__ease-out-cubic);
+  }
+
+  &__main-option-button:hover {
+    background-color: var(--theme-color__secondary-2--700);
+    color: var(--grayscale__black-on-light--button);
+  }
+}

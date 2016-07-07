@@ -28,5 +28,9 @@ export default Service.extend({
     this.get('navLinks').removeObjects(
       this.get('navLinks').filter(link => link.get('routeName') === routeName)
     );
+  },
+
+  hideNavbar() {
+    this.set('isNavbarVisible', false);
   }
 });

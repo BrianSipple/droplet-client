@@ -29,10 +29,9 @@
 
 
 
-/* ----------------- PODS ----------------- */
+/* ----------------- PODS (TODO: Refactor and place these under 'styles/pages') ----------------- */
 
 @import "pods/application/styles.css";
-@import "pods/homepage/styles.css";
 @import "pods/login/styles.css";
 @import "pods/protected/notebooks/styles.css";
 @import "pods/protected/dashboard/styles.css";

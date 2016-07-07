@@ -1,3 +1,3 @@
 export default {
-  GUEST_ROUTE: 'homepage',
+  GUEST_ROUTE: 'homepage'
 };

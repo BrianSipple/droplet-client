@@ -2,12 +2,12 @@ import Ember from 'ember';
 import PageContentComponent from 'droplet/components/page/page-content/component';
 import { task, timeout } from 'ember-concurrency';
 
-const { K, computed } = Ember;
+const { K, computed, inject: { service } } = Ember;
 const BODY_UPDATE_DEBOUNCE_MS = 1200;
 
 
 export default PageContentComponent.extend({
-
+  NotePageService: service('note-page'),
   classNames: ['c-note-page'],
 
   isMarkdownPreviewVisible: false,

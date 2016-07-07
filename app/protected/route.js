@@ -1,9 +1,8 @@
 import Ember from 'ember';
 import SidenavRouteMixin from 'droplet/mixins/route/sidenav';
-import RouteConstants from 'droplet/utils/constants/routes';
+import AuthConfig from 'ember-simple-auth/configuration';
 
 const { Route, inject: { service } } = Ember;
-const { GUEST_ROUTE } = RouteConstants;
 
 
 export default Route.extend(SidenavRouteMixin, {
@@ -15,7 +14,7 @@ export default Route.extend(SidenavRouteMixin, {
    */
   beforeModel () {
     if (!this.get('SessionService.isAuthenticated')) {
-      this.transitionTo(GUEST_ROUTE);
+      this.transitionTo(AuthConfig.authenticationRoute);
     }
 
     this.get('NavbarService').set('isNavbarVisible', false);
