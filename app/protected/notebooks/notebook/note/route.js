@@ -18,13 +18,17 @@ export default Route.extend({
 
   actions: {
 
-    onCloseNote (note) {
+    onCloseNote(note) {
       const notebookId = note.get('notebook.id');
       this.transitionTo('protected.notebooks.notebook', notebookId);  // QUESTION: Do we still need the id here since the model has already been resolved?
     },
 
-    onSaveNote (note) {
+    onSaveNote(note) {
       return this.get('updateNoteTask').perform(note);
+    },
+
+    onSendChatMessage(message) {
+      debugger;
     }
   }
 });

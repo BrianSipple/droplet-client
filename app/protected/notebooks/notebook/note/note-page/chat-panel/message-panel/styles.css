@@ -1,0 +1,13 @@
+.c-chat-panel-message-view {
+  --height__input-container: 4em;
+
+  &__input-container {
+    height: var(--height__input-container);
+  }
+
+  &__message-container {
+    height: calc(100% - var(--height__input-container));
+  }
+
+
+}

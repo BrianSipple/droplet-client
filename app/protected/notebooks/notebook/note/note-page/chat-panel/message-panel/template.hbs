@@ -1,8 +1,20 @@
-<h2>Messages</h2>
-<div class="u-relative u-fill-width">
+
+<div class="c-chat-panel-message-view__message-container
+            u-relative
+            u-fill-width">
+  <h2>Messages</h2>
   <ul>
     <li>Message 1</li>
     <li>Message 2</li>
     <li>Message 3</li>
   </ul>
+</div>
+<div class="c-chat-panel-message-view__input-container
+            g-bg-theme-primary-1--500
+            u-edge-bottom
+            u-relative
+            u-fill-width">
+  {{#x-form class="u-fill-width u-fill-height u-relative" onSubmit=(route-action 'onSendChatMessage')}}
+    {{x-text-input value=chatMessage}}
+  {{/x-form}}
 </div>

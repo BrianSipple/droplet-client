@@ -1,3 +1,5 @@
+@import './message-panel/styles.css';
+
 .c-note-page-chat-panel {
 
   --height__header: var(--height__header--medium);
