@@ -24,7 +24,9 @@ export default Component.extend({
 
   cornerStyleClass: computed('fab', 'cornerStyle', {
     get() {
-      if (this.get('fab')) return 'g-border-circle';
+      if (this.get('fab')) {
+        return 'g-border-circle';
+      }
 
       return {
         rounded: 'c-button--rounded',

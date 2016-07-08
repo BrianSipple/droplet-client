@@ -15,21 +15,32 @@
             u-relative
             u-fill-width">
 
-  {{#x-form class="u-fill-width u-fill-height u-relative" onSubmit=(route-action 'onSendChatMessage')}}
+  {{#x-form
+    class="u-fill-width
+           u-fill-height
+           o-flex-grid
+           o-flex-grid--full
+           o-flex-grid--center
+           o-flex-grid--justifyCenter" 
+    onSubmit=(route-action 'onSendChatMessage')
+  }}
 
-    {{#x-form-field
-      class="o-flex-grid
-             o-flex-grid--noWrap
-             o-flex-grid--auto
-             u-fill-width
-             u-fill-height
-             u-z0" as |formFieldId|
+    {{#x-form-field class="c-chat-panel-message-view__text-input-container
+                           o-flex-grid
+                           o-flex-grid--noWrap
+                           o-flex-grid--auto
+                           u-fill-width
+                           u-fill-height
+                           u-z0
+                           u-relative" as |formFieldId|
      }}
 
       {{x-text-input
         id=formFieldId
         placeholder="Enter a message"
-        class="c-chat-panel-message-view__text-input o-grid-cell u-fill-width"
+        class="c-chat-panel-message-view__text-input
+               o-grid-cell
+               u-fill-width"
         value=chatMessage
       }}
 
@@ -48,7 +59,6 @@
         type="submit"
         iconURL="/assets/icons.svg#test"
       }}
-
     {{/x-form-field}}
   {{/x-form}}
 

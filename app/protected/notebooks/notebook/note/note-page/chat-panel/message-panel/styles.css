@@ -11,7 +11,13 @@
     height: calc(100% - var(--height__input-container));
   }
 
+  &__text-input-container {
+    width: 90%;
+    height: 80%;
+  }
+
   &__text-input input {
+    border: 0;
     padding-right: calc(
       var(--width__input-send-button) +
       var(--width__input-emoji-icon)
