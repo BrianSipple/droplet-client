@@ -190,7 +190,7 @@
     if (shouldHandleFetch(event)) {
       handleFetch(event);
     } else {
-      event.respondWith(fetch(request));
+      event.respondWith(fetch(event.request));
       return;
     }
 

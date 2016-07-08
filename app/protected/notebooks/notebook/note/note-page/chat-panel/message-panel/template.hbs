@@ -14,7 +14,42 @@
             u-edge-bottom
             u-relative
             u-fill-width">
+
   {{#x-form class="u-fill-width u-fill-height u-relative" onSubmit=(route-action 'onSendChatMessage')}}
-    {{x-text-input value=chatMessage}}
+
+    {{#x-form-field
+      class="o-flex-grid
+             o-flex-grid--noWrap
+             o-flex-grid--auto
+             u-fill-width
+             u-fill-height
+             u-z0" as |formFieldId|
+     }}
+
+      {{x-text-input
+        id=formFieldId
+        placeholder="Enter a message"
+        class="c-chat-panel-message-view__text-input o-grid-cell u-fill-width"
+        value=chatMessage
+      }}
+
+      {{!-- TODO: Emoji --}}
+      {{svg-icon
+        class="c-chat-panel-message-view__input-icon o-grid-cell u-z1"
+        iconURL="/assets/icons.svg#icon_tag"
+      }}
+
+      {{buttons/icon-button
+        class="c-chat-panel-message-view__input-button
+               o-grid-cell
+               g-bg-theme-secondary-2--300
+               u-z1
+               u-fill-height"
+        type="submit"
+        iconURL="/assets/icons.svg#test"
+      }}
+
+    {{/x-form-field}}
   {{/x-form}}
+
 </div>

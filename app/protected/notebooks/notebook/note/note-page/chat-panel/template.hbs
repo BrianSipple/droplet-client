@@ -88,11 +88,12 @@
        {{#each chatViews as |chatView|}}
          {{#tablist.tab
            class="c-note-page-chat-panel__view-tab
+                  u-fill-height
                   o-grid-cell
                   u-z1"
          }}
            {{buttons/icon-button
-             class="u-fill-width u-fill-height u-flow-middle"
+             class="u-fill-width u-fill-height u-flow-middle u-relative"
              iconURL="/assets/icons.svg#icon_tag"
            }}
          {{/tablist.tab}}

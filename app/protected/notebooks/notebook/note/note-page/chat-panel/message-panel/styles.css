@@ -1,4 +1,6 @@
 .c-chat-panel-message-view {
+  --width__input-send-button: var(--diameter__tap-target--medium);
+  --width__input-emoji-icon: var(--diameter__tap-target--small);
   --height__input-container: 4em;
 
   &__input-container {
@@ -9,5 +11,24 @@
     height: calc(100% - var(--height__input-container));
   }
 
+  &__text-input input {
+    padding-right: calc(
+      var(--width__input-send-button) +
+      var(--width__input-emoji-icon)
+    );
+  }
 
+  &__input-icon {
+    width: var(--width__input-emoji-icon);
+    margin-left: calc(
+      -1 * (
+        var(--width__input-send-button) +
+        var(--width__input-emoji-icon)
+      )
+    );
+  }
+
+  &__input-button {
+    width: var(--width__input-send-button);
+  }
 }

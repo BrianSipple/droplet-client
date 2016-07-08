@@ -14,7 +14,6 @@
     height: var(--height__header);
   }
 
-
   &__body {
     height: var(--height__body);
   }
@@ -32,8 +31,6 @@
   &__view-section.is-showing {
     transform: translate3d(0, 0, 0);
   }
-
-
 
 
   &__view-tab:not(:last-child) {
