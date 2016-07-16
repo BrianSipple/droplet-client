@@ -13,7 +13,7 @@
 
   &__text-input-container {
     width: 90%;
-    height: 80%;
+    height: 70%;
   }
 
   &__text-input input {
@@ -26,12 +26,14 @@
 
   &__input-icon {
     width: var(--width__input-emoji-icon);
-    margin-left: calc(
+    margin-left: calc(-1 * var(--width__input-emoji-icon));
+
+    /*margin-left: calc(
       -1 * (
         var(--width__input-send-button) +
         var(--width__input-emoji-icon)
       )
-    );
+    );*/
   }
 
   &__input-button {

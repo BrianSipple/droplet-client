@@ -17,6 +17,6 @@ export default Model.extend(UserPrivateInfoValidations, {
   role: attr('string', { defaultValue: userRoles.REGISTERED_USER }),
 
   /* ----- Relationship Attributes ----- */
-  user: belongsTo('user'),
+  user: belongsTo('user')
 
 });

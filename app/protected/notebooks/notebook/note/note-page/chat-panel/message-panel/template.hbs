@@ -21,8 +21,8 @@
            o-flex-grid
            o-flex-grid--full
            o-flex-grid--center
-           o-flex-grid--justifyCenter" 
-    onSubmit=(route-action 'onSendChatMessage')
+           o-flex-grid--justifyCenter"
+    onSubmit=(route-action 'onSendChatMessage' newChatMessage)
   }}
 
     {{#x-form-field class="c-chat-panel-message-view__text-input-container
@@ -35,13 +35,14 @@
                            u-relative" as |formFieldId|
      }}
 
+
       {{x-text-input
         id=formFieldId
         placeholder="Enter a message"
         class="c-chat-panel-message-view__text-input
                o-grid-cell
                u-fill-width"
-        value=chatMessage
+        value=newChatMessage
       }}
 
       {{!-- TODO: Emoji --}}
@@ -50,7 +51,7 @@
         iconURL="/assets/icons.svg#icon_tag"
       }}
 
-      {{buttons/icon-button
+      {{!-- {{buttons/icon-button
         class="c-chat-panel-message-view__input-button
                o-grid-cell
                g-bg-theme-secondary-2--300
@@ -58,7 +59,7 @@
                u-fill-height"
         type="submit"
         iconURL="/assets/icons.svg#test"
-      }}
+      }} --}}
     {{/x-form-field}}
   {{/x-form}}
 

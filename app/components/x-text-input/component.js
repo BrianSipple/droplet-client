@@ -13,6 +13,7 @@ export default Component.extend({
   value: null,
   label: null,
   placeholder: null,
+  disabled: false,
 
   _inputClassNames: computed('inputClassNames', {
     get() {

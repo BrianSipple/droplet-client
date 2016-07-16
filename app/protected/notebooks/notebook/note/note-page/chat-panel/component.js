@@ -8,5 +8,8 @@ export default Component.extend({
   classNames: ['c-note-page-chat-panel', 'g-box-shadow-3', 'u-relative', 'u-fill-height'],
 
   chatViews: null,
-  activeChatViewIndex: -1
+  activeChatViewIndex: -1,
+
+  // the message to send from our chat view input 
+  newChatMessage: '',
 });
