@@ -10,6 +10,7 @@ export default Component.extend({
 
   attributeBindings: [
     'id',
+    'aria-hidden',
     'version',
     'viewBox',
     'xmlns',
@@ -19,21 +20,21 @@ export default Component.extend({
     'width',
     'height',
     'stroke',
-    'strokeWidth:stroke-width',
+    'stroke-width',
     'fill',
     'preserveAspectRatio',
-    'role',
-    'style',
+    'style'
   ],
 
   iconURL: null,
 
+
   // Default attributes
   version: '1.1',
-  width: '100%',
-  height: '100%',
+  'aria-hidden': null,  // @see: https://github.com/WebDevStudios/wd_s/issues/168
+  width: '1em',
+  height: '1em',
   xmlns: 'http://www.w3.org/2000/svg',
   xmlnsXlink: 'http://www.w3.org/1999/xlink',
-  role: 'img',
-  strokeWidth: '0.125em',
+  'stroke-width': '0.125em'
 });

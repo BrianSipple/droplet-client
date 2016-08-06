@@ -23,9 +23,18 @@ export default Model.extend(NotebookValidations, {
   createdAt: attr('utc', { defaultValue: makeDate }),
   lastUpdatedAt: attr('utc', { defaultValue: makeDate }),
 
+  /**
+   * 📝 TODO: At most, I'm thinking that the client and the backend should only
+   * communitcate a single `sortParamCode` (or something like that) to each other.
+   * On the client, then, that's all we need to build out advanced custom state
+   * from there the rest (i.e, the way we're already setting defaults here
+   * from the objects in `utils/constants/note-sorting`)
+   */
   noteSortOptions: attr('array', { defaultValue: () => noteSortOptions }),
   currentNoteSortParam: attr('string', { defaultValue: RECENTLY_UPDATED_PARAM_CODE }),
 
+  /* 📝 TODO: Replace `currentNoteSortParam` with this (see above comment) */
+  sortParamCode: attr('string'),
 
   /* ----- Relationship Attributes ----- */
   owner: belongsTo('user', {

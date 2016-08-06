@@ -4,7 +4,7 @@ const { Component, computed } = Ember;
 
 
 export default Component.extend({
-  attributeBindings: ['disabled', 'type'],
+  attributeBindings: ['disabled', 'type', 'aria-label'],
   tagName: 'button',
   classNameBindings: ['cornerStyleClass', 'tapTargetSizeClass', 'disabled::u-pointer'],
 
@@ -17,6 +17,7 @@ export default Component.extend({
   ],
 
   title: null,
+  'aria-label': null, // use if no displayable/readable title (https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
   disabled: false,
   fab: false,
   size: null,

@@ -25,7 +25,7 @@ export default {
   },
 
   subscriptionTypes: {
-    FREE_BASIC: 'freeBasic',
+    BASIC: 'basic',
     INDIVIDUAL_STANDARD: 'individualStandard',
     INDIVIDUAL_PREMIUM: 'individualPremium',
     TEAM_STANDARD: 'teamStandard',

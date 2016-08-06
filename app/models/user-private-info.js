@@ -11,7 +11,7 @@ const { roles: userRoles, subscriptionTypes } = authConstants;
 export default Model.extend(UserPrivateInfoValidations, {
 
   email: attr('string'),
-  subscriptionType: attr('string', { defaultValue: subscriptionTypes.FREE_BASIC }),
+  subscriptionType: attr('string', { defaultValue: subscriptionTypes.BASIC }),
   createdAt: attr('utc', { defaultValue: makeDate }),
   lastUpdatedAt: attr('utc', { defaultValue: makeDate }),
   role: attr('string', { defaultValue: userRoles.REGISTERED_USER }),

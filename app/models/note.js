@@ -27,7 +27,7 @@ export default Model.extend(NoteValidations, {
   notebook: belongsTo('notebook'),
   tags: hasMany('tag', { defaultValue: () => [] }),
 
-  activeThemeColor: belongsTo('theme-color', {
+  themeColor: belongsTo('theme-color', {
     inverse: null
   }),
 

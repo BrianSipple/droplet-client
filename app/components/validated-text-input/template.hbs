@@ -1,3 +1,10 @@
+<label
+  for={{fieldId}}
+  class={{_labelClassNames}}
+  data-error={{_errorMessages}}>
+  {{label}}{{yield}}
+</label>
+
 <input
   class={{_inputClassNames}}
   id={{fieldId}}
@@ -6,13 +13,6 @@
   placeholder={{placeholder}}
   onkeyup={{action (mut value) value='target.value'}}
   data-test-selector={{testSelector}}>
-
-<label
-  for={{fieldId}}
-  class={{_labelClassNames}}
-  data-error={{_errorMessages}}>
-  {{label}}{{yield}}
-</label>
 
 {{!-- NOTE: The commented-out version below is a cool way to say "Don't
             attempt to validate unless the input actually has a value"

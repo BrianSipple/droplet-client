@@ -43,7 +43,7 @@ export default Component.extend({
     return color.get('HSLAString');
   }),
 
-  activeNoteThemeColor: alias('note.activeThemeColor.HSLAString'),
+  activeNoteThemeColor: alias('note.themeColor.HSLAString'),
   hasThemeColors: notEmpty('noteThemeColors'),
   isColorPaletteWidgetShowing: and('shouldShowColorPaletteWidget', 'hasThemeColors'),
 
@@ -97,12 +97,12 @@ export default Component.extend({
 
     themeColorWasSelected (colorHSLAString) {
       const note = this.get('note');
-      const currentColor = note.get('activeThemeColor');
+      const currentColor = note.get('themeColor');
       const noteThemeColors = this.get('ThemeColorService.noteThemeColors');
       const selectedColor = noteThemeColors.filter(color => color.get('HSLAString') === colorHSLAString)[0];
 
       if (currentColor !== selectedColor) {
-        note.set('activeThemeColor', selectedColor);
+        note.set('themeColor', selectedColor);
         this.get('updateNoteData')(note, true);
       }
     },

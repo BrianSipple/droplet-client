@@ -30,5 +30,5 @@ test('containing a `belongsTo` relationship to `notebook`', function (assert) {
 
 test('containing a `belongsTo` relationship to `theme-color`', function (assert) {
   const noteModel = this.store().modelFor('note');
-  assertModelRelationship(assert, noteModel, { key: 'activeThemeColor', kind: 'belongsTo', type: 'theme-color' });
+  assertModelRelationship(assert, noteModel, { key: 'themeColor', kind: 'belongsTo', type: 'theme-color' });
 });
