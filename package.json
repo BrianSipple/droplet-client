@@ -85,7 +85,7 @@
     "ember-watson": "^0.8.0",
     "ember-welcome-page": "^1.0.1",
     "fs-extra": "0.26.7",
-    "ivy-tabs": "2.0.0",
+    "ivy-tabs": "3.0.0",
     "liquid-fire": "git://github.com/ember-animation/liquid-fire.git#master",
     "loader.js": "^4.0.1",
     "postcss-calc": "^5.2.0",
