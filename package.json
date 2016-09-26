@@ -64,7 +64,7 @@
     "ember-devtools": "4.4.1",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.5",
-    "ember-get-config": "*",
+    "ember-get-config": "0.1.9",
     "ember-load-initializers": "^0.5.1",
     "ember-modal-dialog": "*",
     "ember-moment": "6.1.0",
