@@ -68,7 +68,7 @@
     "ember-load-initializers": "^0.5.1",
     "ember-modal-dialog": "*",
     "ember-moment": "6.1.0",
-    "ember-remarkable": "3.0.0",
+    "ember-remarkable": "3.2.0",
     "ember-resolver": "^2.0.3",
     "ember-route-action-helper": "0.3.2",
     "ember-route-shy-component": "0.1.3",
